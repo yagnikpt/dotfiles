@@ -33,7 +33,7 @@ tooltip,
 #bottom {
     background: @surface_container;
     padding: 8px 0;
-    border-radius: 0 12px 12px 0;
+    border-radius: 0 16px 16px 0;
 }
 
 box.empty {
@@ -116,11 +116,11 @@ box.empty {
 }
 
 #battery.critical {
-    background: #991b1b;
+    background: @error_container;
 }
 
 #battery.charging {
-    background: #166534;
+    background: @primary_container;
 }
 
 #battery.icon {

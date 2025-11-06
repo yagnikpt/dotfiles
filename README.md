@@ -38,7 +38,7 @@ This repository includes configurations for:
 *   **fastfetch**: System information tool.
 *   **gammastep**: Screen temperature adjustment.
 *   **ghostty**: GPU-accelerated terminal emulator.
-*   **hypr**: Hyprland Wayland compositor.
+*   **hypr**: hypridle and hyprlock config.
 *   **kitty**: Fast, feature-rich, GPU based terminal emulator.
 *   **mako**: Lightweight Wayland notification daemon.
 *   **matugen**: Material You color palette generator.
