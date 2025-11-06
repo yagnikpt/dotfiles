@@ -1,0 +1,41 @@
+configuration {
+    mode: "drun";
+    show-icons: true;
+}
+
+@import "colors.rasi"
+
+* {
+    background-color: transparent;
+}
+
+window {
+    background-color: rgba(0, 0, 0, 0.8);
+    fullscreen: true;
+}
+
+mainbox {
+    children: [listview];
+    padding: 25% 0;
+}
+
+listview {
+    padding: 0 8%;
+    spacing: 10px;
+    columns: 5;
+    cycle: false;
+    fixed-columns: true;
+    flow: horizontal;
+    children: [element-icon];
+}
+element {
+    border-radius: 10px;
+}
+element.selected {
+    border: 6px;
+    border-color: @accent;
+}
+element-icon {
+    size: 0 50%;
+    horizontal-align: 0;
+}

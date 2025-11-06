@@ -1,0 +1,38 @@
+* {
+    font: "Material Symbols Rounded 48";
+    background-color: transparent;
+    text-color: #ffffff;
+}
+
+// Window
+window {
+    fullscreen: true;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+// Main Box
+mainbox {
+    enabled: true;
+    padding: 37% 13%;
+    children: [listview];
+}
+
+// List View
+listview {
+    columns: 4;
+    spacing: 2em;
+    flow: horizontal;
+    cycle: false;
+    scrollbar: false;
+    border: 0px;
+}
+element {
+    padding: 0.9em;
+    border-radius: 5px;
+}
+element-text {
+    horizontal-align: 0.5;
+}
+element.selected {
+    background-color: rgba(255, 255, 255, 0.1);
+}

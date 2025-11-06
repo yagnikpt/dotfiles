@@ -1,0 +1,103 @@
+[
+  {
+    "layer": "top",
+    "position": "left",
+    "orientation": "vertical",
+    "reload_style_on_change": true,
+    // "modules-left": [],
+    "modules-center": [
+      "group/top",
+      "niri/workspaces",
+      "group/bottom"
+    ],
+    "group/top": {
+      "orientation": "inherit",
+      "modules": ["group/image", "wlr/taskbar"]
+    },
+    "group/bottom": {
+      "orientation": "inherit",
+      "modules": ["tray", "network", "bluetooth", "bluetooth#battery", "group/battery", "custom/separator", "clock"]
+    },
+    // "modules-right": [],
+    "group/image": {
+      "orientation": "inherit",
+      "modules": ["image", "custom/conditional-separator"]
+    },
+    "image": {
+      "exec":"~/.config/waybar/scripts/album_art.sh",
+      "size": 28,
+      "interval": 15
+    },
+    "wlr/taskbar": {
+      "icon-size": 24,
+      "format": "{icon}",
+      "on-click": "activate",
+      "tooltip": false,
+      "active-first": true
+    },
+    "niri/workspaces": {
+      "format": "{index}",
+      "all-outputs": true
+    },
+    "tray": {
+      "icon-size": 21,
+      "spacing": 10,
+      "icons": {
+        "blueman": "bluetooth"
+      }
+    },
+    "network": {
+      "format-wifi": "\ue63e",
+      "format-disconnected": "\ue1da",
+      "format-ethernet": "\ue8be",
+      "format-icons": ["\ue4ca", "\ue4d9", "\ue63e"],
+      "tooltip": false
+    },
+    "bluetooth": {
+      "format-connected": "\ue1a8",
+      "format": "\ue1a7",
+      "format-off": "\ue1a9",
+      "tooltip": false
+    },
+    "bluetooth#battery": {
+      "format": "",
+      "format-connected-battery": "{device_battery_percentage}",
+    },
+    "group/battery": {
+      "orientation": "inherit",
+      "modules": ["battery#icon", "battery"]
+    },
+    "battery#icon": {
+      "states": {
+        "warning": 20,
+        "critical": 10
+      },
+      "format": "{icon}",
+      "format-charging": "\uea0b",
+      "format-icons": ["\uf30c", "\uf30b", "\uf30a", "\uf309", "\uf308", "\uf307", "\uf304"],
+      "interval": 5
+    },
+    "battery": {
+      "states": {
+        "warning": 20,
+        "critical": 10
+      },
+      "format": "{capacity}",
+      "interval": 5
+    },
+    "custom/conditional-separator": {
+      "exec": "~/.config/waybar/scripts/album_art_separator.sh",
+      "hide-empty-text": true,
+      "tooltip": false,
+      "interval": 15,
+    },
+    "custom/separator": {
+      "format": "\uf108",
+      "tooltip": false
+    },
+    "clock": {
+      "format": "{:%H\n%M}",
+      "tooltip-format": "{:%a %b %d, %Y}"
+    }
+  }
+]

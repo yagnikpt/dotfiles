@@ -1,0 +1,17 @@
+@theme "base.rasi"
+
+inputbar {
+    children: [prompt, entry];
+}
+
+prompt {
+    border: 0px 1px 0px 0px;
+    border-color: @border;
+}
+
+entry {
+    cursor-width: 1ch;
+    cursor-color: rgba(255, 255, 255, 0.5);
+    vertical-align: 0.5;
+    padding: 15px;
+}

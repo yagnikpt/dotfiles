@@ -1,0 +1,68 @@
+configuration {
+    matching: "fuzzy";
+}
+
+@import "colors.rasi"
+
+* {
+    font: "GeistMono NF, Medium 12";
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+window {
+    width: 300px;
+    border-radius: 8px;
+    border: 1px solid;
+    border-color: @border;
+    background-color: @background;
+}
+
+mainbox {
+    spacing: 0;
+}
+
+inputbar {
+    border: 0px 0px 1px 0px;
+    border-color: @border;
+}
+
+prompt {
+    enabled: false;
+    padding: 15px;
+    border: 0px 1px 0px 0px;
+    border-radius: 0px;
+    border-color: @border;
+}
+
+entry {
+    padding: 15px;
+    cursor-color: rgba(255, 255, 255, 0.5);
+    cursor-width: 1ch;
+}
+
+listview {
+    lines: 5;
+    scrollbar: false;
+    fixed-height: true;
+    padding: 8px;
+}
+
+element {
+    border-radius: 8px;
+    spacing: 10px;
+    padding: 8px 15px;
+}
+
+element selected {
+    background-color: @background-dim;
+    // text-color: @foreground-accent;
+}
+
+element-text {
+    text-color: inherit;
+}
+
+element-icon {
+    size: 1em;
+}

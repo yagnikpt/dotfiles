@@ -1,0 +1,77 @@
+configuration {
+    modes: [drun];
+    drun-display-format: "{name}";
+    matching: "fuzzy";
+    sort: true;
+    sorting-method: "fzf";
+    icon-theme: "Papirus";
+    display-drun: "";
+}
+
+// Global
+@import "fonts.rasi"
+@import "colors.rasi"
+
+* {
+    background-color: transparent;
+    text-color: rgba(255, 255, 255, 1);
+}
+
+// Window
+window {
+    fullscreen: true;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+// Main Box
+mainbox {
+  border: 0px solid;
+  padding: 10%;
+  spacing: 4em;
+}
+
+// Input Bar
+inputbar {
+  background-color: rgba(32,32,32,0.85);
+  children: ["prompt", "entry"];
+  border: 0px solid;
+  border-radius: 5px;
+  margin: 0 30%;
+  padding: 0.9em;
+  spacing: 0.5em;
+}
+entry {
+  placeholder: "Search:";
+  placeholder-color: rgba(255,255,255,0.5);
+  border: 0px solid;
+  cursor-width: 1ch;
+}
+prompt {
+  padding: 0 8px 0 0;
+}
+
+// List View
+listview {
+  border: 0px solid;
+  columns: 8;
+  fixed-columns: true;
+  flow: horizontal;
+}
+element {
+  border-radius: 5px;
+  border: 0px solid;
+  orientation: vertical;
+  padding: 2em;
+  children: [element-icon, element-text];
+  spacing: 0.5em;
+}
+element-icon {
+  size: 2em;
+}
+element-text {
+  highlight: none;
+  horizontal-align: 0.5;
+}
+element.selected {
+  background-color: rgba(32,32,32,0.85);
+}

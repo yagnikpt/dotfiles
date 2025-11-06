@@ -1,0 +1,92 @@
+configuration {
+    modi: "drun";
+    show-icons: true;
+    drun-display-format: "{name} [<span color="#aaa" size='small'>- {comment}</span>]";
+    drun-match-fields: "name,categories";
+    matching: "fuzzy";
+    sort: true;
+    sorting-method: "fzf";
+    icon-theme: "Papirus";
+    filebrowser {
+        show-hidden: true;
+    }
+}
+
+@import "colors.rasi"
+@import "fonts.rasi"
+
+* {
+    background-color: transparent;
+    spacing: 0;
+    text-color: @foreground;
+}
+
+window {
+    width: 600px;
+    border-radius: 8px;
+    border: 1px solid;
+    border-color: @border;
+    background-color: @background;
+}
+
+mainbox {
+    children: [inputbar, listview];
+}
+
+inputbar {
+    border: 0px 0px 1px 0px;
+    border-color: @border;
+    children: [prompt, entry];
+}
+
+prompt {
+    enabled: false;
+    padding: 15px;
+    border: 0px 1px 0px 0px;
+    border-color: @border;
+}
+
+entry {
+    placeholder: "Type to search...";
+    padding: 15px;
+    cursor-color: rgba(255, 255, 255, 0.5);
+    cursor-width: 1ch;
+}
+
+listview {
+    columns: 1;
+    lines: 8;
+    cycle: true;
+    scrollbar: false;
+    padding: 8px;
+    spacing: 4px;
+}
+
+element {
+    border-radius: 12px;
+    spacing: 10px;
+    padding: 8px;
+}
+
+element selected {
+    background-color: @background-dim;
+    // text-color: @foreground-accent;
+}
+
+element-icon {
+    size: 24px;
+}
+
+element-text {
+    highlight: None;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+textbox {
+    padding: 10px;
+    vertical-align: 0.5;
+    placeholder-color: @foreground;
+    blink: true;
+    markup: true;
+}

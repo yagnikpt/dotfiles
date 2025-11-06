@@ -1,0 +1,142 @@
+@import "colors.css";
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono NFM";
+  padding: 0;
+  margin: 0;
+  min-width: 10px;
+  background: transparent;
+}
+
+window.#waybar {
+  min-width: 40px;
+}
+
+tooltip, #tray menu {
+  background: alpha(#262626, 0.999);
+  border-radius: 8px;
+  padding: 1px 2px;
+}
+
+#custom-separator, #custom-conditional-separator {
+  font-family: "Material Symbols Rounded";
+  margin: -10px 0;
+  font-size: 28px;
+  color: @surface_bright;
+}
+
+#top, #workspaces, #bottom {
+  background: @surface_container;
+  padding: 8px 0;
+  border-radius: 0 12px 12px 0;
+}
+
+box.empty {
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#taskbar > * {
+  margin: 4px 0;
+}
+
+#workspaces {
+  min-width: 0;
+  padding: 8px 14px;
+  margin: 20px 0;
+}
+
+#workspaces button {
+  font-size: 7px;
+  color: transparent;
+  background: @surface_bright;
+  transition: all 0.2s ease-in-out;
+  min-width: 0;
+  min-height: 0;
+  border-radius: 9999px;
+  margin: 3px 0;
+}
+
+#workspaces button.active {
+  background: @on_primary_container;
+  min-height: 40px;
+}
+
+#bottom {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+#network {
+  margin-bottom: 8px;
+}
+
+#bluetooth, #network {
+  font-size:18px;
+}
+
+#bluetooth.battery, #battery {
+  font-family: "JetBrainsMono NFM";
+  font-size: 14px;
+}
+
+#battery.icon, #bluetooth, #network {
+  font-family: "Material Symbols Rounded";
+}
+
+#battery {
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+#battery widget > * {
+  background: @surface_bright;
+}
+
+#battery.warning {
+  background: #854d0e;
+}
+
+#battery.critical {
+  background: #991b1b;
+}
+
+#battery.charging {
+  background: #166534;
+}
+
+#battery.icon {
+  margin: 0;
+}
+
+#battery widget:first-child > * {
+  border-radius: 8px 8px 0 0;
+}
+
+#battery widget:last-child > * {
+  border-radius: 0 0 8px 8px;
+}
+
+#battery > *:first-child * {
+  font-size: 20px;
+  margin: 0;
+}
+
+#battery > *:last-child * {
+  margin: 0;
+  margin-top: -4px;
+  font-size: 14px;
+}
+
+#bluetooth.battery.on {
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#tray, #network {
+  margin-top: 8px;
+}

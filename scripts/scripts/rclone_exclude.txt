@@ -1,0 +1,22 @@
+# Exclude node_modules directories from anywhere
+node_modules/**
+
+# Other common excludes for development directories
+.git/**
+.svn/**
+.hg/**
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+__pycache__/**
+*.pyc
+.venv/**
+venv/**
+.env
+.idea/**
+.vscode/**
+dist/**
+build/**
+target/**
+*.class
