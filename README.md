@@ -24,7 +24,7 @@ Dotfiles are plain text configuration files on Unix-like systems that control th
 4.  **Stow the dotfiles:**
     From within the `~/dotfiles` directory, run:
     ```bash
-    stow -v fastfetch gammastep ghostty hypr kitty mako matugen niri rofi scripts waybar zed zsh
+    stow -v fastfetch gammastep ghostty hypr kitty mako matugen niri rofi scripts waybar zsh
     ```
     This command will create symlinks for all the configurations in the appropriate locations.
 
@@ -46,7 +46,6 @@ This repository includes configurations for:
 *   **rofi**: A window switcher, application launcher, ssh launcher and dmenu replacement.
 *   **scripts**: Various utility scripts.
 *   **waybar**: Highly customizable Wayland bar for Sway and Wlroots based compositors.
-*   **zed**: A high-performance, multiplayer code editor.
 *   **zsh**: Zsh shell configuration.
 
 ## Screenshots
