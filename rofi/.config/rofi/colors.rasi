@@ -2,7 +2,7 @@
 
 * {
     background: @surface;
-    background-dim: @surface-container-high;
+    background-dim: @primary-container-35;
     foreground: @on-surface;
     foreground-accent: @on-secondary;
     accent: @secondary;
