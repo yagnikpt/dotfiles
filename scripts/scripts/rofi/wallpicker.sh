@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-wall_dirs="${HOME}/Pictures/wallpapers/vibe:${HOME}/Pictures/wallpapers/vibe_2"
-cache_dir="${HOME}/.cache/wallpaper_thumbnails/"
+wall_dirs="$HOME/Pictures/wallpapers/vibe:$HOME/Pictures/wallpapers/vibe_2:$HOME/Pictures/wallpapers/scifi"
+cache_dir="$HOME/.cache/wallpaper_thumbnails/"
 
 # Convert colon-separated string to array
 IFS=':' read -ra WALL_DIRS <<< "$wall_dirs"

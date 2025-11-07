@@ -33,6 +33,11 @@ input_path = './templates/kitty.conf'
 output_path = '~/.config/kitty/colors.conf'
 post_hook = 'pkill -SIGUSR1 kitty'
 
+[templates.spicetify]
+input_path = '~/.config/matugen/templates/spicetify.ini'
+output_path = '~/.config/spicetify/Themes/matugen/color.ini'
+post_hook = '~/.config/matugen/scripts/spiceitfy_theme_apply.sh'
+
 [templates.gtk3]
 input_path = './templates/gtk-colors.css'
 output_path = '~/.config/gtk-3.0/colors.css'

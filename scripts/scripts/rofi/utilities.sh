@@ -31,7 +31,6 @@ OPTIONS+="$editor_item\n$bluetooth_item\n$wifi_item\n$vpn_item\n$idle_item\n$lim
 lines=$((lines+7))
 
 CHOICE=$(echo -e "$OPTIONS" | rofi -dmenu -i -show-icons -theme $HOME/.config/rofi/utilities.rasi -l $lines)
-echo "$CHOICE $install"
 
 case "$CHOICE" in
     $editor)

@@ -11,7 +11,7 @@ prompt {
 
 entry {
     cursor-width: 1ch;
-    cursor-color: rgba(255, 255, 255, 0.5);
+    cursor-color: @cursor;
     vertical-align: 0.5;
     padding: 15px;
 }

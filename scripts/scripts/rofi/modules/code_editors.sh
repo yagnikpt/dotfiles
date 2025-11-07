@@ -10,7 +10,7 @@ val=$(echo -e $options | rofi -dmenu -p "Code Editors" -l 3 -theme ~/.config/rof
 
 case "$val" in
     $vscode)
-        $HOME/.config/rofi/modules/vscode_workspaces.sh
+        $HOME/scripts/rofi/modules/vscode_workspaces.sh
         ;;
     $zed)
         kitty --title="code-editor-tui" -e zsh -i -c "$HOME/codes/sys-utils/scripts/niri/pick_editor.sh zed"

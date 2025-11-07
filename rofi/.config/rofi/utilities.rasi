@@ -37,7 +37,7 @@ prompt {
 
 entry {
     padding: 15px;
-    cursor-color: rgba(255, 255, 255, 0.5);
+    cursor-color: @cursor;
     cursor-width: 1ch;
 }
 

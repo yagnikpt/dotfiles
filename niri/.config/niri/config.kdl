@@ -101,6 +101,7 @@ spawn-at-startup "gammastep"
 spawn-at-startup "hypridle"
 spawn-at-startup "mako"
 spawn-at-startup "waybar"
+spawn-at-startup "ydotoold"
 spawn-sh-at-startup "$HOME/codes/sys-utils/scripts/niri/battery-watch.sh"
 
 // spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
