@@ -13,10 +13,10 @@ case "$val" in
         $HOME/scripts/rofi/modules/vscode_workspaces.sh
         ;;
     $zed)
-        kitty --title="code-editor-tui" -e zsh -i -c "$HOME/codes/sys-utils/scripts/niri/pick_editor.sh zed"
+        kitty --title="code-editor-tui" -e zsh -i -c "$HOME/scripts/niri/pick_editor.sh zed"
         ;;
     $neovim)
-        kitty --title="code-editor-tui" -e zsh -i -c "$HOME/codes/sys-utils/scripts/niri/pick_editor.sh nvim" &
+        kitty --title="code-editor-tui" -e zsh -i -c "$HOME/scripts/niri/pick_editor.sh nvim" &
         ;;
     *)
         exit 0

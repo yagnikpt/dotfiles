@@ -59,6 +59,7 @@ element-text {
 
 element-icon {
     size: 1em;
+    text-color: inherit;
 }
 
 message {

@@ -3,6 +3,7 @@
 plcontrols="Player Controls"
 bluetooth="Bluetooth"
 wifi="Wifi"
+theme="Theme"
 limiter="Charge Limiter"
 editor="Code"
 install="Install Package"
@@ -12,6 +13,7 @@ idle="Idle Monitoring"
 plcontrols_item="$plcontrols\0icon\x1f./icons/music_note.svg"
 bluetooth_item="$bluetooth\0icon\x1f./icons/bluetooth.svg"
 wifi_item="$wifi\0icon\x1f./icons/wifi.svg"
+theme_item="$theme\0icon\x1f./icons/theme.svg"
 limiter_item="$limiter\0icon\x1f./icons/battery_4.svg"
 editor_item="$editor\0icon\x1f./icons/code.svg"
 install_item="$install\0icon\x1f./icons/install_desktop.svg"
@@ -27,8 +29,8 @@ if [ $playing = "1" ]; then
     OPTIONS+="$plcontrols_item\n"
     lines=$((lines+1))
 fi
-OPTIONS+="$editor_item\n$bluetooth_item\n$wifi_item\n$vpn_item\n$idle_item\n$limiter_item\n$install_item"
-lines=$((lines+7))
+OPTIONS+="$editor_item\n$bluetooth_item\n$wifi_item\n$theme_item\n$vpn_item\n$idle_item\n$limiter_item\n$install_item"
+lines=$((lines+8))
 
 CHOICE=$(echo -e "$OPTIONS" | rofi -dmenu -i -show-icons -theme $HOME/.config/rofi/utilities.rasi -l $lines)
 
@@ -44,6 +46,9 @@ case "$CHOICE" in
         ;;
     $wifi)
         $HOME/.local/bin/vicinae vicinae://extensions/dagimg-dot/wifi-commander/manage-saved-networks
+        ;;
+    $theme)
+        $HOME/scripts/rofi/modules/theme.sh
         ;;
     $vpn)
         $HOME/scripts/rofi/modules/vpn.sh

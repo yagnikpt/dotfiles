@@ -39,7 +39,6 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$PATH:$BUN_INSTALL/bin"
 
 export ZSH="$HOME/.oh-my-zsh"
-
 ZSH_THEME=""
 
 # oh my posh
@@ -88,3 +87,5 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export PATH="$PATH:$HOME/.config/emacs/bin"
 
 export PATH="$PATH:$HOME/.spicetify"
+
+export EDITOR="/usr/bin/nvim"
