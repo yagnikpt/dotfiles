@@ -44,7 +44,7 @@ ZSH_THEME=""
 # oh my posh
 # eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
-plugins=(git git-commit tldr docker docker-compose)
+plugins=(git git-commit tldr docker docker-compose azure dnf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -68,9 +68,7 @@ alias zshconfig="nvim ~/.zshrc"
 alias ls="eza --all --color=always --git --icons=always --no-time"
 alias ff="gitfetch --graph-only; fastfetch;"
 alias fb="flashback"
-alias cassist="mods -R lang"
 alias niriconfig="nvim ~/.config/niri/config.kdl"
-alias lzd="sudo /home/yagnik/go/bin/lazydocker"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

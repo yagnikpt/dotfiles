@@ -57,10 +57,14 @@
             }
         },
         "network": {
-            "format-wifi": "\ue63e",
-            "format-disconnected": "\ue1da",
+            "format": "{icon}",
+            "format-disabled": "\ue1da",
+            "format-wifi": "{icon}",
+            "format-disconnected": "\uf067",
             "format-ethernet": "\ue8be",
-            "format-icons": ["\ue4ca", "\ue4d9", "\ue63e"],
+            "format-icons": {
+                "wifi": ["\ue4ca", "\ue4d9", "\ue63e"]
+            },
             "tooltip": false
         },
         "bluetooth": {

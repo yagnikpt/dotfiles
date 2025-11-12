@@ -1,4 +1,5 @@
-background-color=#080808e6
+background-color={{colors.surface.default.hex}}
+text-color={{colors.on_surface.default.hex}}
 border-size=0
 border-radius=8
 font=GeistMono NF 11
@@ -22,9 +23,9 @@ format=<b>%s</b>\n%b
 width=200
 border-size=28
 border-radius=14
-border-color=#000000e6
-background-color=#323232ff
-progress-color=source #ffffffff
+border-color={{colors.surface.default.hex}}
+background-color={{colors.outline_variant.default.hex}}
+progress-color=source {{colors.on_primary_container.default.hex}}
 outer-margin=0,0,20,0
 padding=1
 layer=overlay
@@ -33,19 +34,14 @@ default-timeout=1000
 [app-name=muted]
 anchor=bottom-center
 group-by=app-name
-format=<b>%s</b>\n%b
 width=200
-background-color=#000000e6
-progress-color=source #ffffff80
 outer-margin=0,0,20,0
 padding=8
 layer=overlay
 default-timeout=1000
 border-radius=24
 text-alignment=center
-text-color=#d4d4d4ff
 
 [hidden=true]
 invisible=1
-
 

@@ -108,6 +108,7 @@ spawn-sh-at-startup "$HOME/codes/sys-utils/scripts/niri/battery-watch.sh"
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
 spawn-at-startup "playerctld" "daemon"
 spawn-sh-at-startup "$HOME/codes/sys-utils/scripts/rclone_backup.sh"
+spawn-sh-at-startup "$HOME/.cargo/bin/niri-switch-daemon"
 
 prefer-no-csd
 
@@ -367,7 +368,11 @@ binds {
         spawn-sh "hyprpicker | wl-copy";
     }
     Mod+S hotkey-overlay-title="System Utilities" {
-        spawn-sh "$HOME/scripts/rofi/utilities.sh"
+        spawn-sh "$HOME/scripts/rofi/utilities.sh";
+    }
+
+    Alt+Tab {
+        spawn-sh "$HOME/.cargo/bin/niri-switch";
     }
 
     // === Window Management ===
