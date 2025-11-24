@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-wall_dirs="$HOME/Pictures/wallpapers/vibe:$HOME/Pictures/wallpapers/vibe_2:$HOME/Pictures/wallpapers/scifi"
+wall_dirs="$HOME/Pictures/wallpapers/scifi:$HOME/Pictures/wallpapers/arc_raiders"
 cache_dir="$HOME/.cache/wallpaper_thumbnails/"
 
 # Convert colon-separated string to array
@@ -59,6 +59,9 @@ done | sort -u | while read -r filename; do
 done | rofi -dmenu -theme "${HOME}/.config/rofi/wallpicker.rasi")
 
 if [[ -n "$wall_selection" ]]; then
+    current_theme=$(gsettings get org.gnome.desktop.interface color-scheme)
+    mode=$([[ "$current_theme" = "'prefer-dark'" ]] && echo "dark" || echo "light")
+
     selected_path=""
     for wall_dir in "${WALL_DIRS[@]}"; do
         if [ -f "${wall_dir}/${wall_selection}" ]; then
@@ -73,7 +76,7 @@ if [[ -n "$wall_selection" ]]; then
         elif [[ -n "$(pgrep dms)" ]]; then
             dms ipc call wallpaper set "$selected_path"
         else
-            matugen image "$selected_path"
+            matugen image "$selected_path" -m "$mode"
         fi
     else
         echo "Error: Selected file $wall_selection does not exist in any wallpaper directory."

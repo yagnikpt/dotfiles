@@ -86,7 +86,7 @@
                 "warning": 20,
                 "critical": 10
             },
-            // "full-at": 96,
+            "full-at": 98,
             "format": "{icon}",
             "format-charging": "\uea0b",
             "format-icons": [
@@ -105,7 +105,7 @@
                 "warning": 20,
                 "critical": 10
             },
-            // "full-at": 96,
+            "full-at": 98,
             "format": "{capacity}",
             "interval": 5
         },

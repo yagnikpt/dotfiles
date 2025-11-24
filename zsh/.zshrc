@@ -3,6 +3,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 bindkey -e
+setopt globdots
 
 # homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -87,3 +88,5 @@ export PATH="$PATH:$HOME/.config/emacs/bin"
 export PATH="$PATH:$HOME/.spicetify"
 
 export EDITOR="/usr/bin/nvim"
+
+. "$HOME/.turso/env"

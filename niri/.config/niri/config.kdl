@@ -205,6 +205,7 @@ window-rule {
     match title="tui"
 
     open-floating true
+    opacity 1.0
     default-column-width { fixed 800; }
     default-window-height { fixed 800; }
 }
@@ -350,10 +351,10 @@ binds {
         spawn-sh "$HOME/scripts/rofi/appdrawer.sh";
     }
     Alt+Space hotkey-overlay-title="App Launcher" {
-        spawn-sh "~/.local/bin/vicinae toggle";
+        spawn "vicinae" "toggle";
     }
     Mod+V hotkey-overlay-title="Clipboard Manager" {
-        spawn-sh "~/.local/bin/vicinae vicinae://extensions/vicinae/clipboard/history";
+        spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history";
     }
     Mod+X hotkey-overlay-title="Power Menu" {
         spawn-sh "$HOME/scripts/rofi/powermenu.sh";

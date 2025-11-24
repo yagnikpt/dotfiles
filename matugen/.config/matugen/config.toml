@@ -15,7 +15,7 @@ post_hook = 'makoctl reload'
 [templates.vicinae]
 input_path = './templates/vicinae.toml'
 output_path = '~/.local/share/vicinae/themes/matugen.toml'
-post_hook = '~/.local/bin/vicinae theme set matugen'
+post_hook = 'vicinae theme set matugen'
 
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors.rasi'

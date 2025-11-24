@@ -1,38 +1,34 @@
 #!/usr/bin/env bash
 
-plcontrols="Player Controls"
-bluetooth="Bluetooth"
-wifi="Wifi"
-theme="Theme"
-limiter="Charge Limiter"
-editor="Code"
-install="Install Package"
-vpn="VPN"
-idle="Idle Monitoring"
+format_row() {
+    local icon=$(printf "\u$1")
+    local label="$2"
+    printf "<span face='Material Symbols Rounded' size='x-large' line_height='0.01' rise='-5pt'>%s</span> %s" "$icon" "$label"
+}
 
-plcontrols_item="$plcontrols\0icon\x1f./icons/music_note.svg"
-bluetooth_item="$bluetooth\0icon\x1f./icons/bluetooth.svg"
-wifi_item="$wifi\0icon\x1f./icons/wifi.svg"
-theme_item="$theme\0icon\x1f./icons/theme.svg"
-limiter_item="$limiter\0icon\x1f./icons/battery_4.svg"
-editor_item="$editor\0icon\x1f./icons/code.svg"
-install_item="$install\0icon\x1f./icons/install_desktop.svg"
-vpn_item="$vpn\0icon\x1f./icons/vpn.svg"
-idle_item="$idle\0icon\x1f./icons/idle.svg"
+plcontrols="$(format_row "e405" "Player Controls")"
+bluetooth="$(format_row "e1a7" "Bluetooth")"
+wifi="$(format_row "e63e" "Wifi")"
+theme="$(format_row "eb37" "Theme")"
+limiter="$(format_row "f24b" "Charge Limiter")"
+editor="$(format_row "e86f" "Code")"
+install="$(format_row "eb71" "Install Package")"
+vpn="$(format_row "e016" "VPN")"
+idle="$(format_row "f3e5" "Idle Monitoring")"
+devtools="$(format_row "e869" "DevTools")"
 
 playing=$([[ -z "$(playerctl -l 2>/dev/null)" ]] && echo 0 || echo 1)
 
 OPTIONS=""
-lines=0
+lines=9
 
 if [ $playing = "1" ]; then
-    OPTIONS+="$plcontrols_item\n"
+    OPTIONS+="$plcontrols\n"
     lines=$((lines+1))
 fi
-OPTIONS+="$editor_item\n$bluetooth_item\n$wifi_item\n$theme_item\n$vpn_item\n$idle_item\n$limiter_item\n$install_item"
-lines=$((lines+8))
+OPTIONS+="$editor\n$devtools\n$bluetooth\n$wifi\n$theme\n$vpn\n$idle\n$limiter\n$install"
 
-CHOICE=$(echo -e "$OPTIONS" | rofi -dmenu -i -show-icons -theme $HOME/.config/rofi/utilities.rasi -l $lines)
+CHOICE=$(echo -e "$OPTIONS" | rofi -dmenu -markup-rows -i -theme $HOME/.config/rofi/utilities.rasi -l $lines)
 
 case "$CHOICE" in
     $editor)
@@ -41,11 +37,14 @@ case "$CHOICE" in
     $plcontrols)
         $HOME/scripts/rofi/modules/music_controls.sh
         ;;
+    $devtools)
+        $HOME/scripts/rofi/modules/devtools.sh
+        ;;
     $bluetooth)
-        $HOME/.local/bin/vicinae vicinae://extensions/Gelei/bluetooth/devices
+        vicinae vicinae://extensions/Gelei/bluetooth/devices
         ;;
     $wifi)
-        $HOME/.local/bin/vicinae vicinae://extensions/dagimg-dot/wifi-commander/manage-saved-networks
+        ghostty --title="wifi-tui" -e nmtui
         ;;
     $theme)
         $HOME/scripts/rofi/modules/theme.sh
