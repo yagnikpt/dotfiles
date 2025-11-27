@@ -3,7 +3,6 @@ font-size = 15
 font-family = "JetBrainsMono NFM"
 
 # Window Configuration
-window-decoration = false
 window-padding-x = 12
 window-padding-y = 12
 background-opacity = 1
@@ -43,12 +42,12 @@ keybind = alt+f=toggle_fullscreen
 unfocused-split-opacity = 0.7
 unfocused-split-fill = #44464f
 
-# Tab configuration
-gtk-titlebar = false
+# GTK configuration
+# gtk-titlebar = true
 
 # Shell integration
 shell-integration = detect
 shell-integration-features = cursor,sudo,title,no-cursor
 # keybind = shift+enter=text:\n
 
-theme = dark:zenbones-zenwritten-dark,light:zenbones-zenwritten-light
+theme = matugen

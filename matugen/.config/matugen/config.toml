@@ -35,8 +35,8 @@ output_path = '~/.config/hypr/hyprlock.conf'
 
 [templates.kitty]
 input_path = './templates/kitty.conf'
-output_path = '~/.config/kitty/colors.conf'
-post_hook = 'pkill -SIGUSR1 kitty'
+output_path = '~/.config/kitty/themes/matugen.conf'
+post_hook = 'kitty +kitten themes --reload-in=all matugen'
 
 [templates.spicetify]
 input_path = '~/.config/matugen/templates/spicetify.ini'
@@ -46,7 +46,7 @@ output_path = '~/.config/spicetify/Themes/matugen/color.ini'
 [templates.gtk3]
 input_path = './templates/gtk-colors.css'
 output_path = '~/.config/gtk-3.0/colors.css'
-post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
 
 [templates.gtk4]
 input_path = './templates/gtk-colors.css'
@@ -59,3 +59,8 @@ output_path = '~/.config/qt5ct/colors/matugen.conf'
 [templates.qt6ct]
 input_path = './templates/qt-colors.conf'
 output_path = '~/.config/qt6ct/colors/matugen.conf'
+
+[templates.ghostty]
+input_path = './templates/ghostty'
+output_path = '~/.config/ghostty/themes/matugen'
+post_hook = 'pkill -SIGUSR2 ghostty'

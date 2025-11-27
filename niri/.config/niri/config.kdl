@@ -102,13 +102,20 @@ spawn-at-startup "hypridle"
 spawn-at-startup "mako"
 spawn-at-startup "waybar"
 spawn-at-startup "ydotoold"
-spawn-sh-at-startup "$HOME/codes/sys-utils/scripts/niri/battery-watch.sh"
+spawn-sh-at-startup "$HOME/scripts/niri/battery-watch.sh"
 
 // spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
 spawn-at-startup "playerctld" "daemon"
-spawn-sh-at-startup "$HOME/codes/sys-utils/scripts/rclone_backup.sh"
-spawn-sh-at-startup "$HOME/.cargo/bin/niri-switch-daemon"
+spawn-sh-at-startup "$HOME/scripts/rclone_backup.sh"
+
+environment {
+  XDG_CURRENT_DESKTOP "niri"
+  QT_QPA_PLATFORM "wayland"
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
+  QT_QPA_PLATFORMTHEME "gtk3"
+  QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+}
 
 prefer-no-csd
 
@@ -174,7 +181,7 @@ window-rule {
     match app-id="agimnkijcaahngcdmfeangaknmldooml"
     match app-id="libreoffice"
     match app-id="brave-hianime.do__home-Default"
-    match app-id="brave-hotstar.com__in_home-Default"
+    match app-id="brave-www.hotstar.com__in_home-Default"
     match app-id="chrome-soundcloud.com__discover-Profile_1"
 
     default-column-width { proportion 0.8; }
@@ -320,6 +327,7 @@ binds {
     // === Application Launchers ===
     Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
     Mod+B hotkey-overlay-title="Open Browser" { spawn "google-chrome-stable"; }
+    Mod+E hotkey-overlay-title="Open Explorer" { spawn "nautilus"; }
     Mod+Shift+E { quit; }
 
     // === My Custom Basebone Setup ===

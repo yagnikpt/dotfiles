@@ -44,9 +44,3 @@ map shift+enter send_text \n
 
 # Unfocused splits (closest matches)
 inactive_text_alpha 0.7
-
-
-# BEGIN_KITTY_THEME
-# Matugen
-include current-theme.conf
-# END_KITTY_THEME

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Remote name from rclone config
-REMOTE="yagnikpt"
+REMOTE="gdrive"
 # Remote path to store backups
 REMOTE_PATH="Backup"
 
