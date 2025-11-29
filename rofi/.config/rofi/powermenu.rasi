@@ -9,7 +9,7 @@
 
 window {
     width: 360px;
-    border-radius: 8px;
+    border-radius: 24px;
     padding: 0.2em;
     background-color: @background;
 }
@@ -29,7 +29,7 @@ listview {
 
 element {
     padding: 0.9em;
-    border-radius: 5px;
+    border-radius: 16px;
 }
 
 element-text {

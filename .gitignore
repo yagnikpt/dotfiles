@@ -3,4 +3,5 @@ rofi/.config/rofi/matugen-colors.rasi
 hypr/.config/hypr/colors.conf
 hypr/.config/hypr/hyprlock.conf
 kitty/.config/kitty/themes/matugen.conf
+kitty/.config/kitty/current-theme.conf
 ghostty/.config/ghostty/themes/matugen
