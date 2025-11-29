@@ -59,7 +59,7 @@ case "$CHOICE" in
         $HOME/scripts/rofi/modules/battery_limit.sh
         ;;
     $install)
-        kitty --title="install-package-tui" -e $HOME/scripts/pkg-install.sh
+        $HOME/scripts/rofi/modules/pkg_install.sh
         ;;
     *)
         exit 0

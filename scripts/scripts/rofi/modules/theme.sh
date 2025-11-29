@@ -24,14 +24,20 @@ current_image=$(swww query | sed 's/.*: //')
 
 case $new_theme in
     $light)
-        gsettings set org.gnome.desktop.interface color-scheme default
-        sed -i 's/gtk-application-prefer-dark-theme = true/gtk-application-prefer-dark-theme = false/' ~/.config/gtk-4.0/settings.ini
+        gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'
+        gsettings set org.gnome.desktop.interface color-scheme 'default'
+        gsettings set org.gnome.desktop.interface icon-theme Papirus-Light
+        # sed -i 's/gtk-application-prefer-dark-theme = true/gtk-application-prefer-dark-theme = false/' ~/.config/gtk-4.0/settings.ini
         matugen image "$current_image" -m light
+        pkill -SIGUSR2 waybar
         ;;
     $dark)
-        gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-        sed -i 's/gtk-application-prefer-dark-theme = false/gtk-application-prefer-dark-theme = true/' ~/.config/gtk-4.0/settings.ini
+        gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
+        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+        gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
+        # sed -i 's/gtk-application-prefer-dark-theme = false/gtk-application-prefer-dark-theme = true/' ~/.config/gtk-4.0/settings.ini
         matugen image "$current_image" -m dark
+        pkill -SIGUSR2 waybar
         ;;
     *)
         ;;

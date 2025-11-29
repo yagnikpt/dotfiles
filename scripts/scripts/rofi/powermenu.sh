@@ -10,10 +10,10 @@ chosen="$(echo -e "$shutdown\n$reboot\n$suspend\n$logout" | rofi -dmenu -theme ~
 
 case "$chosen" in
   "$shutdown")
-    poweroff
+    systemctl poweroff
     ;;
   "$reboot")
-    reboot
+    systemctl reboot
     ;;
   "$suspend")
     systemctl suspend

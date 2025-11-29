@@ -25,7 +25,7 @@ tooltip,
     font-family: "Material Symbols Rounded";
     margin: -10px 0;
     font-size: 28px;
-    color: @outline_variant;
+    color: @surface_bright;
 }
 
 #top,
@@ -45,7 +45,7 @@ box.empty {
 #privacy {
     margin: 4px 0;
     padding: 4px 0;
-    background: @surface_dim;
+    background: @surface_bright;
     border-radius: 8px;
 }
 
@@ -62,7 +62,7 @@ box.empty {
 #workspaces button {
     font-size: 7px;
     color: transparent;
-    background: @outline_variant;
+    background: @surface_bright;
     transition: all 0.2s ease-in-out;
     min-width: 0;
     min-height: 0;
@@ -109,7 +109,7 @@ box.empty {
 }
 
 #battery widget > * {
-    background: @surface_dim;
+    background: @surface_bright;
 }
 
 #battery.warning {

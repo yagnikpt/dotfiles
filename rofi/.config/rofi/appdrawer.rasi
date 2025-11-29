@@ -13,8 +13,10 @@ configuration {
 @import "colors.rasi"
 
 * {
+    font: "GeistMono NF, Medium 12";
     background-color: transparent;
-    text-color: rgba(255, 255, 255, 1);
+    text-color: @foreground;
+    spacing: 0;
 }
 
 // Window

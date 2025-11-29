@@ -1,38 +1,42 @@
+@import "colors.rasi"
+
 * {
-    font: "Material Symbols Rounded 48";
+    font: "Material Symbols Rounded 36";
     background-color: transparent;
-    text-color: #ffffff;
+    text-color: @foreground;
+    spacing: 0;
 }
 
-// Window
 window {
-    fullscreen: true;
-    background-color: rgba(0, 0, 0, 0.8);
+    width: 360px;
+    border-radius: 8px;
+    padding: 0.2em;
+    background-color: @background;
 }
 
-// Main Box
 mainbox {
-    enabled: true;
-    padding: 37% 13%;
     children: [listview];
 }
 
-// List View
 listview {
-    columns: 4;
-    spacing: 2em;
+    columns: 2;
+    lines: 2;
+    gap: 0.2em;
     flow: horizontal;
     cycle: false;
     scrollbar: false;
-    border: 0px;
 }
+
 element {
     padding: 0.9em;
     border-radius: 5px;
 }
+
 element-text {
     horizontal-align: 0.5;
+    font-size: 18px;
 }
+
 element.selected {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: @background-dim;
 }
