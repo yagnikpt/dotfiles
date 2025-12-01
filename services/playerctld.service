@@ -1,0 +1,9 @@
+[Unit]
+Description=MPRIS-compatible Media Player Controller
+
+[Service]
+ExecStart=/usr/bin/playerctld daemon
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

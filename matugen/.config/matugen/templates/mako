@@ -21,13 +21,13 @@ anchor=bottom-center
 group-by=app-name
 format=<b>%s</b>\n%b
 width=200
-border-size=28
+border-size=26
 border-radius=14
 border-color={{colors.surface.default.hex}}
 background-color={{colors.outline_variant.default.hex}}
 progress-color=source {{colors.on_primary_container.default.hex}}
 outer-margin=0,0,20,0
-padding=1
+padding=2
 layer=overlay
 default-timeout=1000
 

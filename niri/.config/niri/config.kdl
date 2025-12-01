@@ -86,29 +86,6 @@ overview {
     }
 }
 
-// === Ignis ===
-// spawn-at-startup "/home/yagnik/.local/bin/ignis" "init"
-// spawn-at-startup "swww-daemon"
-// spawn-at-startup "gammastep"
-// spawn-at-startup "hypridle"
-
-// === DMS ===
-// spawn-at-startup "dms" "run"
-
-// === Custom ===
-spawn-at-startup "swww-daemon"
-spawn-at-startup "gammastep"
-spawn-at-startup "hypridle"
-spawn-at-startup "mako"
-spawn-at-startup "waybar"
-spawn-at-startup "ydotoold"
-spawn-sh-at-startup "$HOME/scripts/niri/battery-watch.sh"
-
-// spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
-spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
-spawn-at-startup "playerctld" "daemon"
-spawn-sh-at-startup "$HOME/scripts/rclone_backup.sh"
-
 environment {
   XDG_CURRENT_DESKTOP "niri"
   QT_QPA_PLATFORM "wayland"
@@ -236,6 +213,7 @@ window-rule {
     exclude app-id="brave-browser"
     exclude app-id="google-chrome"
     exclude app-id="Ptyxis"
+    exclude app-id="Papers"
 
     opacity 0.85
 }

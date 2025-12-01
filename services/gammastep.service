@@ -1,0 +1,11 @@
+[Unit]
+Description=Adjusts the color temperature of your screen according to time of day
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/gammastep
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

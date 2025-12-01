@@ -1,3 +1,5 @@
+scripts/scripts/rofi/wall_dirs.sh
+
 waybar/.config/waybar/colors.css
 rofi/.config/rofi/matugen-colors.rasi
 hypr/.config/hypr/colors.conf
