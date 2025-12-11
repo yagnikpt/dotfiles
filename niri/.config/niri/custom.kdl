@@ -1,0 +1,39 @@
+layer-rule {
+    match namespace="swww"
+    place-within-backdrop true
+}
+
+binds {
+    // === Audio Controls ===
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "$HOME/scripts/niri/volume.sh up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "$HOME/scripts/niri/volume.sh down"; }
+    XF86AudioMute allow-when-locked=true { spawn-sh "$HOME/scripts/niri/volume.sh mute"; }
+
+    XF86KbdBrightnessUp allow-when-locked=true {
+        spawn "kbdbrite.sh" "up";
+    }
+    XF86KbdBrightnessDown allow-when-locked=true {
+        spawn "kbdbrite.sh" "down";
+    }
+    // === Brightness Contro terminalls ===
+    XF86MonBrightnessUp allow-when-locked=true {
+        spawn-sh "$HOME/scripts/niri/brightness.sh up";
+    }
+    XF86MonBrightnessDown allow-when-locked=true {
+        spawn-sh "$HOME/scripts/niri/brightness.sh down";
+    }
+
+    // === Screen Recording ===
+    Mod+Alt+R hotkey-overlay-title="Start/Stop Screen Recording" { spawn-sh "~/scripts/niri/screen-recorder.sh"; }
+    // Mod+Shift+Alt+R { spawn-sh "bash -lc 'ignis run-command recorder-record-portal'"; }
+
+    Mod+Space hotkey-overlay-title="Application Launcher" {
+        spawn-sh "$HOME/scripts/rofi/appdrawer.sh";
+    }
+    Alt+Space hotkey-overlay-title="App Launcher" {
+        spawn "vicinae" "toggle";
+    }
+    Mod+V hotkey-overlay-title="Clipboard Manager" {
+        spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history";
+    }
+}

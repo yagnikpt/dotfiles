@@ -23,8 +23,6 @@ copy-on-select = true
 confirm-close-surface = false
 
 # Key bindings for common actions
-#keybind = ctrl+c=copy_to_clipboard
-#keybind = ctrl+v=paste_from_clipboard
 keybind = ctrl+shift+n=new_window
 keybind = ctrl+t=new_tab
 keybind = ctrl+q=close_tab
@@ -37,6 +35,10 @@ keybind = alt+h=goto_split:left
 keybind = alt+l=goto_split:right
 keybind = alt+w=toggle_window_decorations
 keybind = alt+f=toggle_fullscreen
+keybind = ctrl+backquote=toggle_quick_terminal
+keybind = ctrl+enter=ignore
+keybind = ctrl+shift+h=resize_split:left,25
+keybind = ctrl+shift+l=resize_split:right,25
 
 # Material 3 UI elements
 unfocused-split-opacity = 0.7
@@ -49,5 +51,8 @@ unfocused-split-fill = #44464f
 shell-integration = detect
 shell-integration-features = cursor,sudo,title,no-cursor
 # keybind = shift+enter=text:\n
+
+quit-after-last-window-closed = true
+quit-after-last-window-closed-delay = 5m
 
 theme = matugen

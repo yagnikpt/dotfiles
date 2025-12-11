@@ -25,7 +25,7 @@ start_recording() {
 
 stop_recording() {
     pkill -SIGINT -f gpu-screen-recorder || true
-    notify-send "Screen Recorder" "Recording saved."
+    notify-send -a "top-layer" "Screen Recorder" "Recording saved."
 }
 
 if is_running; then

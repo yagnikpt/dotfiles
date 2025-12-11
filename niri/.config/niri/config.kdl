@@ -70,14 +70,11 @@ layout {
     }
 }
 
-layer-rule {
-    match namespace="swww"
-    place-within-backdrop true
-}
-
-layer-rule {
-    match namespace="quickshell"
-    place-within-backdrop true
+recent-windows {
+    highlight {
+        padding 24
+        corner-radius 8
+    }
 }
 
 overview {
@@ -90,8 +87,8 @@ environment {
   XDG_CURRENT_DESKTOP "niri"
   QT_QPA_PLATFORM "wayland"
   ELECTRON_OZONE_PLATFORM_HINT "auto"
-  QT_QPA_PLATFORMTHEME "gtk3"
-  QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+  QT_QPA_PLATFORMTHEME "qt6ct"
+  // QT_QPA_PLATFORMTHEME_QT6 "gtk3"
 }
 
 prefer-no-csd
@@ -224,127 +221,18 @@ window-rule {
 }
 
 binds {
-    // === Ignis key binds ===
-
-    // Mod+Space hotkey-overlay-title="Toggle Ignis Launcher" { spawn-sh "bash -lc 'ignis toggle-window Launcher'"; }
-    // Mod+X hotkey-overlay-title="Toggle Ignis PowerMenu" { spawn-sh "bash -lc 'ignis toggle-window PowerMenu'"; }
-    // Mod+Comma hotkey-overlay-title="Toggle Ignis Settings" { spawn-sh "bash -lc 'ignis toggle-window Settings'"; }
-    // Mod+A hotkey-overlay-title="Toggle Ignis QuickCenter" { spawn-sh "bash -lc 'ignis toggle-window QuickCenter'"; }
-    //
-    // XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+" "-l" "1.0"; }
-    // XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
-    // XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    // XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    //
-    // XF86AudioNext         allow-when-locked=true { spawn-sh "playerctl next"; }
-    // XF86AudioPause        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    // XF86AudioPlay         allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    // XF86AudioPrev         allow-when-locked=true { spawn-sh "playerctl previous"; }
-    //
-    // XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    // XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
-    //
-    // Mod+Alt+R { spawn-sh "bash -lc 'ignis run-command recorder-record-screen'"; }
-    // Mod+Shift+Alt+R { spawn-sh "bash -lc 'ignis run-command recorder-record-portal'"; }
-
-
-    // === DMS key binds ===
-    // Mod+Space hotkey-overlay-title="Application Launcher" {
-    //     spawn "dms" "ipc" "call" "spotlight" "toggle";
-    // }
-    // Mod+V hotkey-overlay-title="Clipboard Manager" {
-    //     spawn "dms" "ipc" "call" "clipboard" "toggle";
-    // }
-    // Mod+M hotkey-overlay-title="Task Manager" {
-    //     spawn "dms" "ipc" "call" "processlist" "toggle";
-    // }
-    // Mod+N hotkey-overlay-title="Notification Center" {
-    //     spawn "dms" "ipc" "call" "notifications" "toggle";
-    // }
-    // Mod+Comma hotkey-overlay-title="Settings" {
-    //     spawn "dms" "ipc" "call" "settings" "toggle";
-    // }
-    // Super+Alt+L hotkey-overlay-title="Lock Screen" {
-    //     spawn "dms" "ipc" "call" "lock" "lock";
-    // }
-    // Mod+X hotkey-overlay-title="Power Menu" {
-    //     spawn "dms" "ipc" "call" "powermenu" "toggle";
-    // }
-    // Mod+A hotkey-overlay-title="Control Center" {
-    //     spawn "dms" "ipc" "call" "control-center" "toggle";
-    // }
-    // Mod+Y hotkey-overlay-title="Browse Wallpapers" {
-    //     spawn "dms" "ipc" "call" "dankdash" "wallpaper";
-    // }
-    // XF86AudioRaiseVolume allow-when-locked=true {
-    //     spawn "dms" "ipc" "call" "audio" "increment" "3";
-    // }
-    // XF86AudioLowerVolume allow-when-locked=true {
-    //     spawn "dms" "ipc" "call" "audio" "decrement" "3";
-    // }
-    // XF86AudioMute allow-when-locked=true {
-    //     spawn "dms" "ipc" "call" "audio" "mute";
-    // }
-    // XF86AudioMicMute allow-when-locked=true {
-    //     spawn "dms" "ipc" "call" "audio" "micmute";
-    // }
-    // XF86MonBrightnessUp allow-when-locked=true {
-    //     spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
-    // }
-    // XF86MonBrightnessDown allow-when-locked=true {
-    //     spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
-    // }
-    // Mod+Shift+N allow-when-locked=true {
-    //     spawn "dms" "ipc" "call" "night" "toggle";
-    // }
-
-
     Mod+D repeat=false { toggle-overview; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // === Application Launchers ===
-    Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
+    Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty" "+new-window"; }
     Mod+B hotkey-overlay-title="Open Browser" { spawn "google-chrome-stable"; }
     Mod+E hotkey-overlay-title="Open Explorer" { spawn "nautilus"; }
     Mod+Shift+E { quit; }
+    Mod+M hotkey-overlay-title="Open Text Buffer" { spawn "gtk-launch" "org.gnome.gitlab.cheywood.Buffer"; }
 
     // === My Custom Basebone Setup ===
 
-    // === Audio Controls ===
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "$HOME/scripts/niri/volume.sh up"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "$HOME/scripts/niri/volume.sh down"; }
-    XF86AudioMute allow-when-locked=true { spawn-sh "$HOME/scripts/niri/volume.sh mute"; }
-
-    XF86KbdBrightnessUp allow-when-locked=true {
-        spawn "kbdbrite.sh" "up";
-    }
-    XF86KbdBrightnessDown allow-when-locked=true {
-        spawn "kbdbrite.sh" "down";
-    }
-    // === Brightness Contro terminalls ===
-    XF86MonBrightnessUp allow-when-locked=true {
-        spawn-sh "$HOME/scripts/niri/brightness.sh up";
-    }
-    XF86MonBrightnessDown allow-when-locked=true {
-        spawn-sh "$HOME/scripts/niri/brightness.sh down";
-    }
-
-    // === Screen Recording ===
-    Mod+Alt+R hotkey-overlay-title="Start/Stop Screen Recording" { spawn-sh "~/scripts/niri/screen-recorder.sh"; }
-    // Mod+Shift+Alt+R { spawn-sh "bash -lc 'ignis run-command recorder-record-portal'"; }
-
-    Mod+Space hotkey-overlay-title="Application Launcher" {
-        spawn-sh "$HOME/scripts/rofi/appdrawer.sh";
-    }
-    Alt+Space hotkey-overlay-title="App Launcher" {
-        spawn "vicinae" "toggle";
-    }
-    Mod+V hotkey-overlay-title="Clipboard Manager" {
-        spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history";
-    }
-    Mod+X hotkey-overlay-title="Power Menu" {
-        spawn-sh "$HOME/scripts/rofi/powermenu.sh";
-    }
     Mod+P hotkey-overlay-title="Wallpaper Picker" {
         spawn-sh "$HOME/scripts/rofi/wallpicker.sh";
     }
@@ -356,10 +244,6 @@ binds {
     }
     Mod+S hotkey-overlay-title="System Utilities" {
         spawn-sh "$HOME/scripts/rofi/utilities.sh";
-    }
-
-    Alt+Tab {
-        spawn-sh "$HOME/.cargo/bin/niri-switch";
     }
 
     // === Window Management ===
@@ -503,3 +387,5 @@ hotkey-overlay {
 debug {
    honor-xdg-activation-with-invalid-serial
 }
+
+include "custom.kdl"

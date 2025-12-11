@@ -16,6 +16,9 @@ default-timeout=2000
 default-timeout=0
 layer=overlay
 
+[app-name=top-layer]
+layer=overlay
+
 [app-name=osd]
 anchor=bottom-center
 group-by=app-name

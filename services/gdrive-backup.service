@@ -1,7 +1,7 @@
 [Unit]
 Description=Custom gdrive backup script
-PartOf=graphical-session.target
-After=graphical-session.target
+After=NetworkManager-wait-online.service
+Wants=NetworkManager-wait-online.service
 
 [Service]
 Type=simple
