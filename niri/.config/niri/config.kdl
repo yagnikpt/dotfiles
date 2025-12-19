@@ -149,7 +149,9 @@ window-rule {
     match title="New tab - Brave"
     match app-id="helium"
     match app-id="Code"
+    match app-id="code"
     match app-id="zed"
+    match app-id="Antigravity"
     match app-id="zen"
     match app-id="emacs"
     match app-id="agimnkijcaahngcdmfeangaknmldooml"
@@ -178,7 +180,8 @@ window-rule {
     match app-id="heroic"
     match app-id="pavucontrol"
     match app-id="speedcrunch"
-    match title="Exo Settings"
+    match app-id="tlauncher"
+    match app-id="com.network.manager"
 
     open-floating true
 }

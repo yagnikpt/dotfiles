@@ -36,4 +36,7 @@ binds {
     Mod+V hotkey-overlay-title="Clipboard Manager" {
         spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history";
     }
+    Mod+X hotkey-overlay-title="Power Menu" {
+        spawn-sh "~/scripts/rofi/powermenu.sh";
+    }
 }

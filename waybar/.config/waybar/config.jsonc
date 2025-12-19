@@ -65,7 +65,7 @@
             "format-icons": {
                 "wifi": ["\ue4ca", "\ue4d9", "\ue63e"]
             },
-            "tooltip": false
+            "tooltip-format-wifi": "{essid} ({signalStrength}%)"
         },
         "bluetooth": {
             "format-connected": "\ue1a8",

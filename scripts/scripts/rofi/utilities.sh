@@ -44,7 +44,7 @@ case "$CHOICE" in
         vicinae vicinae://extensions/Gelei/bluetooth/devices
         ;;
     $wifi)
-        ghostty --title="wifi-tui" -e nmtui
+        nmgui
         ;;
     $theme)
         $HOME/scripts/rofi/modules/theme.sh

@@ -20,12 +20,6 @@
             "format": "{name} {version}"
         },
         {
-            "type": "kernel",
-            "key": "kernel  ",
-            "format": "{release}",
-            "keyColor": "green"
-        },
-        {
             "type": "host",
             "format": "{vendor} {family}",
             "key": "host    ",
@@ -49,24 +43,14 @@
             "keyColor": "cyan"
         },
         {
-            "type": "shell",
-            "key": "shell   ",
-            "keyColor": "yellow"
-        },
-        {
             "type": "de",
             "key": "de      ",
-            "keyColor": "cyan"
+            "keyColor": "yellow"
         },
         {
             "type": "wm",
             "key": "wm      ",
-            "keyColor": "magenta"
-        },
-        {
-            "type": "terminal",
-            "key": "terminal",
-            "keyColor": "white"
+            "keyColor": "yellow"
         },
         {
             "type": "localip",
@@ -74,16 +58,10 @@
             "keyColor": "magenta"
         },
         {
-            "type": "player",
-            "key": "player  ",
-            "keyColor": "white"
-        },
-        {
             "type": "media",
             "key": "media   ",
             "keyColor": "white"
-        },
-        "break"
+        }
     ]
 }
 
