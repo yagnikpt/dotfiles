@@ -1,0 +1,159 @@
+@import "./themes/gruvbox-dark-hard.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono NFM";
+    padding: 0;
+    margin: 0;
+    min-width: 10px;
+    background: transparent;
+}
+
+window.#waybar {
+    min-width: 40px;
+}
+
+tooltip,
+#tray menu {
+    background: alpha(#262626, 0.999);
+    border-radius: 8px;
+    padding: 1px 2px;
+}
+
+#custom-separator {
+    font-family: "Material Symbols Rounded";
+    margin: -10px 0;
+    font-size: 28px;
+    color: @outline_variant;
+}
+
+#top,
+#workspaces,
+#bottom {
+    background: @surface_container;
+    padding: 8px 0;
+    border-radius: 0 16px 16px 0;
+}
+
+box.empty {
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#privacy {
+    margin: 4px 0;
+    padding: 4px 0;
+    background: @surface_dim;
+    border-radius: 8px;
+}
+
+#taskbar > * {
+    margin: 4px 0;
+}
+
+#workspaces {
+    min-width: 0;
+    padding: 8px 14px;
+    margin: 20px 0;
+}
+
+#workspaces button {
+    font-size: 7px;
+    color: transparent;
+    background: @outline_variant;
+    transition: all 0.2s ease-in-out;
+    min-width: 0;
+    min-height: 0;
+    border-radius: 9999px;
+    margin: 3px 0;
+}
+
+#workspaces button.active {
+    background: @on_primary_container;
+    min-height: 40px;
+}
+
+#bottom,
+#top {
+    color: @on_surface;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+#network {
+    margin-bottom: 8px;
+}
+
+#bluetooth,
+#network {
+    font-size: 18px;
+}
+
+#bluetooth.battery,
+#battery {
+    font-family: "JetBrainsMono NFM";
+    font-size: 14px;
+}
+
+#battery.icon,
+#bluetooth,
+#network {
+    font-family: "Material Symbols Rounded";
+}
+
+#battery {
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+#battery widget > * {
+    background: @surface_dim;
+}
+
+#battery.warning {
+    background: #854d0e;
+}
+
+#battery.critical {
+    background: @error_container;
+}
+
+#battery.charging {
+    background: @primary_container;
+}
+
+#battery.icon {
+    margin: 0;
+}
+
+#battery widget:first-child > * {
+    border-radius: 8px 8px 0 0;
+}
+
+#battery widget:last-child > * {
+    border-radius: 0 0 8px 8px;
+}
+
+#battery > *:first-child * {
+    font-size: 20px;
+    margin: 0;
+}
+
+#battery > *:last-child * {
+    margin: 0;
+    margin-top: -4px;
+    font-size: 14px;
+}
+
+#bluetooth.battery.on {
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#tray,
+#network {
+    margin-top: 8px;
+}

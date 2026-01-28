@@ -5,29 +5,24 @@ set = true
 
 [templates.waybar]
 input_path = './templates/colors.css'
-output_path = '~/.config/waybar/colors.css'
+output_path = '~/.config/waybar/themes/matugen.css'
 
 [templates.mako]
 input_path = './templates/mako'
-output_path = '~/.config/mako/config'
+output_path = '~/.config/mako/themes/matugen'
 post_hook = 'makoctl reload'
 
 [templates.vicinae]
 input_path = './templates/vicinae.toml'
 output_path = '~/.local/share/vicinae/themes/matugen.toml'
-post_hook = 'vicinae theme set matugen'
 
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/matugen-colors.rasi'
 
-[templates.ignis]
-input_path = './templates/colors.scss'
-output_path = '~/.config/ignis/colors.scss'
-
 [templates.hypr]
 input_path = './templates/colors.conf'
-output_path = '~/.config/hypr/colors.conf'
+output_path = '~/.config/hypr/themes/matugen.conf'
 
 [templates.hyprlock]
 input_path = './templates/hyprlock.conf'
@@ -36,7 +31,7 @@ output_path = '~/.config/hypr/hyprlock.conf'
 [templates.kitty]
 input_path = './templates/kitty.conf'
 output_path = '~/.config/kitty/themes/matugen.conf'
-post_hook = 'kitty +kitten themes --reload-in=all matugen'
+# post_hook = 'kitty +kitten themes --reload-in=all matugen'
 
 [templates.spicetify]
 input_path = '~/.config/matugen/templates/spicetify.ini'
@@ -45,11 +40,11 @@ output_path = '~/.config/spicetify/Themes/matugen/color.ini'
 
 [templates.gtk3]
 input_path = './templates/gtk-colors.css'
-output_path = '~/.config/gtk-3.0/colors.css'
+output_path = '~/.config/gtk-3.0/themes/matugen.css'
 
 [templates.gtk4]
 input_path = './templates/gtk-colors.css'
-output_path = '~/.config/gtk-4.0/colors.css'
+output_path = '~/.config/gtk-4.0/themes/matugen.css'
 
 [templates.color-scheme]
 input_path = './templates/matugen.colors'

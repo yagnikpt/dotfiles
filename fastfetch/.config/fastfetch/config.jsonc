@@ -1,67 +1,63 @@
 {
-    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    "logo": {
-        "type": "data",
-        "source": " "
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "~/.config/fastfetch/ascii.txt",
+    "color": {
+      "1": "white",
     },
-    "display": {
-        "separator": "  "
-    },
-    "general": {
-        "playerName": "spotify"
-    },
-    "modules": [
-        "break",
-        "title",
-        {
-            "type": "os",
-            "key": "os      ",
-            "keyColor": "red",
-            "format": "{name} {version}"
-        },
-        {
-            "type": "host",
-            "format": "{vendor} {family}",
-            "key": "host    ",
-            "keyColor": "yellow"
-        },
-        {
-            "type": "cpu",
-            "key": "cpu     ",
-            "format": "{name} ({cores-physical}C/{cores-logical}T) @ {freq-max}",
-            "keyColor": "blue"
-        },
-        {
-            "type": "uptime",
-            "format": "{?days}{days}d {?}{hours}h {minutes}m",
-            "key": "uptime  ",
-            "keyColor": "green"
-        },
-        {
-            "type": "memory",
-            "key": "memory  ",
-            "keyColor": "cyan"
-        },
-        {
-            "type": "de",
-            "key": "de      ",
-            "keyColor": "yellow"
-        },
-        {
-            "type": "wm",
-            "key": "wm      ",
-            "keyColor": "yellow"
-        },
-        {
-            "type": "localip",
-            "key": "ip      ",
-            "keyColor": "magenta"
-        },
-        {
-            "type": "media",
-            "key": "media   ",
-            "keyColor": "white"
-        }
-    ]
-}
+    "padding": { "top": 1 },
+  },
+  "display": {
+    "separator": "- ",
 
+    "size": {
+      "maxPrefix": "MB",
+      "ndigits": 0,
+    },
+  },
+  "modules": [
+    "break",
+    "break",
+    "break",
+    {
+      "type": "os",
+      "key": " OS  ",
+      "keyColor": "red",
+      "format": "{name} {version}"
+    },
+    {
+      "type": "kernel",
+      "key": " VER ",
+      "keyColor": "green",
+    },
+    {
+      "type": "uptime",
+      "key": "󰇄 UP  ",
+      "keyColor": "yellow",
+    },
+    {
+      "type": "wm",
+      "key": " WM  ",
+      "keyColor": "blue"
+    },
+    {
+      "type": "cpu",
+      "key": " CPU ",
+      "keyColor": "magenta",
+    },
+    {
+      "type": "memory",
+      "key": "󰍛 MEM ",
+      "keyColor": "cyan",
+      "format": "{/1}{-}{/}{/2}{-}{/}{} / {}",
+    },
+    {
+      "type": "localip",
+      "key": "󰩠 IP  ",
+    },
+    {
+      "type": "colors",
+      "symbol": "circle",
+    },
+  ],
+}

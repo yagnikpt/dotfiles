@@ -1,159 +1,186 @@
-@import "colors.css";
+@import "themes/gruvbox-dark.css";
 
-* {
-    border: none;
-    border-radius: 0;
-    font-family: "JetBrainsMono NFM";
-    padding: 0;
-    margin: 0;
-    min-width: 10px;
-    background: transparent;
+*{
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
 }
 
-window.#waybar {
-    min-width: 40px;
+button {
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  border: 0;
 }
 
-tooltip,
-#tray menu {
-    background: alpha(#262626, 0.999);
-    border-radius: 8px;
-    padding: 1px 2px;
+window#waybar {
+  background-color: transparent;
+  transition-property: background-color;
+  transition-duration: .5s;
+  margin: 0;
+  padding: 0;
+}
+
+window#waybar>box {
+  margin: 0px;
+  margin-bottom: 0px;
+  border-radius: 0px;
+  padding: 0px 0px;
+  opacity: 1;
+  background: @background;
+  border: none;
+}
+
+/* Modules styling */
+#custom-menu,
+#custom-separator,
+#workspaces,
+#window,
+#group-tray-expander,
+#custom-expand-icon,
+#network,
+#battery,
+#bluetooth.battery,
+#clock {
+  margin: 0px 1px;
+  padding: 0px 5px;
+  font-size: 16.5px;
+  font-family: 'PlemolJPConsoleNF', 'Adwaita Sans', 'Noto Sans', sans-serif;
+  font-weight: 500;
+  border-radius: 0px;
+  border: none;
+  background: transparent;
+  opacity: 1;
+  color: @foreground;
+}
+
+#bluetooth.battery {
+  font-size: 15px;
 }
 
 #custom-separator {
-    font-family: "Material Symbols Rounded";
-    margin: -10px 0;
-    font-size: 28px;
-    color: @outline_variant;
+  opacity: .15;
+  font-size: .9rem;
+  margin: 0px;
+  padding: 0px 4px;
 }
 
-#top,
-#workspaces,
-#bottom {
-    background: @surface_container;
-    padding: 8px 0;
-    border-radius: 0 16px 16px 0;
+#clock {
+  padding-right: 10px;
 }
 
-box.empty {
-    font-size: 0;
-    margin: 0;
-    padding: 0;
+/* Tray modules */
+#custom-bluetooth,
+#tray { margin: 0px 7px }
+
+#tray menu {
+  background: @surface;
+  box-shadow: none;
 }
 
-#privacy {
-    margin: 4px 0;
-    padding: 4px 0;
-    background: @surface_dim;
-    border-radius: 8px;
+#custom-expand-icon {
+  background: transparent;
+  margin-right: 10px;
 }
 
-#taskbar > * {
-    margin: 4px 0;
+/* Fixes */
+#custom-expand-icon {
+  margin: 0;
+  padding: 0;
+  margin-right: 8px
 }
 
+#network {
+  padding-right: 3px;
+}
+
+#group-tray-expander {
+  margin: 0;
+  padding: 0;
+}
+
+#custom-menu {
+  padding-left: 11px;
+  padding-right: 7px;
+}
+
+#idle_inhibitor {
+  padding-left: 6px;
+  padding-right: 4px
+}
+
+#custom-power {
+  padding-right: 15px
+}
+
+#custom-notification {
+  padding-right: 2px;
+}
+
+#window {
+  opacity: .5;
+}
+
+/* Styling */
+#custom-menu,
+#language,
+#idle_inhibitor,
+#custom-updates,
+#pulseaudio,
+#backlight,
+#network,
+#battery,
+#clock,
+#custom-notification,
+#custom-power {
+  transition: opacity .12s ease;
+}
+
+#custom-menu:hover,
+#language:hover,
+#idle_inhibitor:hover,
+#custom-updates:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#network:hover,
+#battery:hover,
+#clock:hover,
+#custom-notification:hover,
+#custom-power:hover {
+  opacity: .75;
+}
+
+/* Battery states */
+#battery.warning:not(.charging),
+#battery.critical:not(.charging) { color: @red }
+#battery.plugged:not(.charging)  { color: @yellow }
+#battery.charging                { color: @green }
+
+/* Hyprland/workspaces styling */
 #workspaces {
-    min-width: 0;
-    padding: 8px 14px;
-    margin: 20px 0;
+  padding: 0;
+  margin: 0;
 }
 
 #workspaces button {
-    font-size: 7px;
-    color: transparent;
-    background: @outline_variant;
-    transition: all 0.2s ease-in-out;
-    min-width: 0;
-    min-height: 0;
-    border-radius: 9999px;
-    margin: 3px 0;
+  padding: 0px 5px;
+  margin: 0px 0px;
+  border: none;
+  color: inherit;
+  min-width: 0px;
+  letter-spacing: 0px;
+  box-shadow: none;
+  background: transparent;
+  opacity: .5;
+  transition: color .08s ease, background .08s ease, opacity .08s ease;
 }
 
-#workspaces button.active {
-    background: @on_primary_container;
-    min-height: 40px;
-}
+#workspaces button.urgent              { color: @red }
+#workspaces button.empty               { opacity: .25; }
+#workspaces button.visible             { opacity: 1; }
+#workspaces button:hover:not(.visible) { opacity: .8; }
 
-#bottom,
-#top {
-    color: @on_surface;
-    padding-right: 5px;
-    padding-left: 5px;
-}
-
-#network {
-    margin-bottom: 8px;
-}
-
-#bluetooth,
-#network {
-    font-size: 18px;
-}
-
-#bluetooth.battery,
-#battery {
-    font-family: "JetBrainsMono NFM";
-    font-size: 14px;
-}
-
-#battery.icon,
-#bluetooth,
-#network {
-    font-family: "Material Symbols Rounded";
-}
-
-#battery {
-    margin-top: 8px;
-    margin-bottom: 4px;
-}
-
-#battery widget > * {
-    background: @surface_dim;
-}
-
-#battery.warning {
-    background: #854d0e;
-}
-
-#battery.critical {
-    background: @error_container;
-}
-
-#battery.charging {
-    background: @primary_container;
-}
-
-#battery.icon {
-    margin: 0;
-}
-
-#battery widget:first-child > * {
-    border-radius: 8px 8px 0 0;
-}
-
-#battery widget:last-child > * {
-    border-radius: 0 0 8px 8px;
-}
-
-#battery > *:first-child * {
-    font-size: 20px;
-    margin: 0;
-}
-
-#battery > *:last-child * {
-    margin: 0;
-    margin-top: -4px;
-    font-size: 14px;
-}
-
-#bluetooth.battery.on {
-    font-size: 0;
-    margin: 0;
-    padding: 0;
-}
-
-#tray,
-#network {
-    margin-top: 8px;
+tooltip {
+  border-radius: 6px;
+  background: @surface;
 }

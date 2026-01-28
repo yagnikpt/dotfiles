@@ -55,8 +55,8 @@ element {
 }
 
 element selected {
-    background-color: @background-dim;
-    // text-color: @foreground-accent;
+    background-color: @accent;
+    text-color: @foreground-accent;
 }
 
 element-text {

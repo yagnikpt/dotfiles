@@ -1,15 +1,14 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
-        "type": "command-raw",
-        "source": "pokeget random --hide-name",
-        "padding": {
-            "top": 1,
-            "left": 2
-        }
+        "type": "data",
+        "source": " "
     },
     "display": {
         "separator": "  "
+    },
+    "general": {
+        "playerName": "spotify"
     },
     "modules": [
         "break",
@@ -19,11 +18,6 @@
             "key": "os      ",
             "keyColor": "red",
             "format": "{name} {version}"
-        },
-        {
-            "type": "kernel",
-            "key": "kernel  ",
-            "keyColor": "green"
         },
         {
             "type": "host",
@@ -49,24 +43,14 @@
             "keyColor": "cyan"
         },
         {
-            "type": "shell",
-            "key": "shell   ",
-            "keyColor": "yellow"
-        },
-        {
             "type": "de",
             "key": "de      ",
-            "keyColor": "cyan"
+            "keyColor": "yellow"
         },
         {
             "type": "wm",
             "key": "wm      ",
-            "keyColor": "magenta"
-        },
-        {
-            "type": "terminal",
-            "key": "terminal",
-            "keyColor": "white"
+            "keyColor": "yellow"
         },
         {
             "type": "localip",
@@ -74,16 +58,10 @@
             "keyColor": "magenta"
         },
         {
-            "type": "player",
-            "key": "player  ",
-            "keyColor": "white"
-        },
-        {
             "type": "media",
             "key": "media   ",
             "keyColor": "white"
-        },
-        "break"
+        }
     ]
 }
 

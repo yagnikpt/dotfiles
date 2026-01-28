@@ -75,6 +75,13 @@ recent-windows {
         padding 24
         corner-radius 8
     }
+    binds {
+        Mod+Tab { next-window scope="workspace"; }
+        Mod+Shift+Tab   { previous-window scope="workspace"; }
+    }
+    previews {
+        max-scale 0.35
+    }
 }
 
 overview {
@@ -154,7 +161,11 @@ window-rule {
     match app-id="Antigravity"
     match app-id="zen"
     match app-id="emacs"
+    match app-id="kdenlive"
+    // Youtube
     match app-id="agimnkijcaahngcdmfeangaknmldooml"
+    // Youtube Music
+    match app-id="cinhimbnkkaeohfgghhklpknlkffjgod"
     match app-id="libreoffice"
     match app-id="brave-hianime.do__home-Default"
     match app-id="brave-www.hotstar.com__in_home-Default"
@@ -165,6 +176,8 @@ window-rule {
 window-rule {
     match app-id="Spotify"
     match app-id="vesktop"
+    match app-id="steam"
+    match app-id="heroic"
 
     open-on-workspace "media"
     open-focused true
@@ -235,10 +248,6 @@ binds {
     Mod+M hotkey-overlay-title="Open Text Buffer" { spawn "gtk-launch" "org.gnome.gitlab.cheywood.Buffer"; }
 
     // === My Custom Basebone Setup ===
-
-    Mod+P hotkey-overlay-title="Wallpaper Picker" {
-        spawn-sh "$HOME/scripts/rofi/wallpicker.sh";
-    }
     Mod+Ctrl+T hotkey-overlay-title="Screen Text to Clipboard" {
         spawn "screen_ocr";
     }
@@ -391,4 +400,4 @@ debug {
    honor-xdg-activation-with-invalid-serial
 }
 
-include "custom.kdl"
+include "noctalia.kdl"

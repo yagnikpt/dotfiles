@@ -26,7 +26,7 @@ Dotfiles are plain text configuration files on Unix-like systems that control th
 4.  **Stow the dotfiles:**
     From within the `~/dotfiles` directory, run:
     ```bash
-    stow -v fastfetch gammastep ghostty hypr kitty matugen niri rofi scripts waybar zsh
+    stow -v fastfetch gammastep ghostty hypr kitty mako matugen niri rofi scripts waybar zsh
     ```
     This command will create symlinks for all the configurations in the appropriate locations.
 

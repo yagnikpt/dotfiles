@@ -38,5 +38,5 @@ element-text {
 }
 
 element.selected {
-    background-color: @background-dim;
+    background-color: @accent-dim;
 }

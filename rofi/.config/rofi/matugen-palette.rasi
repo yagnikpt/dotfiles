@@ -1,0 +1,13 @@
+@import "matugen-colors.rasi"
+
+* {
+    background: @surface;
+    background-dim: @primary-container-35;
+    foreground: @on-surface;
+    foreground-accent: @on-secondary;
+    accent: @secondary;
+    accent-dim: @on-secondary;
+    urgent: @error;
+    border: @surface-container-highest;
+    cursor: @outline;
+}

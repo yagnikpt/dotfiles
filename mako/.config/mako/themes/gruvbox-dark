@@ -1,0 +1,7 @@
+background-color=#1d2021
+text-color=#ebdbb2
+
+[app-name=osd]
+border-color=#1d2021
+background-color=#383935
+progress-color=source #A9B665

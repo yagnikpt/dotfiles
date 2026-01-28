@@ -5,9 +5,48 @@ fi
 bindkey -e
 setopt globdots
 
+bindkey ' ' magic-space
+
+chpwd() {
+  if [[ -d .venv ]]; then
+    source .venv/bin/activate
+  elif [[ -d venv ]]; then
+    source venv/bin/activate
+  fi
+}
+
+alias -s json=jless
+alias -s md=bat
+alias -s go='$EDITOR'
+alias -s rs='$EDITOR'
+alias -s txt=bat
+alias -s log=bat
+alias -s py='$EDITOR'
+alias -s js='$EDITOR'
+alias -s ts='$EDITOR'
+alias -s html=open
+
+alias -g NE='2>/dev/null'
+alias -g NO='>/dev/null'
+alias -g NUL='>/dev/null 2>&1'
+alias -g J='| jq'
+alias -g C='| wlcopy'
+
+function clear-screen-and-scrollback() {
+  echoti civis >"$TTY"
+  printf '%b' '\e[H\e[2J\e[3J' >"$TTY"
+  echoti cnorm >"$TTY"
+  zle redisplay
+}
+zle -N clear-screen-and-scrollback
+bindkey '^X^L' clear-screen-and-scrollback
+
 # homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH="/usr/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/go/bin"
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -52,7 +91,7 @@ alias nv="nvim"
 alias nvsu="sudoedit nvim"
 alias zshconfig="nvim ~/.zshrc"
 alias ls="eza --all --color=always --git --icons=always --no-time"
-alias ff="gitfetch --graph-only; fastfetch;"
+alias ff="fastfetch"
 alias fb="flashback"
 alias ds="du -h -s"
 alias niriconfig="nvim ~/.config/niri/config.kdl"
@@ -65,3 +104,4 @@ alias dysk="dysk -c disk+used+use+free+size"
 export ANDROID_HOME=~/Android/Sdk
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
+

@@ -1,9 +1,9 @@
 scripts/scripts/rofi/wall_dirs.sh
 
-waybar/.config/waybar/colors.css
+waybar/.config/waybar/themes/matugen.css
 rofi/.config/rofi/matugen-colors.rasi
-hypr/.config/hypr/colors.conf
+hypr/.config/hypr/themes/matugen.conf
 hypr/.config/hypr/hyprlock.conf
 kitty/.config/kitty/themes/matugen.conf
-kitty/.config/kitty/current-theme.conf
 ghostty/.config/ghostty/themes/matugen
+mako/.config/mako/themes/matugen

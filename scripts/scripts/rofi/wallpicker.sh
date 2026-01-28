@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-wall_dirs="$HOME/Pictures/wallpapers/alt:$HOME/Pictures/wallpapers/arc_raiders"
+wall_dirs="$HOME/Pictures/wallpapers/pixel"
 cache_dir="$HOME/.cache/wallpaper_thumbnails/"
 
 # Convert colon-separated string to array

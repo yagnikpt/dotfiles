@@ -39,4 +39,7 @@ binds {
     Mod+X hotkey-overlay-title="Power Menu" {
         spawn-sh "~/scripts/rofi/powermenu.sh";
     }
+    Mod+P hotkey-overlay-title="Wallpaper Picker" {
+        spawn-sh "$HOME/scripts/rofi/wallpicker.sh";
+    }
 }
