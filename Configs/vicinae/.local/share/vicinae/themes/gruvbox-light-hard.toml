@@ -1,0 +1,25 @@
+[meta]
+version = 1
+name = "Gruvbox Light Hard"
+description = "A personalized theme for Vicinae"
+variant = "light"
+inherits = "gruvbox-light"
+icon = "/usr/local/share/vicinae/themes/icons/gruvbox.png"
+
+[colors.core]
+background = "#f9f5d7"
+foreground = "#3c3836"
+accent = "#A9B665"
+border = "#A89984"
+
+[colors.list.item.selection]
+background = { name = "#F2E5BC" }
+# secondary_background = "#524943"
+
+[colors.accents]
+blue = "#458588"
+green = "#98971a"
+magenta = "#b16286"
+red = "#cc241d"
+yellow = "#d79921"
+cyan = "#689d6a"
