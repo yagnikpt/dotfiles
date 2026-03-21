@@ -18,12 +18,10 @@ idle="$(format_row "f3e5" "Idle Inhibitor")"
 devtools="$(format_row "e869" "DevTools")"
 desktop="$(format_row "e30b" "Desktop")"
 
-playing=$([[ -z "$(playerctl -l 2>/dev/null)" ]] && echo 0 || echo 1)
-
 OPTIONS=""
 lines=10
 
-if [ $playing = "1" ]; then
+if playerctl -l 2>/dev/null | grep -qE "^(brave|spotify)"; then
     OPTIONS+="$plcontrols\n"
     lines=$((lines+1))
 fi
@@ -48,7 +46,7 @@ case "$CHOICE" in
             "noctalia")
                 qs -c noctalia-shell ipc call bluetooth togglePanel
                 ;;
-            "custom")
+            *)
                 vicinae vicinae://extensions/Gelei/bluetooth/devices
                 ;;
         esac
@@ -58,7 +56,7 @@ case "$CHOICE" in
             "noctalia")
                 qs -c noctalia-shell ipc call network togglePanel
                 ;;
-            "custom")
+            *)
                 nmgui
                 ;;
         esac

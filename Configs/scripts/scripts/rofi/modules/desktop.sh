@@ -14,12 +14,12 @@ if [[ -n "$choice" ]]; then
     case "$choice" in
         $custom)
             systemctl --user set-environment DESKTOP_SHELL=custom
-            sed -i 's/^include.*/include "custom.kdl"/' ~/.config/niri/config.kdl
+            sed -i "s/include \"${system_de}.kdl\"/include \"custom.kdl\"/" ~/.config/niri/config.kdl
             ~/scripts/niri/start_custom_de_services.sh
             ;;
         $noctalia)
             systemctl --user set-environment DESKTOP_SHELL=noctalia
-            sed -i 's/^include.*/include "noctalia.kdl"/' ~/.config/niri/config.kdl
+            sed -i "s/include \"${system_de}.kdl\"/include \"noctalia.kdl\"/" ~/.config/niri/config.kdl
             ~/scripts/niri/start_noctalia_de_services.sh
             ;;
         *)

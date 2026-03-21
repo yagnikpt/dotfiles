@@ -2,21 +2,17 @@
 
 vscode="Code"
 zed="Zed"
-neovim="Neovim"
 
-options="$vscode\n$zed\n$neovim"
+options="$vscode\n$zed"
 
-val=$(echo -e $options | rofi -dmenu -p "Code Editors" -l 3 -theme ~/.config/rofi/modules/base.rasi)
+val=$(echo -e $options | rofi -dmenu -p "Code Editors" -l 2 -theme ~/.config/rofi/modules/base.rasi)
 
 case "$val" in
     $vscode)
-        $HOME/scripts/rofi/modules/vscode_workspaces.sh
+        vicinae deeplink vicinae://extensions/ShyAssassin/vscode-recents/open-recents
         ;;
     $zed)
-        kitty --title="code-editor-tui" -e zsh -i -c "$HOME/scripts/niri/pick_editor.sh zed"
-        ;;
-    $neovim)
-        kitty --title="code-editor-tui" -e zsh -i -c "$HOME/scripts/niri/pick_editor.sh nvim" &
+        vicinae deeplink vicinae://extensions/pavle99/zed-recents/open-recents
         ;;
     *)
         exit 0

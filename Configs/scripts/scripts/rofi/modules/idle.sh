@@ -20,7 +20,7 @@ case "$val" in
             "noctalia")
                 qs -c noctalia-shell ipc call idleInhibitor disable
                 ;;
-            "custom")
+            *)
                 pkill -STOP hypridle
                 ;;
         esac
@@ -30,7 +30,7 @@ case "$val" in
             "noctalia")
                 qs -c noctalia-shell ipc call idleInhibitor enable
                 ;;
-            "custom")
+            *)
                 pkill -CONT hypridle
                 ;;
         esac

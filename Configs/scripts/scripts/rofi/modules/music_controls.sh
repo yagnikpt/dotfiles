@@ -6,7 +6,7 @@ format_row() {
     printf "<span face='Material Symbols Rounded' size='x-large' line_height='0.01' rise='-5pt'>%s</span> %s" "$icon" "$label"
 }
 
-currentState=$(playerctl status)
+currentState=$(playerctl status -p spotify)
 toggle=$([[ "$currentState" = "Playing" ]] && echo "$(format_row "e034" "Pause")" || echo "$(format_row "e037" "Play")")
 next="$(format_row "e044" "Next")"
 prev="$(format_row "e045" "Previous")"
@@ -24,24 +24,37 @@ loop_rofi() {
     fi
 }
 
-song_info=$(printf "<b>$(playerctl metadata xesam:title)</b>\n$(playerctl metadata xesam:artist)")
+rofi_controls() {
+    song_info=$(printf "<b>$(playerctl metadata xesam:title)</b>\n$(playerctl metadata xesam:artist)")
 
-val=$(echo -e "$next\n$toggle\n$prev\n$loop" | rofi -dmenu -markup-rows -p "Player Controls" -mesg "$song_info" -theme ~/.config/rofi/modules/base.rasi -l 4)
+    val=$(echo -e "$next\n$toggle\n$prev\n$loop" | rofi -dmenu -markup-rows -p "Player Controls" -mesg "$song_info" -theme ~/.config/rofi/modules/base.rasi -l 4)
 
-case $val in
-    $toggle)
-        playerctl play-pause
-        ;;
-    $next)
-        playerctl next
-        ;;
-    $prev)
-        playerctl previous
-        ;;
-    $loop)
-        loop_rofi
+    case $val in
+        $toggle)
+            playerctl play-pause
+            ;;
+        $next)
+            playerctl next
+            ;;
+        $prev)
+            playerctl previous
+            ;;
+        $loop)
+            loop_rofi
+            ;;
+        *)
+            exit 0
+            ;;
+    esac
+}
+
+system_de=$(systemctl --user show-environment | sed -n 's/^DESKTOP_SHELL=//p')
+
+case "$system_de" in
+    "noctalia")
+        qs -c noctalia-shell ipc call media toggle
         ;;
     *)
-        exit 0
+        rofi_controls
         ;;
 esac

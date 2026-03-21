@@ -62,4 +62,7 @@ binds {
     Mod+A hotkey-overlay-title="Notifications" {
         spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle";
     }
+    Mod+Shift+S hotkey-overlay-title="Screen Toolkit" {
+        spawn-sh "qs -c noctalia-shell ipc call plugin:screen-toolkit toggle"
+    }
 }

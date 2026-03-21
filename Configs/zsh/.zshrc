@@ -43,6 +43,7 @@ bindkey '^X^L' clear-screen-and-scrollback
 
 # homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export HOMEBREW_NO_ENV_HINTS=1
 export PATH="/usr/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"

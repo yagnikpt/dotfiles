@@ -90,6 +90,11 @@ overview {
     }
 }
 
+cursor {
+    xcursor-theme "Win11OS"
+    xcursor-size 28
+}
+
 environment {
   XDG_CURRENT_DESKTOP "niri"
   QT_QPA_PLATFORM "wayland"
@@ -150,7 +155,7 @@ window-rule {
 window-rule {
     match app-id="google-chrome"
     match title="New tab - Google Chrome"
-    match app-id="Spotify"
+    match app-id="spotify"
     match app-id="vesktop"
     match app-id="brave-browser"
     match title="New tab - Brave"
@@ -161,6 +166,7 @@ window-rule {
     match app-id="Antigravity"
     match app-id="zen"
     match app-id="emacs"
+    match app-id="AppCenter"
     match app-id="kdenlive"
     // Youtube
     match app-id="agimnkijcaahngcdmfeangaknmldooml"
@@ -174,7 +180,7 @@ window-rule {
     default-column-width { proportion 0.8; }
 }
 window-rule {
-    match app-id="Spotify"
+    match app-id="spotify"
     match app-id="vesktop"
 
     open-on-workspace "media"
@@ -233,6 +239,7 @@ window-rule {
     exclude app-id="google-chrome"
     exclude app-id="Ptyxis"
     exclude app-id="Papers"
+    exclude app-id="zen_browser"
 
     opacity 0.85
 }
@@ -407,3 +414,4 @@ debug {
 }
 
 include "noctalia.kdl"
+include "./animations/pop-drop.kdl"
