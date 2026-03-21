@@ -52,10 +52,11 @@ This repository includes configurations for:
 
 ## Screenshots
 
-![Screenshot of my desktop](./desktop.png)
-![Screenshot of wallpaper picker](./wallpaper_picker.png)
+![desktop](./main.png)
+![wallpaper picker](./wallpaper.png)
+![shell](./shell.png)
 
-More screenshots can be found on this [Reddit post](https://www.reddit.com/r/unixporn/comments/1oqngoz/niri_minimalist_niri_setup/).
+More screenshots can be found on this [Reddit post](https://www.reddit.com/r/unixporn/comments/1rzpaoh/niri_noctalia_with_gruvbox_for_the_win) and [this one](https://www.reddit.com/r/unixporn/comments/1oqngoz/niri_minimalist_niri_setup).
 
 ## Credits
 
