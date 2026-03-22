@@ -1,19 +1,20 @@
 [meta]
 version = 1
-name = "Gruvbox Dark Hard"
-description = "Gruvbox darker palette"
+name = "Gruvbox Material Dark"
+description = "Gruvbox material dark palette"
 variant = "dark"
 inherits = "gruvbox-dark"
-icon = "/usr/local/share/vicinae/themes/icons/gruvbox.png"
+icon = "/usr/share/vicinae/themes/icons/gruvbox.png"
 
 [colors.core]
 accent = "#A9B665"
 background = "#1d2021"
+secondary_background = "#141617"
 foreground = "#ebdbb2"
 border = "#32302F"
 
 [colors.list.item.selection]
-background = { name = "#32302F" }
+background = "#32302F"
 # secondary_background = "#524943"
 
 [colors.accents]

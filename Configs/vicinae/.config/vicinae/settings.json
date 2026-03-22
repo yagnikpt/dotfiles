@@ -21,20 +21,15 @@
    },
    "theme": {
       "dark": {
-         "name": "gruvbox-dark-hard",
+         "name": "gruvbox-material-dark",
          "icon_theme": "Neuwaita"
       }
    },
    "launcher_window": {
       "opacity": 1,
-      "size": {
-         "width": 620,
-         "height": 440
-      },
       "compact_mode": {
          "enabled": false
       }
    },
-   "favorites": [],
-   "providers": {}
+   "favorites": []
 }

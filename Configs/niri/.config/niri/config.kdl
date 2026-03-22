@@ -270,6 +270,9 @@ binds {
     Mod+S hotkey-overlay-title="System Utilities" {
         spawn-sh "$HOME/scripts/rofi/utilities.sh";
     }
+    Mod+Period {
+        spawn-sh "vicinae deeplink vicinae://extensions/vicinae/core/search-emojis";
+    }
 
     // === Window Management ===
     Mod+Q repeat=false { close-window; }
@@ -377,7 +380,7 @@ binds {
     // === Column Management ===
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
-    Mod+Period { expel-window-from-column; }
+    // Mod+Period { expel-window-from-column; }
 
     // === Sizing & Layout ===
     Mod+R { switch-preset-column-width; }

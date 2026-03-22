@@ -21,7 +21,7 @@ Notes:
 
 `Configs/`
 - `niri`, `waybar`, `rofi`, `mako`, `gammastep`
-- `zsh`, `ghostty`, `kitty`, `fastfetch`
+- `zsh`, `ghostty`, `kitty`, `fastfetch`, `vicinae`
 - `hypr` (hypridle/hyprlock), `scripts`, `matugen`
 
 `Services/`
@@ -33,7 +33,7 @@ Shell switch:
 ## Screenshots
 
 ![desktop](./main.png)
-![wallpaper picker](./wallpaper.png)
+![wallpaper picker](./wallpicker.png)
 ![shell](./shell.png)
 
-More: [post 1](https://www.reddit.com/r/unixporn/comments/1rzpaoh/niri_noctalia_with_gruvbox_for_the_win), [post 2](https://www.reddit.com/r/unixporn/comments/1oqngoz/niri_minimalist_niri_setup)
+More: [post](https://www.reddit.com/r/unixporn/comments/1oqngoz/niri_minimalist_niri_setup)

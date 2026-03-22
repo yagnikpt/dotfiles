@@ -59,7 +59,7 @@ binds {
     Mod+P hotkey-overlay-title="Wallpaper Picker" {
         spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle";
     }
-    Mod+A hotkey-overlay-title="Notifications" {
+    Mod+A hotkey-overlay-title="Control Center" {
         spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle";
     }
     Mod+Shift+S hotkey-overlay-title="Screen Toolkit" {
