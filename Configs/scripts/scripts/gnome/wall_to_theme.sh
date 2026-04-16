@@ -32,16 +32,16 @@ sat=$(printf "%.0f\n" "$sat")
 if (( sat < 10 )); then
     accent_color="slate"
 else
-    accent_color=$(map_hue_to_accent_color $hue)
+    accent_color=$(map_hue_to_accent_color "$hue")
 fi
 
 gsettings set org.gnome.desktop.interface accent-color "$accent_color"
 
-cd ~/sys_tools/Marble-shell-theme
+cd ~/sys_tools/Marble-shell-theme || exit
 current_theme=$(gsettings get org.gnome.desktop.interface color-scheme)
-if [ $current_theme == "'prefer-dark'" ]; then
+if [ "$current_theme" == "'prefer-dark'" ]; then
     sat=$((sat+8))
 else
     sat=$((sat+25))
 fi
-python install.py -Pnp -O --filled -Pds --hue $hue --name sysacc --sat=$sat
+python install.py -Pnp -O --filled -Pds --hue "$hue" --name sysacc --sat=$sat

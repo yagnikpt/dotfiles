@@ -1,6 +1,6 @@
 animations {
     window-open {
-      duration-ms 175
+      duration-ms 200
       curve "ease-out-quad"
       custom-shader r"
         vec4 zoom_in(vec3 coords_geo, vec3 size_geo) {

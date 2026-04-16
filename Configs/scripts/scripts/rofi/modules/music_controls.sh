@@ -52,7 +52,8 @@ system_de=$(systemctl --user show-environment | sed -n 's/^DESKTOP_SHELL=//p')
 
 case "$system_de" in
     "noctalia")
-        qs -c noctalia-shell ipc call media toggle
+        # qs -c noctalia-shell ipc call media toggle
+        rofi_controls
         ;;
     *)
         rofi_controls

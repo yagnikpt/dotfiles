@@ -16,6 +16,7 @@ window {
     border: 1px solid;
     border-color: @border;
     background-color: @background;
+    transparency: "real";
 }
 
 mainbox {

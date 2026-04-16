@@ -27,7 +27,7 @@ RCLONE_FLAGS="--copy-links --exclude-from $SCRIPT_DIR/rclone_exclude.txt --confl
 
 for SRC in "${!SOURCE_PATHS[@]}"; do
     if [ -d "$SRC" ] || [ -f "$SRC" ]; then
-        rclone bisync "$SRC" "$REMOTE:$REMOTE_PATH/${SOURCE_PATHS[$SRC]}" $RCLONE_FLAGS $*
+        rclone bisync "$SRC" "$REMOTE:$REMOTE_PATH/${SOURCE_PATHS[$SRC]}" "$RCLONE_FLAGS" "$*"
     fi
 done
 

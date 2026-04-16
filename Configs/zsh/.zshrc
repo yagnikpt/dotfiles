@@ -44,6 +44,8 @@ bindkey '^X^L' clear-screen-and-scrollback
 # homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export HOMEBREW_NO_ENV_HINTS=1
+
+eval "$(fnm env --use-on-cd --shell zsh)"
 export PATH="/usr/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
@@ -88,6 +90,7 @@ eval "$(fzf --zsh)"
 
 # aliases
 alias c="clear"
+alias rmf="rm -rf"
 alias nv="nvim"
 alias nvsu="sudoedit nvim"
 alias zshconfig="nvim ~/.zshrc"
@@ -97,6 +100,7 @@ alias fb="flashback"
 alias ds="du -h -s"
 alias niriconfig="nvim ~/.config/niri/config.kdl"
 alias dysk="dysk -c disk+used+use+free+size"
+alias anime="curd"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

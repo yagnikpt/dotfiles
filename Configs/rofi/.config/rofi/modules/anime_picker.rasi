@@ -1,0 +1,25 @@
+@theme "base_with_search.rasi"
+
+window {
+    width: 500px;
+    border-radius: 8px;
+    border: 1px solid;
+    border-color: @border;
+    background-color: @background;
+}
+
+listview {
+    lines: 6;
+}
+
+inputbar {
+    children: [entry];
+}
+
+element {
+    vertical-align: 0.5;
+}
+
+element-icon {
+    size: 128;
+}

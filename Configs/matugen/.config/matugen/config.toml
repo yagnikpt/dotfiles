@@ -1,6 +1,5 @@
 [config.wallpaper]
-command = "swww"
-arguments = ["img", "--transition-duration", "1", "--transition-fps", "60", "--transition-type", "fade"]
+command = "swww img --transition-duration 1 --transition-fps 60 --transition-type fade {{ image }}"
 set = true
 
 [templates.waybar]

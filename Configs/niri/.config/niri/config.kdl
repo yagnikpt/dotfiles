@@ -22,6 +22,13 @@ gestures {
     }
 }
 
+blur {
+  passes 3
+  offset 3.0
+  noise 0.05
+  saturation 1.0
+}
+
 layout {
     gaps 5
     background-color "transparent"
@@ -90,6 +97,21 @@ overview {
     }
 }
 
+layer-rule {
+    match namespace="linux-wallpaperengine"
+    place-within-backdrop true
+}
+
+layer-rule {
+  match namespace="vicinae"
+  match namespace="rofi"
+
+  background-effect {
+    blur true
+    xray false
+  }
+}
+
 cursor {
     xcursor-theme "Win11OS"
     xcursor-size 28
@@ -136,6 +158,13 @@ animations {
 }
 
 window-rule {
+  background-effect {
+    blur true
+    xray false
+  }
+}
+
+window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
     default-floating-position x=10 y=10 relative-to="bottom-right"
 }
@@ -163,11 +192,13 @@ window-rule {
     match app-id="Code"
     match app-id="code"
     match app-id="zed"
-    match app-id="Antigravity"
+    match app-id="antigravity"
     match app-id="zen"
     match app-id="emacs"
     match app-id="AppCenter"
     match app-id="kdenlive"
+    // Wallpaper Engine
+    match app-id="steam_app_431960"
     // Youtube
     match app-id="agimnkijcaahngcdmfeangaknmldooml"
     // Youtube Music
@@ -235,7 +266,7 @@ window-rule {
 }
 window-rule {
     match is-active=false
-    exclude app-id="brave-browser"
+    exclude app-id="brave"
     exclude app-id="google-chrome"
     exclude app-id="Ptyxis"
     exclude app-id="Papers"

@@ -9,37 +9,35 @@ format_row() {
 plcontrols="$(format_row "e405" "Player Controls")"
 bluetooth="$(format_row "e1a7" "Bluetooth")"
 wifi="$(format_row "e63e" "Wifi")"
-theme="$(format_row "eb37" "Theme")"
-limiter="$(format_row "f24b" "Charge Limiter")"
-editor="$(format_row "e86f" "Code")"
 install="$(format_row "eb71" "Install Package")"
-vpn="$(format_row "e016" "VPN")"
-idle="$(format_row "f3e5" "Idle Inhibitor")"
-devtools="$(format_row "e869" "DevTools")"
+vpn="$(format_row "e62f" "VPN")"
+devtools="$(format_row "eb8e" "DevTools")"
 desktop="$(format_row "e30b" "Desktop")"
+anime="$(format_row "e02c" "Anime")"
+tools="$(format_row "e869" "Tools")"
 
 OPTIONS=""
-lines=10
+lines=8
 
 if playerctl -l 2>/dev/null | grep -qE "^(brave|spotify)"; then
     OPTIONS+="$plcontrols\n"
     lines=$((lines+1))
 fi
-OPTIONS+="$editor\n$devtools\n$bluetooth\n$wifi\n$desktop\n$theme\n$vpn\n$idle\n$limiter\n$install"
+OPTIONS+="$devtools\n$anime\n$bluetooth\n$wifi\n$desktop\n$tools\n$vpn\n$install"
 
 CHOICE=$(echo -e "$OPTIONS" | rofi -dmenu -markup-rows -i -theme $HOME/.config/rofi/utilities.rasi -l $lines)
 
 system_de=$(systemctl --user show-environment | sed -n 's/^DESKTOP_SHELL=//p')
 
 case "$CHOICE" in
-    $editor)
-        $HOME/scripts/rofi/modules/code_editors.sh
-        ;;
     $plcontrols)
         $HOME/scripts/rofi/modules/music_controls.sh
         ;;
     $devtools)
         $HOME/scripts/rofi/modules/devtools.sh
+        ;;
+    $anime)
+        curd -rofi
         ;;
     $bluetooth)
         case "$system_de" in
@@ -62,19 +60,13 @@ case "$CHOICE" in
         esac
         ;;
     $desktop)
-        $HOME/scripts/rofi/modules/desktop.sh
+        $HOME/scripts/rofi/groups/desktop.sh
         ;;
-    $theme)
-        $HOME/scripts/rofi/modules/theme.sh
+    $tools)
+        $HOME/scripts/rofi/groups/tools.sh
         ;;
     $vpn)
         $HOME/scripts/rofi/modules/vpn.sh
-        ;;
-    $idle)
-        $HOME/scripts/rofi/modules/idle.sh
-        ;;
-    $limiter)
-        $HOME/scripts/rofi/modules/battery_limit.sh
         ;;
     $install)
         $HOME/scripts/rofi/modules/pkg_install.sh

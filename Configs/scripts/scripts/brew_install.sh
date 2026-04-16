@@ -12,7 +12,10 @@ fzf_args=(
   --color 'pointer:green,marker:green'
 )
 
-pkg_names=$(brew formulae | fzf "${fzf_args[@]}")
+# casks listed first so awk deduplication keeps cask when names collide
+pkg_names=$(
+  { brew casks; brew formulae; } | awk '!seen[$0]++' | fzf "${fzf_args[@]}"
+)
 
 if [[ -n "$pkg_names" ]]; then
   packages_to_install=$(echo "$pkg_names" | tr '\n' ' ')

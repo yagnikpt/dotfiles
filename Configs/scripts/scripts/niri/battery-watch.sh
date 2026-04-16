@@ -6,7 +6,7 @@ LOW_BATTERY_NOTIFIED=0
 FULL_THRESHOLD_NOTIFIED=0
 
 while true; do
-    PERCENTAGE=$(upower -i $(upower -e | grep BAT) | grep "percentage" | awk '{print $2}' | tr -d '%')
+    PERCENTAGE=$(upower -i "$(upower -e | grep BAT)" | grep "percentage" | awk '{print $2}' | tr -d '%')
     STATE=$(upower -i $BATTERY_PATH | grep state | awk '{print $2}')
     FULL_THRESHOLD=$(cat /sys/class/power_supply/BAT0/charge_control_end_threshold 2>/dev/null || echo "100")
 

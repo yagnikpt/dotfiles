@@ -1,0 +1,82 @@
+/*
+Title: glide-bmw
+Desc: Burn-My-Windows glide-inspired open/close animation for niri.
+*/
+
+animations {
+    window-open {
+        duration-ms 260
+        curve "linear"
+
+        custom-shader r"
+            float ease_out_quad(float t) {
+                return 1.0 - (1.0 - t) * (1.0 - t);
+            }
+
+            vec4 open_color(vec3 coords_geo, vec3 size_geo) {
+                if (coords_geo.x < 0.0 || coords_geo.x > 1.0 ||
+                    coords_geo.y < 0.0 || coords_geo.y > 1.0) {
+                    return vec4(0.0);
+                }
+
+                float t = niri_clamped_progress;
+                float p = 1.0 - ease_out_quad(t);
+
+                float uScale = 1.14;
+                float uSquish = 0.90;
+                float uTilt = 0.85;
+                float uShift = 0.10;
+
+                vec2 coords = coords_geo.xy * 2.0 - 1.0;
+                coords /= mix(1.0, uScale, p);
+                coords.y /= mix(1.0, 1.0 - 0.2 * uSquish, p);
+                coords.x /= mix(1.0, 1.0 - 0.1 * uTilt * coords.y, p);
+                coords.y += uShift * p;
+                coords = coords * 0.5 + 0.5;
+
+                vec3 tex_coords = niri_geo_to_tex * vec3(coords, 1.0);
+                vec4 color = texture2D(niri_tex, tex_coords.st);
+                color.a *= t;
+                return color;
+            }
+        "
+    }
+
+    window-close {
+        duration-ms 240
+        curve "linear"
+
+        custom-shader r"
+            float ease_out_quad(float t) {
+                return 1.0 - (1.0 - t) * (1.0 - t);
+            }
+
+            vec4 close_color(vec3 coords_geo, vec3 size_geo) {
+                if (coords_geo.x < 0.0 || coords_geo.x > 1.0 ||
+                    coords_geo.y < 0.0 || coords_geo.y > 1.0) {
+                    return vec4(0.0);
+                }
+
+                float t = niri_clamped_progress;
+                float p = ease_out_quad(t);
+
+                float uScale = 1.14;
+                float uSquish = 0.90;
+                float uTilt = 0.85;
+                float uShift = 0.10;
+
+                vec2 coords = coords_geo.xy * 2.0 - 1.0;
+                coords /= mix(1.0, uScale, p);
+                coords.y /= mix(1.0, 1.0 - 0.2 * uSquish, p);
+                coords.x /= mix(1.0, 1.0 - 0.1 * uTilt * coords.y, p);
+                coords.y += uShift * p;
+                coords = coords * 0.5 + 0.5;
+
+                vec3 tex_coords = niri_geo_to_tex * vec3(coords, 1.0);
+                vec4 color = texture2D(niri_tex, tex_coords.st);
+                color.a *= (1.0 - t) * (1.0 - t);
+                return color;
+            }
+        "
+    }
+}

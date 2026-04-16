@@ -5,8 +5,7 @@ font-family = "JetBrainsMono NFM"
 # Window Configuration
 window-padding-x = 12
 window-padding-y = 12
-background-opacity = 1
-background-blur-radius = 32
+background-opacity = 0.85
 window-width=80
 window-height=32
 
@@ -53,7 +52,6 @@ shell-integration = detect
 shell-integration-features = cursor,sudo,title,no-cursor
 # keybind = shift+enter=text:\n
 
-quit-after-last-window-closed = true
-quit-after-last-window-closed-delay = 5m
+quit-after-last-window-closed = false
 
 theme = dark:gruvbox-material,light:gruvbox-material-light

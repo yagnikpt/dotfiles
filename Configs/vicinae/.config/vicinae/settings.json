@@ -20,16 +20,25 @@
       }
    },
    "theme": {
+      "light": {
+         "name": "gruvbox-material-light",
+         "icon_theme": "Neuwaita"
+      },
       "dark": {
          "name": "gruvbox-material-dark",
          "icon_theme": "Neuwaita"
       }
    },
    "launcher_window": {
-      "opacity": 1,
+      "opacity": 0.8,
       "compact_mode": {
          "enabled": false
       }
    },
-   "favorites": []
+   "favorites": [],
+   "providers": {
+      "browser-extension": {
+         "enabled": false
+      }
+   }
 }

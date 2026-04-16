@@ -76,7 +76,7 @@ if [[ -n "$wall_selection" ]]; then
         elif [[ -n "$(pgrep dms)" ]]; then
             dms ipc call wallpaper set "$selected_path"
         else
-            matugen image "$selected_path" -m "$mode"
+            matugen image "$selected_path" -m "$mode" --source-color-index 0
         fi
     else
         echo "Error: Selected file $wall_selection does not exist in any wallpaper directory."
