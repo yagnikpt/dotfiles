@@ -72,7 +72,7 @@ ZSH_THEME=""
 # oh my posh
 # eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
-plugins=(git git-commit tldr docker docker-compose azure dnf)
+plugins=(git git-commit tldr docker docker-compose dnf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,4 +110,49 @@ export ANDROID_HOME=~/Android/Sdk
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
-harsh todo
+# harsh todo
+
+# Preserve the existing Tab widget before Forge setup can override it.
+# This lives outside the managed block so forge setup won't clobber it.
+_FORGE_PREV_TAB_WIDGET=$(bindkey '^I' 2>/dev/null | awk '{print $2}')
+
+# >>> forge initialize >>>
+# !! Contents within this block are managed by 'forge zsh setup' !!
+# !! Do not edit manually - changes will be overwritten !!
+
+# Add required zsh plugins if not already present
+if [[ ! " ${plugins[@]} " =~ " zsh-autosuggestions " ]]; then
+    plugins+=(zsh-autosuggestions)
+fi
+if [[ ! " ${plugins[@]} " =~ " zsh-syntax-highlighting " ]]; then
+    plugins+=(zsh-syntax-highlighting)
+fi
+
+# Load forge shell plugin (commands, completions, keybindings) if not already loaded
+if [[ -z "$_FORGE_PLUGIN_LOADED" ]]; then
+    eval "$(forge zsh plugin)"
+fi
+
+# Load forge shell theme (prompt with AI context) if not already loaded
+if [[ -z "$_FORGE_THEME_LOADED" ]]; then
+    eval "$(forge zsh theme)"
+fi
+# <<< forge initialize >>>
+
+# Forge Tab override: only use Forge completion when the input line starts
+# with ":". Otherwise, fall back to the widget that was bound before Forge.
+if (( $+functions[forge-completion] )); then
+    forge-smart-complete() {
+        if [[ ${LBUFFER##[[:space:]]} == :* ]]; then
+            zle forge-completion
+        else
+            if [[ -n "${_FORGE_PREV_TAB_WIDGET:-}" ]]; then
+                zle "${_FORGE_PREV_TAB_WIDGET}"
+            else
+                zle expand-or-complete
+            fi
+        fi
+    }
+    zle -N forge-smart-complete
+    bindkey '^I' forge-smart-complete
+fi

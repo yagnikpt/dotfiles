@@ -18,17 +18,31 @@ declare -A SOURCE_PATHS=(
 # --exclude-from : exclude patterns from file
 # --verbose  : show what's happening
 # --create-empty-src-dirs : ensure directory structure is mirrored
-SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
-RCLONE_FLAGS="--copy-links --exclude-from $SCRIPT_DIR/rclone_exclude.txt --conflict-resolve newer --create-empty-src-dirs --verbose"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+RCLONE_FLAGS=(
+    --copy-links
+    --exclude-from "$SCRIPT_DIR/rclone_exclude.txt"
+    --conflict-resolve newer
+    --create-empty-src-dirs
+    --verbose
+)
 
 # NOTE: For the FIRST run, add --resync flag:
 # RCLONE_FLAGS="$RCLONE_FLAGS --resync"
 # After first successful sync, remove --resync and run normally
 
+status=0
+
 for SRC in "${!SOURCE_PATHS[@]}"; do
     if [ -d "$SRC" ] || [ -f "$SRC" ]; then
-        rclone bisync "$SRC" "$REMOTE:$REMOTE_PATH/${SOURCE_PATHS[$SRC]}" "$RCLONE_FLAGS" "$*"
+        if ! rclone bisync "$SRC" "$REMOTE:$REMOTE_PATH/${SOURCE_PATHS[$SRC]}" "${RCLONE_FLAGS[@]}" "$@"; then
+            status=1
+        fi
     fi
 done
 
-notify-send "Files are synced :)" -a "Backup" -e
+if [ "$status" -eq 0 ]; then
+    notify-send "Files are synced :)" -a "Backup" -e
+else
+    notify-send "Backup errored" -a "Backup" -u critical -e
+fi

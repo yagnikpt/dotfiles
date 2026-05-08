@@ -30,7 +30,7 @@
       }
    },
    "launcher_window": {
-      "opacity": 0.8,
+      "opacity": 0.85,
       "compact_mode": {
          "enabled": false
       }

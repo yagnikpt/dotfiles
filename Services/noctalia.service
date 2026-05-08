@@ -3,6 +3,7 @@ Description=Noctalia Shell Service
 PartOf=graphical-session.target
 Requisite=graphical-session.target
 After=graphical-session.target
+ConditionEnvironment=XDG_CURRENT_DESKTOP=niri
 
 [Service]
 ExecStart=qs -c noctalia-shell

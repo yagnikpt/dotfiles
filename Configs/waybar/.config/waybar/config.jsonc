@@ -7,54 +7,28 @@
   "height": 32,
   // "width": 990,
   "spacing": 0,
-  "modules-left": [
-    "custom/menu",
-    "custom/separator",
-    "niri/workspaces",
-    "custom/separator",
-    "niri/window"
-  ],
-  "modules-center": [
-  ],
+  "modules-left": ["custom/menu", "custom/separator", "custom/sysbar"],
+  "modules-center": [],
   "modules-right": [
     "group/tray-expander",
     "custom/separator",
     "bluetooth#battery",
     "network",
     "battery",
-    "custom/separator",
     "clock"
   ],
   // Modules configuration
-  "niri/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "default": "",
-      "1": "DEV",
-      "2": "WWW",
-      "3": "IMG",
-      "4": "DOC",
-      "5": "MSC",
-      "6": "SYS",
-      "7": "FLS",
-      "8": "GFX",
-      "9": "TER",
-      "10": "MDA"
-      // "active": "O"
-    }
+  "custom/workspaces": {
+    "exec": "~/.config/waybar/scripts/workspaces.sh",
+    "interval": 1,
+    "return-type": "json"
   },
-  "niri/window": {
-    "format": "  {title}",
-    "max-length": 40,
-    "rewrite": {
-      "(.*) ": "  ",
-      "(.*) ~(.*)": "󰆍  Ghostty",
-      "(.*).../(.*)": "󰆍  Ghostty",
-      "yagnik@nobara:~(.*)": "󰆍  Ghostty",
-      "(.*)nv(.*)": "  Neovim",
-      "(.*)Discord(.*)": "   Discord"
-    },
-    "tooltip": false
+  "custom/sysbar": {
+    "exec": "~/.config/waybar/scripts/sysbar.sh",
+    "interval": 1,
+    "on-click": "~/.config/waybar/scripts/sysbar.sh up",
+    "on-click-right": "~/.config/waybar/scripts/sysbar.sh down",
+    "return-type": "json"
   },
   "group/tray-expander": {
     "orientation": "inherit",
@@ -62,10 +36,7 @@
       "transition-duration": 300,
       "children-class": "tray-group-item"
     },
-    "modules": [
-      "custom/expand-icon",
-      "tray"
-    ]
+    "modules": ["custom/expand-icon", "tray"]
   },
   "custom/expand-icon": {
     "format": "󰇙",
@@ -74,45 +45,43 @@
   "group/b-battery": {
     "hide-empty-text": true,
     "orientation": "horizontal",
-    "modules": [
-      "custom/separator",
-      "bluetooth#battery"
-    ]
+    "modules": ["custom/separator", "bluetooth#battery"]
   },
   "bluetooth#battery": {
     "format": "",
-    "format-connected-battery": "󰂯 {device_battery_percentage}"
+    "tooltip-format": "{device_alias}",
+    "format-connected-battery": "[B {device_battery_percentage}%]"
   },
   "tray": {
     "icon-size": 16,
     "spacing": 13
   },
   "clock": {
-    "format": "{:%H:%M}",
-    "format-alt": "{:%d/%m/%y}",
+    "format": "[{:%H:%M}]",
+    "format-alt": "[{:%d/%m/%y}]",
     "on-click-right": "gnome-calendar",
     "tooltip": false
   },
   "battery": {
     "states": {
-        "warning": 10,
-        "critical": 4
+      "warning": 20,
+      "critical": 10
     },
-    "format": "{icon}",
-    "format-charging": " {icon}",
-    "format-plugged": " {icon}",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format": "[{capacity}%]",
+    "format-charging": "[ {capacity}%]",
+    // "format-plugged": " {icon}",
     "interval": 3,
     "tooltip-format": "Battery: {capacity}%"
   },
   "network": {
-    "format": "{icon}",
-    "format-wifi": "{icon}",
-    "format-ethernet": "  {ipaddr}/{cidr}",
-    "tooltip-format": "  {ifname} via {gwaddr}",
-    "format-linked": "  {ifname} (No IP)",
-    "format-disconnected": "󰤮 ",
-    "on-click": "nmgui",
+    "format": "[{ifname}]",
+    "format-wifi": "[W {signalStrength}%]",
+    "format-alt": "[W {essid}]",
+    "format-ethernet": "{ipaddr}/{cidr}",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "[W NIL]",
+    "on-click-right": "nmgui",
     "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
     "tooltip-format-wifi": "{essid} ({signalStrength}%)"
   },

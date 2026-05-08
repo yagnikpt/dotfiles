@@ -9,10 +9,10 @@ val=$(echo -e $options | rofi -dmenu -p "Code Editors" -l 2 -theme ~/.config/rof
 
 case "$val" in
     $vscode)
-        vicinae deeplink vicinae://extensions/ShyAssassin/vscode-recents/open-recents
+        vicinae vicinae://launch/@ShyAssassin/store.vicinae.vscode-recents/open-recents
         ;;
     $zed)
-        vicinae deeplink vicinae://extensions/pavle99/zed-recents/open-recents
+        vicinae vicinae://launch/@pavle99/store.vicinae.zed-recents/open-recents
         ;;
     *)
         exit 0

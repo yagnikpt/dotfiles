@@ -7,10 +7,10 @@ choice=$(echo -e "$dnf\n$brew" | rofi -dmenu -p "Installer" -theme ~/.config/rof
 
 case "$choice" in
     $dnf)
-        kitty --title="dnf-package-tui" -e $HOME/scripts/dnf_install.sh
+        footclient --title="dnf-package-tui-overlay" -e $HOME/scripts/dnf_install.sh
         ;;
     $brew)
-        kitty --title="brew-package-tui" -e $HOME/scripts/brew_install.sh
+        footclient --title="brew-package-tui-overlay" -e $HOME/scripts/brew_install.sh
         ;;
     *)
         ;;

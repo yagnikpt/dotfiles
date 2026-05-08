@@ -2,11 +2,7 @@
 
 current_theme=$(gsettings get org.gnome.desktop.interface color-scheme)
 
-format_row() {
-    local icon=$(printf "\u$1")
-    local label="$2"
-    printf "<span face='Material Symbols Rounded' size='x-large' line_height='0.01' rise='-5pt'>%s</span> %s" "$icon" "$label"
-}
+source "$(dirname "$0")/../../utils.sh"
 
 light="$(format_row "e518" "Light")"
 dark="$(format_row "e51c" "Dark")"
@@ -22,7 +18,7 @@ fi
 new_theme=$(echo -e "$light\n$dark" | rofi -dmenu -markup-rows -p "Select Theme" -theme $HOME/.config/rofi/modules/base.rasi -l 2 -select "$selected")
 current_image=$(swww query | sed 's/.*: //')
 
-system_de=$(systemctl --user show-environment | sed -n 's/^DESKTOP_SHELL=//p')
+system_de=$(getenv DESKTOP_SHELL)
 
 case $new_theme in
     $light)

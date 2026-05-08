@@ -34,7 +34,8 @@ window#waybar>box {
 /* Modules styling */
 #custom-menu,
 #custom-separator,
-#workspaces,
+#custom-workspaces,
+#custom-sysbar,
 #window,
 #group-tray-expander,
 #custom-expand-icon,
@@ -43,19 +44,15 @@ window#waybar>box {
 #bluetooth.battery,
 #clock {
   margin: 0px 1px;
-  padding: 0px 5px;
+  padding: 0px;
   font-size: 16.5px;
-  font-family: 'PlemolJPConsoleNF', 'Adwaita Sans', 'Noto Sans', sans-serif;
+  font-family: 'GeistMono NFM', 'Adwaita Sans', 'Noto Sans', sans-serif;
   font-weight: 500;
   border-radius: 0px;
   border: none;
   background: transparent;
   opacity: 1;
   color: @foreground;
-}
-
-#bluetooth.battery {
-  font-size: 15px;
 }
 
 #custom-separator {
@@ -156,31 +153,8 @@ window#waybar>box {
 #battery.plugged:not(.charging)  { color: @yellow }
 #battery.charging                { color: @green }
 
-/* Hyprland/workspaces styling */
-#workspaces {
-  padding: 0;
-  margin: 0;
-}
-
-#workspaces button {
-  padding: 0px 5px;
-  margin: 0px 0px;
-  border: none;
-  color: inherit;
-  min-width: 0px;
-  letter-spacing: 0px;
-  box-shadow: none;
-  background: transparent;
-  opacity: .5;
-  transition: color .08s ease, background .08s ease, opacity .08s ease;
-}
-
-#workspaces button.urgent              { color: @red }
-#workspaces button.empty               { opacity: .25; }
-#workspaces button.visible             { opacity: 1; }
-#workspaces button:hover:not(.visible) { opacity: .8; }
-
 tooltip {
   border-radius: 6px;
   background: @surface;
+  font-family: 'GeistMono NFM', 'Adwaita Sans', 'Noto Sans', sans-serif;
 }

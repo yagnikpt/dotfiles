@@ -1,12 +1,14 @@
 #!/bin/env bash
 
+source "$(dirname "$0")/../../utils.sh"
+
 off="Off"
 on="On"
 
 state_cmd=$(ps aux | awk '/hypridle/ {print $8; exit}')
 state=$on
 
-system_de=$(systemctl --user show-environment | sed -n 's/^DESKTOP_SHELL=//p')
+system_de=$(getenv DESKTOP_SHELL)
 
 if [[ "$state_cmd" == *"T"* ]]; then
     state=$off

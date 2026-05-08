@@ -84,7 +84,9 @@ recent-windows {
     }
     binds {
         Mod+Tab { next-window scope="workspace"; }
+        Alt+Tab { next-window scope="all"; }
         Mod+Shift+Tab   { previous-window scope="workspace"; }
+        Alt+Shift+Tab   { previous-window scope="all"; }
     }
     previews {
         max-scale 0.35
@@ -105,6 +107,7 @@ layer-rule {
 layer-rule {
   match namespace="vicinae"
   match namespace="rofi"
+  match namespace="ghostty-quick-terminal"
 
   background-effect {
     blur true
@@ -157,11 +160,19 @@ animations {
     }
 }
 
+// window-rule {
+//     background-effect {
+//         blur true
+//     }
+// }
+
 window-rule {
-  background-effect {
-    blur true
-    xray false
-  }
+    match title="tui-overlay"
+
+    background-effect {
+        blur true
+        xray false
+    }
 }
 
 window-rule {
@@ -210,9 +221,11 @@ window-rule {
 
     default-column-width { proportion 0.8; }
 }
+
 window-rule {
     match app-id="spotify"
     match app-id="vesktop"
+    match app-id="brave-cinhimbnkkaeohfgghhklpknlkffjgod-Default"
 
     open-on-workspace "media"
     open-focused true
@@ -264,16 +277,17 @@ window-rule {
 
     draw-border-with-background false
 }
-window-rule {
-    match is-active=false
-    exclude app-id="brave"
-    exclude app-id="google-chrome"
-    exclude app-id="Ptyxis"
-    exclude app-id="Papers"
-    exclude app-id="zen_browser"
-
-    opacity 0.85
-}
+// window-rule {
+//     match is-active=false
+//     exclude app-id="brave"
+//     exclude app-id="google-chrome"
+//     exclude app-id="Ptyxis"
+//     exclude app-id="Papers"
+//     exclude app-id="zen_browser"
+//     exclude app-id="helium"
+//
+//     opacity 0.85
+// }
 
 window-rule {
     geometry-corner-radius 16
@@ -286,7 +300,7 @@ binds {
 
     // === Application Launchers ===
     Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty" "+new-window"; }
-    Mod+B hotkey-overlay-title="Open Browser" { spawn "google-chrome-stable"; }
+    Mod+B hotkey-overlay-title="Open Browser" { spawn "helium-browser-bin"; }
     Mod+E hotkey-overlay-title="Open Explorer" { spawn "nautilus"; }
     Mod+Shift+E { quit; }
     Mod+M hotkey-overlay-title="Open Text Buffer" { spawn "gtk-launch" "org.gnome.gitlab.cheywood.Buffer"; }
@@ -302,7 +316,7 @@ binds {
         spawn-sh "$HOME/scripts/rofi/utilities.sh";
     }
     Mod+Period {
-        spawn-sh "vicinae deeplink vicinae://extensions/vicinae/core/search-emojis";
+        spawn-sh "vicinae vicinae://launch/core/search-emojis";
     }
 
     // === Window Management ===

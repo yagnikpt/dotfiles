@@ -1,10 +1,6 @@
 #!/bin/env bash
 
-format_row() {
-    local icon=$(printf "\u$1")
-    local label="$2"
-    printf "<span face='Material Symbols Rounded' size='x-large' line_height='0.01' rise='-5pt'>%s</span> %s" "$icon" "$label"
-}
+source "$(dirname "$0")/../../utils.sh"
 
 theme="$(format_row "eb37" "Theme")"
 idle="$(format_row "f3e5" "Idle Inhibitor")"
