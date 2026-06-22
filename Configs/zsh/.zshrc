@@ -24,7 +24,7 @@ alias -s log=bat
 alias -s py='$EDITOR'
 alias -s js='$EDITOR'
 alias -s ts='$EDITOR'
-alias -s html=open
+alias -s html=xdg-open
 
 alias -g NE='2>/dev/null'
 alias -g NO='>/dev/null'
@@ -42,14 +42,17 @@ zle -N clear-screen-and-scrollback
 bindkey '^X^L' clear-screen-and-scrollback
 
 # homebrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_NO_REQUIRE_TAP_TRUST=1
+
+# export PATH="/usr/bin:$PATH"
+# export PATH="$PATH:$HOME/.local/bin"
+# export PATH="$PATH:$HOME/.cargo/bin"
+# export PATH="$PATH:$HOME/go/bin"
+# export PATH="$PATH:$HOME/.npm-global/bin"
 
 eval "$(fnm env --use-on-cd --shell zsh)"
-export PATH="/usr/bin:$PATH"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:$HOME/go/bin"
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -90,6 +93,7 @@ eval "$(fzf --zsh)"
 
 # aliases
 alias c="clear"
+alias s="fd -H -g"
 alias rmf="rm -rf"
 alias nv="nvim"
 alias nvsu="sudoedit nvim"
@@ -101,6 +105,9 @@ alias ds="du -h -s"
 alias niriconfig="nvim ~/.config/niri/config.kdl"
 alias dysk="dysk -c disk+used+use+free+size"
 alias anime="curd"
+alias open="xdg-open"
+alias dcu="docker compose up -d"
+alias dcd="docker compose down"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -110,49 +117,5 @@ export ANDROID_HOME=~/Android/Sdk
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
-# harsh todo
-
-# Preserve the existing Tab widget before Forge setup can override it.
-# This lives outside the managed block so forge setup won't clobber it.
-_FORGE_PREV_TAB_WIDGET=$(bindkey '^I' 2>/dev/null | awk '{print $2}')
-
-# >>> forge initialize >>>
-# !! Contents within this block are managed by 'forge zsh setup' !!
-# !! Do not edit manually - changes will be overwritten !!
-
-# Add required zsh plugins if not already present
-if [[ ! " ${plugins[@]} " =~ " zsh-autosuggestions " ]]; then
-    plugins+=(zsh-autosuggestions)
-fi
-if [[ ! " ${plugins[@]} " =~ " zsh-syntax-highlighting " ]]; then
-    plugins+=(zsh-syntax-highlighting)
-fi
-
-# Load forge shell plugin (commands, completions, keybindings) if not already loaded
-if [[ -z "$_FORGE_PLUGIN_LOADED" ]]; then
-    eval "$(forge zsh plugin)"
-fi
-
-# Load forge shell theme (prompt with AI context) if not already loaded
-if [[ -z "$_FORGE_THEME_LOADED" ]]; then
-    eval "$(forge zsh theme)"
-fi
-# <<< forge initialize >>>
-
-# Forge Tab override: only use Forge completion when the input line starts
-# with ":". Otherwise, fall back to the widget that was bound before Forge.
-if (( $+functions[forge-completion] )); then
-    forge-smart-complete() {
-        if [[ ${LBUFFER##[[:space:]]} == :* ]]; then
-            zle forge-completion
-        else
-            if [[ -n "${_FORGE_PREV_TAB_WIDGET:-}" ]]; then
-                zle "${_FORGE_PREV_TAB_WIDGET}"
-            else
-                zle expand-or-complete
-            fi
-        fi
-    }
-    zle -N forge-smart-complete
-    bindkey '^I' forge-smart-complete
-fi
+# nub
+export PATH="$HOME/.nub/bin:$PATH"

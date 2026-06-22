@@ -1,0 +1,82 @@
+layer-rule {
+  match namespace="^noctalia-wallpaper*"
+  match namespace="^noctalia-backdrop*"
+
+  place-within-backdrop true
+}
+
+layer-rule {
+  match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+  background-effect {
+    xray false
+    //blur false
+  }
+}
+
+layout {
+  background-color "transparent"
+}
+
+overview {
+  workspace-shadow {
+    off
+  }
+}
+
+window-rule {
+  match app-id="dev.noctalia.Noctalia.Settings"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
+binds {
+    XF86AudioRaiseVolume allow-when-locked=true {
+        spawn-sh "noctalia msg volume-up";
+    }
+    XF86AudioLowerVolume allow-when-locked=true {
+        spawn-sh "noctalia msg volume-down";
+    }
+    XF86AudioMute allow-when-locked=true {
+        spawn-sh "noctalia msg volume-mute";
+    }
+    XF86KbdBrightnessUp allow-when-locked=true {
+        spawn "kbdbrite.sh" "up";
+    }
+    XF86KbdBrightnessDown allow-when-locked=true {
+        spawn "kbdbrite.sh" "down";
+    }
+    XF86MonBrightnessUp allow-when-locked=true {
+        spawn-sh "noctalia msg brightness-up";
+    }
+    XF86MonBrightnessDown allow-when-locked=true {
+        spawn-sh "noctalia msg brightness-down";
+    }
+
+    // Mod+Alt+R hotkey-overlay-title="Start/Stop Screen Recording" {
+    //     spawn-sh "qs -c noctalia-shell ipc call plugin:screen-recorder toggle";
+    // }
+
+    Mod+Comma hotkey-overlay-title="Noctalia Settings" { spawn-sh "noctalia msg settings-toggle"; }
+    Mod+Space hotkey-overlay-title="Application Launcher" {
+        spawn-sh "noctalia msg panel-toggle launcher";
+    }
+    Alt+Space hotkey-overlay-title="App Launcher" {
+        spawn "vicinae" "toggle";
+    }
+    Mod+V hotkey-overlay-title="Clipboard Manager" {
+        spawn "vicinae" "vicinae://launch/clipboard/history";
+    }
+    Mod+X hotkey-overlay-title="Power Menu" {
+        spawn-sh "noctalia msg panel-toggle session";
+    }
+    Mod+P hotkey-overlay-title="Wallpaper Picker" {
+        spawn-sh "noctalia msg panel-toggle wallpaper";
+    }
+    Mod+A hotkey-overlay-title="Control Center" {
+        spawn-sh "noctalia msg panel-toggle control-center";
+    }
+    // Mod+Shift+S hotkey-overlay-title="Screen Toolkit" {
+    //     spawn-sh "qs -c noctalia-shell ipc call plugin:screen-toolkit toggle"
+    // }
+}

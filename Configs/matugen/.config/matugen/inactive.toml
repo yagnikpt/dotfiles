@@ -1,7 +1,3 @@
-[config.wallpaper]
-command = "awww img --transition-duration 1 --transition-fps 60 --transition-type fade {{ image }}"
-set = true
-
 [templates.waybar]
 input_path = './templates/colors.css'
 output_path = '~/.config/waybar/themes/matugen.css'
@@ -9,7 +5,6 @@ output_path = '~/.config/waybar/themes/matugen.css'
 [templates.mako]
 input_path = './templates/mako'
 output_path = '~/.config/mako/themes/matugen'
-post_hook = 'makoctl reload'
 
 [templates.vicinae]
 input_path = './templates/vicinae.toml'
@@ -30,12 +25,6 @@ output_path = '~/.config/hypr/hyprlock.conf'
 [templates.kitty]
 input_path = './templates/kitty.conf'
 output_path = '~/.config/kitty/themes/matugen.conf'
-# post_hook = 'kitty +kitten themes --reload-in=all matugen'
-
-[templates.spicetify]
-input_path = '~/.config/matugen/templates/spicetify.ini'
-output_path = '~/.config/spicetify/Themes/matugen/color.ini'
-# post_hook = '~/.config/matugen/scripts/spiceitfy_theme_apply.sh'
 
 [templates.gtk3]
 input_path = './templates/gtk-colors.css'
@@ -52,4 +41,3 @@ output_path = '~/.local/share/color-schemes/matugen.colors'
 [templates.ghostty]
 input_path = './templates/ghostty'
 output_path = '~/.config/ghostty/themes/matugen'
-# post_hook = 'pkill -SIGUSR2 ghostty'

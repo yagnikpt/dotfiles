@@ -14,6 +14,7 @@
    "pop_to_root_on_close": true,
    "escape_key_behavior": "close_window",
    "font": {
+      "rendering": "qt",
       "normal": {
          "family": "JetBrainsMono NFM",
          "size": 12
@@ -25,8 +26,8 @@
          "icon_theme": "Neuwaita"
       },
       "dark": {
-         "name": "gruvbox-material-dark",
-         "icon_theme": "Neuwaita"
+         "name": "vicinae-dark",
+         "icon_theme": "Adwaita"
       }
    },
    "launcher_window": {
@@ -37,8 +38,26 @@
    },
    "favorites": [],
    "providers": {
+      "@c4n4m1/store.vicinae.zoxide-recent-directories": {
+         "preferences": {
+            "application": "ghostty",
+            "defaultFilter": "all"
+         }
+      },
+      "@tegola/store.raycast.remove-paywall": {
+         "preferences": {
+            "service": "https://freedium-mirror.cfd"
+         }
+      },
       "browser-extension": {
          "enabled": false
+      },
+      "files": {
+         "entrypoints": {
+            "search": {
+               "alias": "sf"
+            }
+         }
       }
    }
 }

@@ -4,14 +4,14 @@ layer-rule {
   place-within-backdrop true
 }
 
-layer-rule {
-  match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
-  match namespace="quickshell"
-
-  background-effect {
-    xray false
-  }
-}
+// layer-rule {
+//   match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
+//   match namespace="quickshell"
+//
+//   background-effect {
+//     xray false
+//   }
+// }
 
 // Set transparent workspace background color so you see the backdrop at all times.
 layout {

@@ -16,7 +16,6 @@ else
 fi
 
 new_theme=$(echo -e "$light\n$dark" | rofi -dmenu -markup-rows -p "Select Theme" -theme $HOME/.config/rofi/modules/base.rasi -l 2 -select "$selected")
-current_image=$(swww query | sed 's/.*: //')
 
 system_de=$(getenv DESKTOP_SHELL)
 
@@ -26,7 +25,11 @@ case $new_theme in
             "noctalia")
                 qs -c noctalia-shell ipc call darkMode setLight
                 ;;
+            "noctalia_v5")
+                noctalia msg theme-mode-set light
+                ;;
             *)
+                current_image=$(awww query | sed 's/.*: //')
                 gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3;
                 gsettings set org.gnome.desktop.interface color-scheme default;
                 gsettings set org.gnome.desktop.interface icon-theme Papirus-Light
@@ -41,7 +44,11 @@ case $new_theme in
             "noctalia")
                 qs -c noctalia-shell ipc call darkMode setDark
                 ;;
+            "noctalia_v5")
+                noctalia msg theme-mode-set dark
+                ;;
             *)
+                current_image=$(awww query | sed 's/.*: //')
                 gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark;
                 gsettings set org.gnome.desktop.interface color-scheme prefer-dark;
                 gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark

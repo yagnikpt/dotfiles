@@ -15,7 +15,7 @@ fzf_args=(
 pkg_names=$(dnf ls -q --available| fzf "${fzf_args[@]}")
 
 if [[ -n "$pkg_names" ]]; then
-  packages_to_install=$(echo "$pkg_names" | awk '{print $1}' | sed 's/\.[^.]*$//' | tr '\n' ' ')
-  sudo dnf install -y --allowerasing "$packages_to_install"
+  mapfile -t packages_to_install < <(awk '{print $1}' <<< "$pkg_names" | sed 's/\.[^.]*$//')
+  sudo dnf install -y --allowerasing "${packages_to_install[@]}"
   read -r
 fi

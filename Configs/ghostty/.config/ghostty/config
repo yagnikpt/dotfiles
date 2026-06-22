@@ -6,12 +6,15 @@ font-family = "JetBrainsMono NFM"
 window-padding-x = 12
 window-padding-y = 12
 background-opacity = 1
-window-width=80
-window-height=32
 
 # Cursor Configuration
 cursor-style = block
 cursor-style-blink = true
+
+# Shaders
+# custom-shader-animation = always
+# custom-shader = ./shaders/cursor_blaze_no_trail.glsl
+# custom-shader = ./shaders/cursor_smear.glsl
 
 # Scrollback
 scrollback-limit = 3023
@@ -24,7 +27,6 @@ confirm-close-surface = false
 
 # Key bindings for common actions
 keybind = ctrl+shift+n=new_window
-keybind = ctrl+t=new_tab
 keybind = ctrl+q=close_tab
 keybind = ctrl+plus=increase_font_size:1
 keybind = ctrl+minus=decrease_font_size:1
@@ -39,6 +41,7 @@ keybind = ctrl+backquote=toggle_quick_terminal
 keybind = ctrl+enter=ignore
 keybind = ctrl+shift+h=resize_split:left,25
 keybind = ctrl+shift+l=resize_split:right,25
+keybind = alt+backspace=text:\x1b\x7f
 
 # Material 3 UI elements
 unfocused-split-opacity = 0.7

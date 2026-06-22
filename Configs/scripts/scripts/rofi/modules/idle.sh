@@ -22,6 +22,9 @@ case "$val" in
             "noctalia")
                 qs -c noctalia-shell ipc call idleInhibitor disable
                 ;;
+            "noctalia_v5")
+                noctalia msg caffeine-disable
+                ;;
             *)
                 pkill -STOP hypridle
                 ;;
@@ -31,6 +34,9 @@ case "$val" in
         case "$system_de" in
             "noctalia")
                 qs -c noctalia-shell ipc call idleInhibitor enable
+                ;;
+            "noctalia_v5")
+                noctalia msg caffeine-enable
                 ;;
             *)
                 pkill -CONT hypridle

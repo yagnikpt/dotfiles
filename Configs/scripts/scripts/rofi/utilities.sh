@@ -44,6 +44,8 @@ case "$CHOICE" in
             "noctalia")
                 qs -c noctalia-shell ipc call bluetooth togglePanel
                 ;;
+            "noctalia_v5")
+                noctalia msg panel-toggle control-center bluetooth;;
             *)
                 vicinae vicinae://launch/@Gelei/store.vicinae.bluetooth/devices
                 ;;
@@ -54,6 +56,8 @@ case "$CHOICE" in
             "noctalia")
                 qs -c noctalia-shell ipc call network togglePanel
                 ;;
+            "noctalia_v5")
+                noctalia msg panel-toggle control-center network;;
             *)
                 nmgui
                 ;;

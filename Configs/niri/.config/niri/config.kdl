@@ -101,16 +101,25 @@ overview {
 
 layer-rule {
     match namespace="linux-wallpaperengine"
+    match namespace="waywallen-wallpaper"
+
     place-within-backdrop true
 }
 
 layer-rule {
-  match namespace="vicinae"
   match namespace="rofi"
-  match namespace="ghostty-quick-terminal"
+  // match namespace="ghostty-quick-terminal"
 
   background-effect {
     blur true
+    xray false
+  }
+}
+
+layer-rule {
+  match namespace="vicinae"
+
+  background-effect {
     xray false
   }
 }
@@ -138,7 +147,7 @@ workspace "space"
 
 animations {
     window-open {
-        spring damping-ratio=1.0 stiffness=700 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
     window-close {
         spring damping-ratio=1.0 stiffness=700 epsilon=0.1
@@ -160,11 +169,13 @@ animations {
     }
 }
 
-// window-rule {
-//     background-effect {
-//         blur true
-//     }
-// }
+window-rule {
+    match app-id="footclient"
+
+    background-effect {
+        blur true
+    }
+}
 
 window-rule {
     match title="tui-overlay"
@@ -197,6 +208,7 @@ window-rule {
     match title="New tab - Google Chrome"
     match app-id="spotify"
     match app-id="vesktop"
+    match app-id="discord"
     match app-id="brave-browser"
     match title="New tab - Brave"
     match app-id="helium"
@@ -208,6 +220,7 @@ window-rule {
     match app-id="emacs"
     match app-id="AppCenter"
     match app-id="kdenlive"
+    match app-id="waywallen"
     // Wallpaper Engine
     match app-id="steam_app_431960"
     // Youtube
@@ -226,6 +239,7 @@ window-rule {
     match app-id="spotify"
     match app-id="vesktop"
     match app-id="brave-cinhimbnkkaeohfgghhklpknlkffjgod-Default"
+    match app-id="discord"
 
     open-on-workspace "media"
     open-focused true
@@ -310,12 +324,12 @@ binds {
         spawn "screen_ocr";
     }
     Mod+Ctrl+P hotkey-overlay-title="Color picker to clipboard" {
-        spawn-sh "hyprpicker | wl-copy";
+        spawn-sh "hyprpicker -a";
     }
     Mod+S hotkey-overlay-title="System Utilities" {
         spawn-sh "$HOME/scripts/rofi/utilities.sh";
     }
-    Mod+Period {
+    Mod+Period hotkey-overlay-title="Emoji Picker" {
         spawn-sh "vicinae vicinae://launch/core/search-emojis";
     }
 
@@ -461,5 +475,5 @@ debug {
    honor-xdg-activation-with-invalid-serial
 }
 
-include "noctalia.kdl"
+include "noctalia_v5.kdl"
 include "./animations/pop-drop.kdl"
