@@ -209,7 +209,7 @@ window-rule {
     match app-id="spotify"
     match app-id="vesktop"
     match app-id="discord"
-    match app-id="brave-browser"
+    match app-id="brave"
     match title="New tab - Brave"
     match app-id="helium"
     match app-id="Code"
@@ -228,16 +228,17 @@ window-rule {
     // Youtube Music
     match app-id="cinhimbnkkaeohfgghhklpknlkffjgod"
     match app-id="libreoffice"
-    match app-id="brave-hianime.do__home-Default"
-    match app-id="brave-www.hotstar.com__in_home-Default"
-    match app-id="chrome-soundcloud.com__discover-Profile_1"
+    match app-id="gimp"
+    match app-id="krita"
+
+    // assetto corsa content manager
+    match app-id="steam_app_244210"
 
     default-column-width { proportion 0.8; }
 }
 
 window-rule {
     match app-id="spotify"
-    match app-id="vesktop"
     match app-id="brave-cinhimbnkkaeohfgghhklpknlkffjgod-Default"
     match app-id="discord"
 
@@ -475,5 +476,5 @@ debug {
    honor-xdg-activation-with-invalid-serial
 }
 
-include "noctalia_v5.kdl"
+include "noctalia.kdl"
 include "./animations/pop-drop.kdl"

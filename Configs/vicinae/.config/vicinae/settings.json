@@ -27,7 +27,7 @@
       },
       "dark": {
          "name": "vicinae-dark",
-         "icon_theme": "Adwaita"
+         "icon_theme": "Gruvbox Plus Dark"
       }
    },
    "launcher_window": {
@@ -47,6 +47,14 @@
       "@tegola/store.raycast.remove-paywall": {
          "preferences": {
             "service": "https://freedium-mirror.cfd"
+         },
+         "entrypoints": {
+            "remove-paywall-clipboard": {
+               "enabled": false
+            },
+            "remove-paywall-current-tab": {
+               "enabled": false
+            }
          }
       },
       "browser-extension": {

@@ -22,7 +22,13 @@ getenv() {
 }
 
 format_row() {
-    local icon=$(printf "\u$1")
-    local label="$2"
-    printf "<span face='Material Symbols Rounded' size='x-large' line_height='0.01' rise='-5pt'>%s</span> %s" "$icon" "$label"
+  local icon=$(printf "\u$1")
+  local label="$2"
+  printf "<span face='Material Symbols Rounded' size='x-large' line_height='0.01' rise='-5pt'>%s</span> %s" "$icon" "$label"
+}
+
+format_row_nerd_fonts() {
+  local icon=$(printf "\u$1")
+  local label="$2"
+  printf "<span face='JetBrainsMono NFM' size='x-large' line_height='0.01' rise='-1pt'>%s</span> %s" "$icon" "$label"
 }
