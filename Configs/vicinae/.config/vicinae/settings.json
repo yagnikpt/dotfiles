@@ -14,27 +14,28 @@
    "pop_to_root_on_close": true,
    "escape_key_behavior": "close_window",
    "font": {
-      "rendering": "qt",
+      "rendering": "native",
       "normal": {
-         "family": "JetBrainsMono NFM",
-         "size": 12
+         "family": "Google Sans",
+         "size": 14
       }
    },
    "theme": {
       "light": {
-         "name": "gruvbox-material-light",
-         "icon_theme": "Neuwaita"
+         "name": "vicinae-light",
+         "icon_theme": "Papirus"
       },
       "dark": {
-         "name": "vicinae-dark",
-         "icon_theme": "Gruvbox Plus Dark"
+         "name": "libadwaita-dark",
+         "icon_theme": "Papirus"
       }
    },
    "launcher_window": {
-      "opacity": 0.85,
+      "opacity": 0.8,
       "compact_mode": {
          "enabled": false
-      }
+      },
+      "material": "blur"
    },
    "favorites": [],
    "providers": {
@@ -42,6 +43,13 @@
          "preferences": {
             "application": "ghostty",
             "defaultFilter": "all"
+         }
+      },
+      "@knoopx/store.vicinae.systemd": {
+         "entrypoints": {
+            "services": {
+               "alias": "sysd"
+            }
          }
       },
       "@tegola/store.raycast.remove-paywall": {

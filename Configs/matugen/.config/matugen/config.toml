@@ -11,12 +11,21 @@ input_path = './templates/mako'
 output_path = '~/.config/mako/themes/matugen'
 post_hook = 'makoctl reload'
 
+[templates.niri]
+input_path = './templates/niri-colors.kdl'
+output_path = '~/.config/niri/matugen-colors.kdl'
+post_hook = 'niri msg action load-config-file'
+
+[templates.eza]
+input_path = "./templates/eza-theme.yml"
+output_path = "~/.config/eza/theme.yml"
+
 [templates.vicinae]
 input_path = './templates/vicinae.toml'
 output_path = '~/.local/share/vicinae/themes/matugen.toml'
 
 [templates.rofi]
-input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+input_path = './templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/matugen-colors.rasi'
 
 [templates.hypr]
@@ -31,11 +40,6 @@ output_path = '~/.config/hypr/hyprlock.conf'
 input_path = './templates/kitty.conf'
 output_path = '~/.config/kitty/themes/matugen.conf'
 # post_hook = 'kitty +kitten themes --reload-in=all matugen'
-
-[templates.spicetify]
-input_path = '~/.config/matugen/templates/spicetify.ini'
-output_path = '~/.config/spicetify/Themes/matugen/color.ini'
-# post_hook = '~/.config/matugen/scripts/spiceitfy_theme_apply.sh'
 
 [templates.gtk3]
 input_path = './templates/gtk-colors.css'
@@ -52,4 +56,3 @@ output_path = '~/.local/share/color-schemes/matugen.colors'
 [templates.ghostty]
 input_path = './templates/ghostty'
 output_path = '~/.config/ghostty/themes/matugen'
-# post_hook = 'pkill -SIGUSR2 ghostty'

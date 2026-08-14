@@ -17,35 +17,29 @@ fi
 val=$(echo -e "$on\n$off" | rofi -dmenu -p "Idle Inhibitor" -theme ~/.config/rofi/modules/base.rasi -l 2 -select "$state")
 
 case "$val" in
-    $off)
-        case "$system_de" in
-            "noctalia")
-                qs -c noctalia-shell ipc call idleInhibitor disable
-                ;;
-            "noctalia_v5")
-                noctalia msg caffeine-disable
-                ;;
-            *)
-                pkill -STOP hypridle
-                ;;
-        esac
-        ;;
-    $on)
-        case "$system_de" in
-            "noctalia")
-                qs -c noctalia-shell ipc call idleInhibitor enable
-                ;;
-            "noctalia_v5")
-                noctalia msg caffeine-enable
-                ;;
-            *)
-                pkill -CONT hypridle
-                ;;
-        esac
+$off)
+    case "$system_de" in
+    "noctalia")
+        noctalia msg caffeine-disable
         ;;
     *)
-        exit 0
+        pkill -STOP hypridle
         ;;
+    esac
+    ;;
+$on)
+    case "$system_de" in
+    "noctalia")
+        noctalia msg caffeine-enable
+        ;;
+    *)
+        pkill -CONT hypridle
+        ;;
+    esac
+    ;;
+*)
+    exit 0
+    ;;
 esac
 
 exit 0

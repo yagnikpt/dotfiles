@@ -22,7 +22,7 @@ configuration {
 // Window
 window {
     fullscreen: true;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: @background;
 }
 
 // Main Box
@@ -34,7 +34,7 @@ mainbox {
 
 // Input Bar
 inputbar {
-  background-color: rgba(32,32,32,0.85);
+  background-color: @accent-dim;
   children: ["prompt", "entry"];
   border: 0px solid;
   border-radius: 5px;
@@ -43,8 +43,8 @@ inputbar {
   spacing: 0.5em;
 }
 entry {
-  placeholder: "Search:";
-  placeholder-color: rgba(255,255,255,0.5);
+  placeholder: "Search...";
+  placeholder-color: @foreground;
   border: 0px solid;
   cursor-width: 1ch;
 }
@@ -75,5 +75,5 @@ element-text {
   horizontal-align: 0.5;
 }
 element.selected {
-  background-color: rgba(32,32,32,0.85);
+  background-color: @accent-dim;
 }

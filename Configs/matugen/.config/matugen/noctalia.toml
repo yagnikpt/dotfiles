@@ -1,26 +1,20 @@
-[templates.waybar]
-input_path = './templates/colors.css'
-output_path = '~/.config/waybar/themes/matugen.css'
-
-[templates.mako]
-input_path = './templates/mako'
-output_path = '~/.config/mako/themes/matugen'
+[config]
+[templates.eza]
+input_path = "./templates/eza-theme.yml"
+output_path = "~/.config/eza/theme.yml"
 
 [templates.vicinae]
 input_path = './templates/vicinae.toml'
 output_path = '~/.local/share/vicinae/themes/matugen.toml'
 
 [templates.rofi]
-input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+input_path = './templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/matugen-colors.rasi'
 
-[templates.hypr]
-input_path = './templates/hyprland-colors.conf'
-output_path = '~/.config/hypr/themes/matugen.conf'
-
-[templates.hyprlock]
-input_path = './templates/hyprlock.conf'
-output_path = '~/.config/hypr/hyprlock.conf'
+[templates.niri]
+input_path = './templates/niri-colors.kdl'
+output_path = '~/.config/niri/matugen-colors.kdl'
+post_hook = 'niri msg action load-config-file'
 
 [templates.kitty]
 input_path = './templates/kitty.conf'

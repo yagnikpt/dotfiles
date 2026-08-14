@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://apple.com">
+<plist version="1.0">
+<dict>
+    <key>name</key>
+    <string>Matugen</string>
+    <key>settings</key>
+    <array>
+        <dict>
+            <key>settings</key>
+            <dict>
+                <key>background</key>
+                <string>{{ colors.primary.default }}</string>
+                <key>caret</key>
+                <string>{{ colors.secondary.default }}</string>
+                <key>foreground</key>
+                <string>{{ colors.on_primary.default }}</string>
+                <key>invisibles</key>
+                <string>{{ colors.surface.default }}</string>
+                <key>lineHighlight</key>
+                <string>{{ colors.surface_variant.default }}</string>
+                <key>selection</key>
+                <string>{{ colors.inverse_primary.default }}</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>

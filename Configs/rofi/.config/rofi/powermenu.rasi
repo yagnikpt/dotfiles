@@ -34,10 +34,12 @@ element {
 }
 
 element-text {
+    text-color: inherit;
     horizontal-align: 0.5;
     font-size: 18px;
 }
 
-element.selected {
-    background-color: @accent-dim;
+element selected {
+    background-color: @accent;
+    text-color: @foreground-accent;
 }

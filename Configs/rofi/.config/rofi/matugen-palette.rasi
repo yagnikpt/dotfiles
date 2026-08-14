@@ -1,8 +1,8 @@
 @import "matugen-colors.rasi"
 
 * {
-    background: @surface;
-    background-dim: @primary-container-35;
+    background: @surface-translucent;
+    background-dim: @primary-container-dim;
     foreground: @on-surface;
     foreground-accent: @on-secondary;
     accent: @secondary;

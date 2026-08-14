@@ -4,6 +4,9 @@ Configs/hypr/.config/hypr/themes/matugen.conf
 Configs/hypr/.config/hypr/hyprlock.conf
 Configs/hypr/.config/hypr/themes/matugen.conf
 Configs/ghostty/.config/ghostty/themes/matugen
+Configs/ghostty/.config/ghostty/themes/ii-auto
 Configs/mako/.config/mako/themes/matugen
 Configs/vicinae/.local/share/vicinae/themes/matugen.toml
 Configs/kitty/.config/kitty/themes/matugen.conf
+Configs/kitty/.config/kitty/theme.conf
+Configs/niri/.config/niri/matugen-colors.kdl

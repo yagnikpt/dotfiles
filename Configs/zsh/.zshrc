@@ -108,6 +108,16 @@ alias anime="curd"
 alias open="xdg-open"
 alias dcu="docker compose up -d"
 alias dcd="docker compose down"
+alias cget="curl -sX GET -H 'Content-Type: application/json'"
+alias cgetj="curl -sX GET -H 'Content-Type: application/json' | jq"
+# (Usage: cpost url '{"name": "Alice"}')
+alias cpost="curl -sX POST -H 'Content-Type: application/json' -d"
+# (Usage: cmulti "file=@/path/to/img.png" url)
+alias cmulti="curl -sX POST -F"
+# (Usage: cform "username=johndoe&password=supersecret" url)
+alias cform="curl -sX POST -d"
+alias chead="curl -sI"
+alias cdump="curl -i"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -116,6 +126,3 @@ alias dcd="docker compose down"
 export ANDROID_HOME=~/Android/Sdk
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
-
-# nub
-export PATH="$HOME/.nub/bin:$PATH"

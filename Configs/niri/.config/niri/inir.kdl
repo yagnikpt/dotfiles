@@ -1,0 +1,107 @@
+environment {
+    XDG_CURRENT_DESKTOP "niri"
+    // XDG_MENU_PREFIX "plasma-"  // Required for Dolphin/KDE app file associations
+    QT_QPA_PLATFORM "wayland"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QT_LOGGING_RULES "quickshell.dbus.properties=false"
+    
+    // Qt theming: kde platform reads colors from kdeglobals (requires plasma-integration pkg)
+    // The installer falls back to qt6ct only if plasma-integration is not installed
+    QT_QPA_PLATFORMTHEME "kde"
+    QT_STYLE_OVERRIDE "Darkly"
+    
+    // Quickshell Python virtual environment
+    INIR_VENV "$HOME/.local/state/quickshell/.venv"
+    ILLOGICAL_IMPULSE_VIRTUAL_ENV "$HOME/.local/state/quickshell/.venv"
+}
+
+// ============================================================================
+// KEYBINDINGS
+// ============================================================================
+
+binds {
+    Alt+Space hotkey-overlay-title="App Launcher" {
+        spawn "vicinae" "toggle";
+    }
+    Mod+V hotkey-overlay-title="Clipboard Manager" {
+        spawn "vicinae" "vicinae://launch/clipboard/history";
+    }
+
+    // ii Window Switcher (Alt+Tab)
+    Alt+Tab { spawn "qs" "-c" "inir" "ipc" "call" "altSwitcher" "next"; }
+    Alt+Shift+Tab { spawn "qs" "-c" "inir" "ipc" "call" "altSwitcher" "previous"; }
+    
+    // ii Overlay
+    Super+G { spawn "qs" "-c" "inir" "ipc" "call" "dashboard" "toggle"; }
+
+    // ii Overview (daemon)
+    Mod+Space repeat=false { spawn "qs" "-c" "inir" "ipc" "call" "overview" "toggle"; }
+    
+    // // ii Clipboard
+    // Mod+V { spawn "qs" "-c" "inir" "ipc" "call" "clipboard" "toggle"; }
+    
+    Mod+A { spawn "qs" "-c" "inir" "ipc" "call" "sidebarRight" "toggle"; }
+    
+    // ii Lock screen
+    Mod+Alt+L allow-when-locked=true { spawn "qs" "-c" "inir" "ipc" "call" "lock" "activate"; }
+    
+    // ii Region tools
+    Mod+Shift+S { spawn "qs" "-c" "inir" "ipc" "call" "region" "screenshot"; }
+    Mod+Shift+X { spawn "qs" "-c" "inir" "ipc" "call" "region" "ocr"; }
+    Mod+Shift+A { spawn "qs" "-c" "inir" "ipc" "call" "region" "search"; }
+    
+    // ii Wallpaper selector
+    Mod+P { spawn "qs" "-c" "inir" "ipc" "call" "wallpaperSelector" "toggle"; }
+    
+    // ii Settings
+    Mod+Comma { spawn "qs" "-c" "inir" "ipc" "call" "settings" "open"; }
+    
+    // ii Cheatsheet
+    Mod+Slash { spawn "qs" "-c" "inir" "ipc" "call" "cheatsheet" "toggle"; }
+    
+    // ii Panel family (cycle between Material ii and Waffle styles)
+    Mod+Shift+W { spawn "qs" "-c" "inir" "ipc" "call" "panelFamily" "cycle"; }
+    
+    // ========================================================================
+    // HARDWARE KEYS - Audio, Brightness, Media
+    // ========================================================================
+    // These use ii IPC so the OSD (On Screen Display) shows feedback
+    
+    // Volume (hardware keys)
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "qs" "-c" "inir" "ipc" "call" "audio" "volumeUp"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "qs" "-c" "inir" "ipc" "call" "audio" "volumeDown"; }
+    XF86AudioMute allow-when-locked=true { spawn "qs" "-c" "inir" "ipc" "call" "audio" "mute"; }
+    XF86AudioMicMute allow-when-locked=true { spawn "qs" "-c" "inir" "ipc" "call" "audio" "micMute"; }
+    
+    // Brightness (hardware keys)
+    XF86MonBrightnessUp allow-when-locked=true { spawn "qs" "-c" "inir" "ipc" "call" "brightness" "increment"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "qs" "-c" "inir" "ipc" "call" "brightness" "decrement"; }
+    
+    // Media playback (hardware keys)
+    XF86AudioPlay { spawn "qs" "-c" "inir" "ipc" "call" "mpris" "playPause"; }
+    XF86AudioPause { spawn "qs" "-c" "inir" "ipc" "call" "mpris" "playPause"; }
+    XF86AudioNext { spawn "qs" "-c" "inir" "ipc" "call" "mpris" "next"; }
+    XF86AudioPrev { spawn "qs" "-c" "inir" "ipc" "call" "mpris" "previous"; }
+    
+    // Music control (keyboard alternatives for keyboards without media keys)
+    Ctrl+Mod+Space { spawn "qs" "-c" "inir" "ipc" "call" "mpris" "playPause"; }
+    Mod+Alt+N { spawn "qs" "-c" "inir" "ipc" "call" "mpris" "next"; }
+    Mod+Alt+P { spawn "qs" "-c" "inir" "ipc" "call" "mpris" "previous"; }
+    Mod+Shift+M { spawn "qs" "-c" "inir" "ipc" "call" "audio" "mute"; }
+    Mod+Shift+P { spawn "qs" "-c" "inir" "ipc" "call" "mpris" "playPause"; }
+    Mod+Shift+N { spawn "qs" "-c" "inir" "ipc" "call" "mpris" "next"; }
+    Mod+Shift+B { spawn "qs" "-c" "inir" "ipc" "call" "mpris" "previous"; }
+    
+    // Power / Session
+    Mod+X { spawn "qs" "-c" "inir" "ipc" "call" "session" "toggle"; }
+}
+
+// Layer rules for ii backdrop visibility during Niri overview
+layer-rule {
+    match namespace="quickshell:iiBackdrop"
+    match namespace="awww-daemon"
+    match namespace="quickshell:wBackdrop"
+
+    place-within-backdrop true
+    opacity 1.0
+}

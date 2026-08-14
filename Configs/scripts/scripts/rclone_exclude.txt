@@ -20,3 +20,5 @@ dist/**
 build/**
 target/**
 *.class
+.agents/**
+skills-lock.json

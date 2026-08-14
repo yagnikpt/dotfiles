@@ -7,6 +7,3 @@ After=graphical-session.target
 Type=simple
 ExecStart=%h/scripts/niri/battery-watch.sh
 Restart=always
-
-[Install]
-WantedBy=graphical-session.target

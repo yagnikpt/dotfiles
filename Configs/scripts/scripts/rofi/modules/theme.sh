@@ -20,44 +20,27 @@ new_theme=$(echo -e "$light\n$dark" | rofi -dmenu -markup-rows -p "Select Theme"
 system_de=$(getenv DESKTOP_SHELL)
 
 case $new_theme in
-    $light)
-        case "$system_de" in
-            "noctalia")
-                qs -c noctalia-shell ipc call darkMode setLight
-                ;;
-            "noctalia_v5")
-                noctalia msg theme-mode-set light
-                ;;
-            *)
-                current_image=$(awww query | sed 's/.*: //')
-                gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3;
-                gsettings set org.gnome.desktop.interface color-scheme default;
-                gsettings set org.gnome.desktop.interface icon-theme Papirus-Light
-                # sed -i 's/gtk-application-prefer-dark-theme = true/gtk-application-prefer-dark-theme = false/' ~/.config/gtk-4.0/settings.ini
-                matugen image "$current_image" -m light
-                pkill -SIGUSR2 waybar
-                ;;
-        esac
-        ;;
-    $dark)
-        case "$system_de" in
-            "noctalia")
-                qs -c noctalia-shell ipc call darkMode setDark
-                ;;
-            "noctalia_v5")
-                noctalia msg theme-mode-set dark
-                ;;
-            *)
-                current_image=$(awww query | sed 's/.*: //')
-                gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark;
-                gsettings set org.gnome.desktop.interface color-scheme prefer-dark;
-                gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
-                # sed -i 's/gtk-application-prefer-dark-theme = false/gtk-application-prefer-dark-theme = true/' ~/.config/gtk-4.0/settings.ini
-                matugen image "$current_image" -m dark
-                pkill -SIGUSR2 waybar
-                ;;
-        esac
+$light)
+    case "$system_de" in
+    "noctalia")
+        noctalia msg theme-mode-set light
         ;;
     *)
+        current_image=$(awww query | sed 's/.*: //')
+        ~/scripts/niri/handle_theme_or_wallpaper.sh "$current_image" "light"
         ;;
+    esac
+    ;;
+$dark)
+    case "$system_de" in
+    "noctalia")
+        noctalia msg theme-mode-set dark
+        ;;
+    *)
+        current_image=$(awww query | sed 's/.*: //')
+        ~/scripts/niri/handle_theme_or_wallpaper.sh "$current_image" "dark"
+        ;;
+    esac
+    ;;
+*) ;;
 esac

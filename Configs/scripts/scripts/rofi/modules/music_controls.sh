@@ -26,32 +26,28 @@ rofi_controls() {
     val=$(echo -e "$next\n$toggle\n$prev\n$loop" | rofi -dmenu -markup-rows -p "Player Controls" -mesg "$song_info" -theme ~/.config/rofi/modules/base.rasi -l 4)
 
     case $val in
-        $toggle)
-            playerctl play-pause
-            ;;
-        $next)
-            playerctl next
-            ;;
-        $prev)
-            playerctl previous
-            ;;
-        $loop)
-            loop_rofi
-            ;;
-        *)
-            exit 0
-            ;;
+    $toggle)
+        playerctl play-pause
+        ;;
+    $next)
+        playerctl next
+        ;;
+    $prev)
+        playerctl previous
+        ;;
+    $loop)
+        loop_rofi
+        ;;
+    *)
+        exit 0
+        ;;
     esac
 }
 
 system_de=$(getenv DESKTOP_SHELL)
 
 case "$system_de" in
-    "noctalia")
-        # qs -c noctalia-shell ipc call media toggle
-        rofi_controls
-        ;;
-    *)
-        rofi_controls
-        ;;
+*)
+    rofi_controls
+    ;;
 esac

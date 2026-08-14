@@ -1,0 +1,10 @@
+@import "matugen.css";
+
+/* @define-color background @background; */
+/* @define-color surface @surface; */
+@define-color border @surface_container-highest;
+@define-color foreground @on_surface;
+@define-color accent @secondary;
+@define-color red @error;
+@define-color green #689d6a;
+@define-color yellow #fabd2f;

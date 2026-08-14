@@ -1,11 +1,11 @@
 [Unit]
-Description=Noctalia Shell Service
+Description=Nandoroid Shell Service
 PartOf=graphical-session.target
 Requisite=graphical-session.target
 After=graphical-session.target
-ConditionEnvironment=XDG_CURRENT_DESKTOP=niri
+ConditionEnvironment=XDG_CURRENT_DESKTOP=Hyprland
 
 [Service]
-ExecStart=noctalia
+ExecStart=qs -c nandoroid
 Restart=on-failure
 RestartSec=1

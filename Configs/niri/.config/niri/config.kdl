@@ -230,6 +230,7 @@ window-rule {
     match app-id="libreoffice"
     match app-id="gimp"
     match app-id="krita"
+    match app-id="inkscape"
 
     // assetto corsa content manager
     match app-id="steam_app_244210"
@@ -257,11 +258,9 @@ window-rule {
 window-rule {
     match app-id=r#"^blueman-manager$"#
     // match app-id=r#"^org\.gnome\.Nautilus$"#
-    match app-id=r#"^steam$"#
     match app-id=r#"^xdg-desktop-portal$"#
     match app-id="zoom"
     match app-id="Calculator"
-    match app-id="heroic"
     match app-id="pavucontrol"
     match app-id="speedcrunch"
     match app-id="tlauncher"
@@ -269,6 +268,14 @@ window-rule {
 
     open-floating true
 }
+
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
 window-rule {
     match title="tui"
 
@@ -277,12 +284,14 @@ window-rule {
     default-column-width { fixed 800; }
     default-window-height { fixed 800; }
 }
+
 window-rule {
     match title="code-editor-tui"
 
     default-column-width { fixed 700; }
     default-window-height { fixed 400; }
 }
+
 window-rule {
     // match app-id=r#"^org\.wezfurlong\.wezterm$"#
     // match app-id="Alacritty"
@@ -292,6 +301,7 @@ window-rule {
 
     draw-border-with-background false
 }
+
 // window-rule {
 //     match is-active=false
 //     exclude app-id="brave"
@@ -315,7 +325,7 @@ binds {
 
     // === Application Launchers ===
     Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty" "+new-window"; }
-    Mod+B hotkey-overlay-title="Open Browser" { spawn "helium-browser-bin"; }
+    Mod+B hotkey-overlay-title="Open Browser" { spawn "xdg-open" "https://"; }
     Mod+E hotkey-overlay-title="Open Explorer" { spawn "nautilus"; }
     Mod+Shift+E { quit; }
     Mod+M hotkey-overlay-title="Open Text Buffer" { spawn "gtk-launch" "org.gnome.gitlab.cheywood.Buffer"; }
@@ -476,5 +486,6 @@ debug {
    honor-xdg-activation-with-invalid-serial
 }
 
-include "noctalia.kdl"
+include "inir.kdl"
+include "matugen-colors.kdl"
 include "./animations/pop-drop.kdl"

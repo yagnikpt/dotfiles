@@ -1,39 +1,44 @@
-// Set the regular wallpaper on the backdrop.
 layer-rule {
   match namespace="^noctalia-wallpaper*"
+  match namespace="^noctalia-backdrop*"
+
   place-within-backdrop true
 }
 
-// layer-rule {
-//   match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
-//   match namespace="quickshell"
-//
-//   background-effect {
-//     xray false
-//   }
-// }
+layer-rule {
+  match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+  background-effect {
+    xray false
+    //blur false
+  }
+}
 
-// Set transparent workspace background color so you see the backdrop at all times.
 layout {
   background-color "transparent"
 }
 
-// Optionally, disable the workspace shadows in the overview.
 overview {
   workspace-shadow {
     off
   }
 }
 
+window-rule {
+  match app-id="dev.noctalia.Noctalia.Settings"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
 binds {
     XF86AudioRaiseVolume allow-when-locked=true {
-        spawn-sh "qs -c noctalia-shell ipc call volume increase";
+        spawn-sh "noctalia msg volume-up";
     }
     XF86AudioLowerVolume allow-when-locked=true {
-        spawn-sh "qs -c noctalia-shell ipc call volume decrease";
+        spawn-sh "noctalia msg volume-down";
     }
     XF86AudioMute allow-when-locked=true {
-        spawn-sh "qs -c noctalia-shell ipc call volume muteOutput";
+        spawn-sh "noctalia msg volume-mute";
     }
     XF86KbdBrightnessUp allow-when-locked=true {
         spawn "kbdbrite.sh" "up";
@@ -42,19 +47,19 @@ binds {
         spawn "kbdbrite.sh" "down";
     }
     XF86MonBrightnessUp allow-when-locked=true {
-        spawn-sh "qs -c noctalia-shell ipc call brightness increase";
+        spawn-sh "noctalia msg brightness-up";
     }
     XF86MonBrightnessDown allow-when-locked=true {
-        spawn-sh "qs -c noctalia-shell ipc call brightness decrease";
+        spawn-sh "noctalia msg brightness-down";
     }
 
     Mod+Alt+R hotkey-overlay-title="Start/Stop Screen Recording" {
-        spawn-sh "qs -c noctalia-shell ipc call plugin:screen-recorder toggle";
+        spawn-sh "noctalia msg plugin noctalia/screen_recorder:service all toggle";
     }
 
-    Mod+Comma hotkey-overlay-title="Noctalia Settings" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
+    Mod+Comma hotkey-overlay-title="Noctalia Settings" { spawn-sh "noctalia msg settings-toggle"; }
     Mod+Space hotkey-overlay-title="Application Launcher" {
-        spawn-sh "qs -c noctalia-shell ipc call launcher toggle";
+        spawn-sh "noctalia msg panel-toggle launcher";
     }
     Alt+Space hotkey-overlay-title="App Launcher" {
         spawn "vicinae" "toggle";
@@ -63,15 +68,15 @@ binds {
         spawn "vicinae" "vicinae://launch/clipboard/history";
     }
     Mod+X hotkey-overlay-title="Power Menu" {
-        spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle";
+        spawn-sh "noctalia msg panel-toggle session";
     }
     Mod+P hotkey-overlay-title="Wallpaper Picker" {
-        spawn-sh "qs -c noctalia-shell ipc call plugin:wallcards toggle";
+        spawn-sh "noctalia msg panel-toggle wallpaper";
     }
     Mod+A hotkey-overlay-title="Control Center" {
-        spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle";
+        spawn-sh "noctalia msg panel-toggle control-center";
     }
     Mod+Shift+S hotkey-overlay-title="Screen Toolkit" {
-        spawn-sh "qs -c noctalia-shell ipc call plugin:screen-toolkit toggle"
+        spawn-sh "noctalia msg plugin alexander/screen-toolkit:service all toggle"
     }
 }

@@ -54,7 +54,8 @@
   },
   "tray": {
     "icon-size": 16,
-    "spacing": 13
+    "spacing": 13,
+    "ignore-list": ["blueman"],
   },
   "clock": {
     "format": "[{:%H:%M}]",

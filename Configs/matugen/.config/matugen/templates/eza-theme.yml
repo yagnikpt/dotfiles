@@ -1,0 +1,41 @@
+colour_scale:
+  size:
+    primary: "{{colors.primary.default.hex}}"
+    secondary: "{{colors.secondary.default.hex}}"
+
+filekinds:
+  normal: "{{colors.on_surface.default.hex}}"
+  directory: "{{colors.primary.default.hex}}"
+  symlink: "{{colors.tertiary.default.hex}}"
+  executable: "{{colors.error.default.hex}}"
+  mount_point: "{{colors.inverse_primary.default.hex}}"
+
+perms:
+  user_read: "{{colors.primary.default.hex}}"
+  user_write: "{{colors.secondary.default.hex}}"
+  user_execute: "{{colors.error.default.hex}}"
+  other_read: "{{colors.outline.default.hex}}"
+  other_write: "{{colors.outline.default.hex}}"
+  other_execute: "{{colors.outline.default.hex}}"
+
+size:
+  major: "{{colors.primary.default.hex}}"
+  minor: "{{colors.secondary.default.hex}}"
+  number: "{{colors.on_surface_variant.default.hex}}"
+  unit: "{{colors.tertiary.default.hex}}"
+
+users:
+  user_you: "{{colors.primary.default.hex}}"
+  user_root: "{{colors.error.default.hex}}"
+  group_yours: "{{colors.secondary.default.hex}}"
+
+links:
+  normal: "{{colors.primary.default.hex}}"
+  multi_link_file: "{{colors.tertiary.default.hex}}"
+
+git:
+  new: "{{colors.primary.default.hex}}"
+  modified: "{{colors.tertiary.default.hex}}"
+  deleted: "{{colors.error.default.hex}}"
+  renamed: "{{colors.secondary.default.hex}}"
+  typechange: "{{colors.inverse_primary.default.hex}}"
