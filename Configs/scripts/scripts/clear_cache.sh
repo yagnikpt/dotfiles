@@ -7,8 +7,9 @@ rm -rf ~/go/pkg/mod/cache
 rm -rf ~/.local/share/zed/node/cache
 rm -rf ~/.bun/install/cache
 rm -rf ~/.cache/go-build
-rm -rf ~/.var/app/com.spotify.Client/cache
+# rm -rf ~/.var/app/com.spotify.Client/cache
 rm -rf ~/.cache/uv
 rm -rf ~/.cache/pip
+rm -rf ~/.config/heroic/Partitions/epic/Cache
 
-bunx npkill
+cd ~/codes && bunx npkill

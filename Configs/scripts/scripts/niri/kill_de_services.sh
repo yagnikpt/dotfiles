@@ -9,7 +9,8 @@ systemctl --user disable --now gammastep
 systemctl --user disable --now hypridle
 
 systemctl --user disable --now noctalia
-systemctl --user disable --now inir
+# systemctl --user disable --now inir
+inir service disable
 
 systemctl --user disable --now battery-watch
 

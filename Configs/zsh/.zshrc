@@ -126,3 +126,8 @@ alias cdump="curl -i"
 export ANDROID_HOME=~/Android/Sdk
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
+
+# iNiR environment
+export INIR_VENV="/home/yagnik/.local/state/quickshell/.venv"
+export ILLOGICAL_IMPULSE_VIRTUAL_ENV="$INIR_VENV"
+# end iNiR

@@ -74,14 +74,14 @@ binds {
     XF86AudioMicMute allow-when-locked=true { spawn "qs" "-c" "inir" "ipc" "call" "audio" "micMute"; }
     
     // Brightness (hardware keys)
-    XF86MonBrightnessUp allow-when-locked=true { spawn "qs" "-c" "inir" "ipc" "call" "brightness" "increment"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "qs" "-c" "inir" "ipc" "call" "brightness" "decrement"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "inir" "brightness" "increment"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "inir" "brightness" "decrement"; }
     
     // Media playback (hardware keys)
-    XF86AudioPlay { spawn "qs" "-c" "inir" "ipc" "call" "mpris" "playPause"; }
-    XF86AudioPause { spawn "qs" "-c" "inir" "ipc" "call" "mpris" "playPause"; }
-    XF86AudioNext { spawn "qs" "-c" "inir" "ipc" "call" "mpris" "next"; }
-    XF86AudioPrev { spawn "qs" "-c" "inir" "ipc" "call" "mpris" "previous"; }
+    XF86AudioPlay { spawn "inir" "mpris" "playPause"; }
+    XF86AudioPause { spawn "inir" "mpris" "playPause"; }
+    XF86AudioNext { spawn "inir" "mpris" "next"; }
+    XF86AudioPrev { spawn "inir" "mpris" "previous"; }
     
     // Music control (keyboard alternatives for keyboards without media keys)
     Ctrl+Mod+Space { spawn "qs" "-c" "inir" "ipc" "call" "mpris" "playPause"; }

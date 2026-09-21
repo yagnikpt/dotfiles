@@ -131,10 +131,12 @@ cursor {
 
 environment {
   XDG_CURRENT_DESKTOP "niri"
+  XDG_MENU_PREFIX "plasma-"  // Required for Dolphin file associations
   QT_QPA_PLATFORM "wayland"
   ELECTRON_OZONE_PLATFORM_HINT "auto"
-  QT_QPA_PLATFORMTHEME "qt6ct"
+  QT_QPA_PLATFORMTHEME "kde"
   // QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+  QT_LOGGING_RULES "quickshell.dbus.properties=false"
 }
 
 prefer-no-csd
@@ -315,8 +317,14 @@ window-rule {
 // }
 
 window-rule {
-    geometry-corner-radius 16
+    geometry-corner-radius 4
     clip-to-geometry true
+}
+
+window-rule {
+    geometry-corner-radius 0
+
+    match app-id="steam"
 }
 
 binds {
@@ -486,6 +494,6 @@ debug {
    honor-xdg-activation-with-invalid-serial
 }
 
-include "inir.kdl"
+include "noctalia.kdl"
 include "matugen-colors.kdl"
 include "./animations/pop-drop.kdl"

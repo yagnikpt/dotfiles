@@ -13,10 +13,13 @@
    "close_on_focus_loss": true,
    "pop_to_root_on_close": true,
    "escape_key_behavior": "close_window",
+   "tray": {
+      "enabled": false
+   },
    "font": {
       "rendering": "native",
       "normal": {
-         "family": "Google Sans",
+         "family": "Google Sans Flex",
          "size": 14
       }
    },
@@ -31,7 +34,11 @@
       }
    },
    "launcher_window": {
+      "rounding": 4,
       "opacity": 0.8,
+      "client_side_decorations": {
+         "enabled": true
+      },
       "compact_mode": {
          "enabled": false
       },
@@ -66,9 +73,23 @@
          }
       },
       "browser-extension": {
-         "enabled": false
+         "enabled": true
+      },
+      "clipboard": {
+         "entrypoints": {
+            "history": {
+               "enabled": false
+            }
+         }
       },
       "files": {
+         "preferences": {
+            "autoIndexing": false,
+            "excludedIndexingPaths": [],
+            "indexingPaths": [
+               "/home/yagnik"
+            ]
+         },
          "entrypoints": {
             "search": {
                "alias": "sf"
