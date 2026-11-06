@@ -57,7 +57,7 @@ binds {
         spawn-sh "noctalia msg plugin noctalia/screen_recorder:service all toggle";
     }
 
-    Mod+Comma hotkey-overlay-title="Noctalia Settings" { spawn-sh "noctalia msg settings-toggle"; }
+    // Mod+Comma hotkey-overlay-title="Noctalia Settings" { spawn-sh "noctalia msg settings-toggle"; }
     Mod+Space hotkey-overlay-title="Application Launcher" {
         spawn-sh "noctalia msg panel-toggle launcher";
     }
@@ -71,7 +71,7 @@ binds {
         spawn-sh "noctalia msg panel-toggle session";
     }
     Mod+P hotkey-overlay-title="Wallpaper Picker" {
-        spawn-sh "noctalia msg panel-toggle wallpaper";
+        spawn-sh "skwd-wall-v2";
     }
     Mod+A hotkey-overlay-title="Control Center" {
         spawn-sh "noctalia msg panel-toggle control-center";

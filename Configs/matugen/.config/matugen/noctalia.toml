@@ -16,6 +16,10 @@ input_path = './templates/niri-colors.kdl'
 output_path = '~/.config/niri/matugen-colors.kdl'
 post_hook = 'niri msg action load-config-file'
 
+[templates.umbriel]
+input_path = './templates/umbriel.toml'
+output_path = '~/.config/umbriel/colors.toml'
+
 [templates.kitty]
 input_path = './templates/kitty.conf'
 output_path = '~/.config/kitty/themes/matugen.conf'

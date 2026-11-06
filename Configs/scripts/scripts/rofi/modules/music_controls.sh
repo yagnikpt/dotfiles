@@ -2,7 +2,7 @@
 
 source "$(dirname "$0")/../../utils.sh"
 
-currentState=$(playerctl status -p spotify)
+currentState=$(playerctl status -p spotify,cliamp,sonora 2>/dev/null || echo "No players found")
 toggle=$([[ "$currentState" = "Playing" ]] && echo "$(format_row "e034" "Pause")" || echo "$(format_row "e037" "Play")")
 next="$(format_row "e044" "Next")"
 prev="$(format_row "e045" "Previous")"

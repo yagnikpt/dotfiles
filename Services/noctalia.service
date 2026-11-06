@@ -9,3 +9,6 @@ ConditionEnvironment=XDG_CURRENT_DESKTOP=niri
 ExecStart=noctalia
 Restart=on-failure
 RestartSec=1
+
+[Install]
+WantedBy=graphical-session.target

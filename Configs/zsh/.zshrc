@@ -44,7 +44,6 @@ bindkey '^X^L' clear-screen-and-scrollback
 # homebrew
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export HOMEBREW_NO_ENV_HINTS=1
-export HOMEBREW_NO_REQUIRE_TAP_TRUST=1
 
 # export PATH="/usr/bin:$PATH"
 # export PATH="$PATH:$HOME/.local/bin"
@@ -131,3 +130,11 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export INIR_VENV="/home/yagnik/.local/state/quickshell/.venv"
 export ILLOGICAL_IMPULSE_VIRTUAL_ENV="$INIR_VENV"
 # end iNiR
+
+# iNiR launcher PATH
+case ":$PATH:" in
+  *:"/home/yagnik/.local/bin":*) ;;
+  *) export PATH="/home/yagnik/.local/bin:$PATH" ;;
+esac
+# end iNiR launcher PATH
+

@@ -1,0 +1,315 @@
+[include]
+files = [
+  "noctalia.toml",
+  # "/usr/share/umbriel/effects/animation/squash/effect.toml",
+  # "./shaders/community/border/dual-orbit/effect.toml",
+  # "./shaders/community/window/adaptive-text-v4/effect.toml",
+]
+
+[include.optional]
+files = [
+  "colors.toml",
+  "cursor.toml",
+  "animations.toml"
+]
+
+# [effects]
+# border = "dual-orbit"
+
+# [animation.windows_move]
+# effect = "squash"
+
+[general]
+mod_key = "Super"
+xwayland = true
+show_cheatsheet = false
+
+[environment]
+XDG_MENU_PREFIX = "plasma-"
+QT_QPA_PLATFORM = "wayland"
+ELECTRON_OZONE_PLATFORM_HINT = "auto"
+QT_QPA_PLATFORMTHEME = "kde"
+QT_LOGGING_RULES = "quickshell.dbus.properties=false"
+
+[appearance]
+prefer_no_csd = true
+border_width = 1
+outer_border_width = 0
+corner_radius = 4
+
+[appearance.blur]
+enabled = true
+optimized = true
+passes = 3
+radius = 3
+noise = 0.05
+saturation = 1.0
+
+[appearance.shadow]
+enabled = true
+softness = 20
+offset_x = 0
+offset_y = 5
+
+[input.keyboard]
+numlock_toggle = true
+
+[input.touchpad]
+tap = true
+natural_scroll = true
+
+[input.mouse]
+sensitivity = -0.75
+natural_scroll = false
+
+[layout]
+mode = "scrolling"
+gap = 5
+extent_presets = [0.333, 0.5, 0.8]
+
+[layout.scrolling]
+default_extent_fraction = 0.5
+center_underfull_strip = true
+center_focused = "on_overflow"
+
+[[workspace]]
+name = "main"
+
+[[workspace]]
+name = "media"
+
+[[workspace]]
+name = "space"
+
+# Hot corners disabled to match Niri config
+[hot_corners.top_left]
+enabled = false
+
+[keybinds]
+
+# --- Session & Cheatsheet ---
+"Mod+Shift+E" = "session-quit"
+"Mod+Escape" = "session-quit"
+"Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
+"Mod+Shift+Slash" = { action = "cheatsheet-toggle", repeat = false }
+"Mod+Shift+P" = "dpms-off"
+
+# --- Overview ---
+"Mod+D" = { action = "overview-toggle", repeat = false }
+"Mod+O" = { action = "overview-toggle", repeat = false }
+
+# --- Applications ---
+"Mod+T" = { action = "spawn ghostty +new-window", repeat = false }
+"Mod+B" = { action = "spawn xdg-open https://", repeat = false }
+"Mod+E" = { action = "spawn nautilus", repeat = false }
+"Mod+M" = { action = "spawn gtk-launch org.gnome.gitlab.cheywood.Buffer", repeat = false }
+
+# --- Custom Basebone Utilities ---
+"Mod+Ctrl+T" = { action = "spawn screen_ocr", repeat = false }
+"Mod+Ctrl+P" = { action = "spawn hyprpicker -a", repeat = false }
+"Mod+S" = { action = "spawn $HOME/scripts/rofi/utilities.sh", repeat = false }
+"Mod+Period" = { action = "spawn vicinae vicinae://launch/core/search-emojis", repeat = false }
+
+# --- Window Management ---
+"Mod+Q" = { action = "window-close", repeat = false }
+"Mod+F" = { action = "window-toggle-maximize", repeat = false }
+"Mod+Shift+F" = { action = "window-toggle-fullscreen", repeat = false }
+"Mod+Ctrl+F" = { action = "window-toggle-maximize-to-edges", repeat = false }
+"Mod+Shift+T" = { action = "window-toggle-floating", repeat = false }
+"Mod+Shift+V" = { action = "window-focus-switch-floating", repeat = false }
+"Mod+W" = { action = "column-toggle-tabbed", repeat = false }
+
+# --- Focus Navigation ---
+"Mod+Left" = "window-focus-left"
+"Mod+Down" = "window-focus-down"
+"Mod+Up" = "window-focus-up"
+"Mod+Right" = "window-focus-right"
+"Mod+H" = "window-focus-left"
+"Mod+J" = "window-focus-down"
+"Mod+K" = "window-focus-up"
+"Mod+L" = "window-focus-right"
+"Alt+Tab" = "window-focus-next"
+"Alt+Shift+Tab" = "window-focus-previous"
+"Mod+Tab" = "window-focus-next"
+"Mod+Shift+Tab" = "window-focus-previous"
+
+# --- Window Movement ---
+"Mod+Shift+Left" = "column-move-left"
+"Mod+Shift+Down" = "window-move-down"
+"Mod+Shift+Up" = "window-move-up"
+"Mod+Shift+Right" = "column-move-right"
+"Mod+Shift+H" = "column-move-left"
+"Mod+Shift+J" = "window-move-down"
+"Mod+Shift+K" = "window-move-up"
+"Mod+Shift+L" = "column-move-right"
+
+# --- Column Navigation ---
+"Mod+Home" = "column-focus-first"
+"Mod+End" = "column-focus-last"
+"Mod+Ctrl+Home" = "column-move-to-first"
+"Mod+Ctrl+End" = "column-move-to-last"
+
+# --- Monitor Navigation ---
+"Mod+Ctrl+Left" = "output-focus-left"
+"Mod+Ctrl+Right" = "output-focus-right"
+"Mod+Ctrl+H" = "output-focus-left"
+"Mod+Ctrl+J" = "output-focus-down"
+"Mod+Ctrl+K" = "output-focus-up"
+"Mod+Ctrl+L" = "output-focus-right"
+
+# --- Move to Monitor ---
+"Mod+Shift+Ctrl+Left" = "column-move-to-output-left"
+"Mod+Shift+Ctrl+Down" = "column-move-to-output-down"
+"Mod+Shift+Ctrl+Up" = "column-move-to-output-up"
+"Mod+Shift+Ctrl+Right" = "column-move-to-output-right"
+"Mod+Shift+Ctrl+H" = "column-move-to-output-left"
+"Mod+Shift+Ctrl+J" = "column-move-to-output-down"
+"Mod+Shift+Ctrl+K" = "column-move-to-output-up"
+"Mod+Shift+Ctrl+L" = "column-move-to-output-right"
+
+# --- Workspace Navigation ---
+"Mod+Page_Down" = "workspace-next"
+"Mod+Page_Up" = "workspace-previous"
+"Mod+U" = "workspace-next"
+"Mod+I" = "workspace-previous"
+"Mod+Ctrl+Down" = "column-move-to-workspace-next"
+"Mod+Ctrl+Up" = "column-move-to-workspace-previous"
+"Mod+Ctrl+U" = "column-move-to-workspace-next"
+"Mod+Ctrl+I" = "column-move-to-workspace-previous"
+"Mod+Shift+Page_Down" = "workspace-move-down"
+"Mod+Shift+Page_Up" = "workspace-move-up"
+"Mod+Shift+U" = "workspace-move-down"
+"Mod+Shift+I" = "workspace-move-up"
+
+# --- Mouse Wheel Navigation ---
+"Mod+WheelDown" = { action = "workspace-next", cooldown_ms = 150 }
+"Mod+WheelUp" = { action = "workspace-previous", cooldown_ms = 150 }
+"Mod+Ctrl+WheelDown" = { action = "column-move-to-workspace-next", cooldown_ms = 150 }
+"Mod+Ctrl+WheelUp" = { action = "column-move-to-workspace-previous", cooldown_ms = 150 }
+"Mod+WheelRight" = "window-focus-right"
+"Mod+WheelLeft" = "window-focus-left"
+"Mod+Ctrl+WheelRight" = "column-move-right"
+"Mod+Ctrl+WheelLeft" = "column-move-left"
+"Mod+Shift+WheelDown" = "window-focus-right"
+"Mod+Shift+WheelUp" = "window-focus-left"
+"Mod+Ctrl+Shift+WheelDown" = "column-move-right"
+"Mod+Ctrl+Shift+WheelUp" = "column-move-left"
+"Mod+MouseMiddle" = "layout-scroll-drag"
+
+# --- Numbered Workspaces ---
+"Mod+1" = "workspace-switch 1"
+"Mod+2" = "workspace-switch 2"
+"Mod+3" = "workspace-switch 3"
+"Mod+4" = "workspace-switch 4"
+"Mod+5" = "workspace-switch 5"
+"Mod+6" = "workspace-switch 6"
+"Mod+7" = "workspace-switch 7"
+"Mod+8" = "workspace-switch 8"
+"Mod+9" = "workspace-switch 9"
+"Mod+Shift+1" = "column-move-to-workspace 1"
+"Mod+Shift+2" = "column-move-to-workspace 2"
+"Mod+Shift+3" = "column-move-to-workspace 3"
+"Mod+Shift+4" = "column-move-to-workspace 4"
+"Mod+Shift+5" = "column-move-to-workspace 5"
+"Mod+Shift+6" = "column-move-to-workspace 6"
+"Mod+Shift+7" = "column-move-to-workspace 7"
+"Mod+Shift+8" = "column-move-to-workspace 8"
+"Mod+Shift+9" = "column-move-to-workspace 9"
+
+# --- Consume / Expel ---
+"Mod+BracketLeft" = "window-consume-or-expel-left"
+"Mod+BracketRight" = "window-consume-or-expel-right"
+
+# --- Sizing & Extent ---
+"Mod+R" = "window-cycle-primary-extent"
+"Mod+Shift+R" = "window-cycle-secondary-extent"
+"Mod+C" = "column-center"
+"Mod+Ctrl+C" = "column-center"
+"Mod+Minus" = "window-modify-primary-extent -0.1"
+"Mod+Equal" = "window-modify-primary-extent 0.1"
+"Mod+Shift+Minus" = "window-modify-secondary-extent -0.1"
+"Mod+Shift+Equal" = "window-modify-secondary-extent 0.1"
+
+# --- Scratchpad ---
+"Mod+Shift+Space" = { action = "window-move-to-scratchpad", repeat = false }
+"Mod+Ctrl+Space" = { action = "window-restore-from-scratchpad", repeat = false }
+"Mod+grave" = "scratchpad-toggle"
+
+# Window rules
+
+# Steam square corners
+[[window_rule]]
+match.app_id = "^steam$"
+corner_radius = 0
+
+# Picture in picture
+[[window_rule]]
+match.title = "^(Picture-in-Picture|Picture in picture)$"
+default_floating = true
+default_maximize = false
+default_position = { x = 20, y = 20, anchor = "bottom_right" }
+
+# Steam desktop notification toasts
+[[window_rule]]
+match.title = "^notificationtoasts_.+_desktop$"
+default_position = { x = 10, y = 10, anchor = "bottom_right" }
+default_focused = false
+default_pinned = true
+
+# Blur specific apps
+[[window_rule]]
+match.app_id = ["^footclient$", "sonora"]
+blur = true
+
+[[window_rule]]
+match.title = "tui-overlay"
+blur = true
+blur_optimized = false
+
+[[window_rule]]
+match.title = "tui-overlay"
+default_floating = true
+default_floating_size_px = { width = 800, height = 800 }
+
+# Utilities that should not float and default to 50% width
+[[window_rule]]
+match.app_id = "^(gnome-control-center|pavucontrol|nm-connection-editor)$"
+default_scrolling_extent = 0.5
+default_floating = false
+
+# Main workspace applications (default width 80%)
+[[window_rule]]
+match.app_id = ["google-chrome", "spotify", "discord", "brave", "helium", "zed", "antigravity", "emacs", "AppCenter", "kdenlive", "waywallen", "steam", "^steam_app_[0-9]+$", "agimnkijcaahngcdmfeangaknmldooml", "cinhimbnkkaeohfgghhklpknlkffjgod", "libreoffice", "gimp", "krita", "inkscape", "sonora"]
+default_scrolling_extent = 0.8
+
+# Media workspace apps
+[[window_rule]]
+match.app_id = ["spotify", "brave-cinhimbnkkaeohfgghhklpknlkffjgod-Default", "discord"]
+default_workspace = "media"
+default_focused = true
+
+# Gaming/Space workspace apps
+[[window_rule]]
+match.app_id = ["steam", "heroic"]
+default_workspace = "space"
+default_focused = true
+
+# Floating utilities
+[[window_rule]]
+match.app_id = "^(blueman-manager|xdg-desktop-portal.*|zoom|Calculator|speedcrunch|tlauncher|com\\.network\\.manager)$"
+default_floating = true
+
+[[window_rule]]
+match.content_type = "game"
+vrr = "always"
+
+# Layer rules
+[[layer_rule]]
+match.namespace = "^rofi$"
+blur = true
+blur_optimized = false
+
+[[layer_rule]]
+match.namespace = "^vicinae$"
+blur = true
+blur_optimized = false

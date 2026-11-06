@@ -1,0 +1,54 @@
+# [general]
+# autostart = ["noctalia"]
+
+[keybinds]
+
+# --- Hardware Media & Brightness Controls ---
+"XF86AudioRaiseVolume" = { action = "spawn noctalia msg volume-up", allow_when_locked = true }
+"XF86AudioLowerVolume" = { action = "spawn noctalia msg volume-down", allow_when_locked = true }
+"XF86AudioMute" = { action = "spawn noctalia msg volume-mute", allow_when_locked = true, repeat = false }
+"XF86AudioPlay" = { action = "spawn noctalia msg media toggle", allow_when_locked = true, repeat = false }
+"XF86AudioNext" = { action = "spawn noctalia msg media next", allow_when_locked = true }
+"XF86AudioPrev" = { action = "spawn noctalia msg media previous", allow_when_locked = true }
+"XF86MonBrightnessUp" = { action = "spawn noctalia msg brightness-up", allow_when_locked = true }
+"XF86MonBrightnessDown" = { action = "spawn noctalia msg brightness-down", allow_when_locked = true }
+
+# --- Noctalia Shell Panels & Services ---
+"Mod+Space" = { action = "spawn noctalia msg panel-toggle launcher", repeat = false }
+"Mod+Comma" = { action = "spawn noctalia msg settings-toggle", repeat = false }
+"Mod+X" = { action = "spawn noctalia msg panel-toggle session", repeat = false }
+"Mod+P" = { action = "spawn noctalia msg panel-toggle wallpaper", repeat = false }
+"Mod+A" = { action = "spawn noctalia msg panel-toggle control-center", repeat = false }
+"Mod+Alt+R" = { action = "spawn noctalia msg plugin noctalia/screen_recorder:service all toggle", repeat = false }
+"Mod+Shift+S" = { action = "spawn noctalia msg plugin alexander/screen-toolkit:service all toggle", repeat = false }
+
+# --- Vicinae Integrations ---
+"Alt+Space" = { action = "spawn vicinae toggle", repeat = false }
+"Mod+V" = { action = "spawn vicinae vicinae://launch/clipboard/history", repeat = false }
+
+# --- Screenshots via Noctalia ---
+"Print" = { action = "spawn noctalia msg screenshot-region", repeat = false }
+"Ctrl+Print" = { action = "spawn noctalia msg screenshot-fullscreen", repeat = false }
+"Alt+Print" = { action = "spawn noctalia msg screenshot-window", repeat = false }
+"XF86Launch1" = { action = "spawn noctalia msg screenshot-region", repeat = false }
+"Ctrl+XF86Launch1" = { action = "spawn noctalia msg screenshot-fullscreen", repeat = false }
+"Alt+XF86Launch1" = { action = "spawn noctalia msg screenshot-window", repeat = false }
+
+# Noctalia Window Rules
+[[window_rule]]
+match.app_id = "^dev\\.noctalia\\.Noctalia.*$"
+default_floating = true
+default_floating_size_px = { width = 1080, height = 920 }
+
+[[window_rule]]
+match.app_id = "^dev\\.noctalia\\.UmbrielSharePicker$"
+default_floating = true
+default_floating_size_px = { width = 800, height = 600 }
+
+# Noctalia Layer Rules
+[[layer_rule]]
+match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$"
+blur = true
+blur_ignore_alpha = 0.5
+blur_popups = true
+blur_optimized = false

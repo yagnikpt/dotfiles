@@ -1,0 +1,28 @@
+[colors]
+background = "{{colors.surface.default.hex}}"
+text_primary = "{{colors.on_surface.default.hex}}"
+text_muted = "{{colors.outline.default.hex}}"
+accent_primary = "{{colors.primary.default.hex}}"
+accent_secondary = "{{colors.secondary.default.hex}}"
+warning = "#f5c96b"
+error = "{{colors.error.default.hex}}"
+backdrop = "{{colors.background.default.hex}}"
+insert_hint = "{{colors.primary.default.hex}}80"
+shadow = "{{colors.shadow.default.hex}}70"
+
+[colors.border]
+focused = "#ffffff33"
+unfocused = "{{colors.outline.default.hex}}00"
+
+[colors.overview]
+badge = "{{colors.primary.default.hex}}"
+
+[colors.tab_bar]
+background = "{{colors.surface.default.hex}}"
+text = "{{colors.on_surface.default.hex}}"
+active = "{{colors.primary.default.hex}}"
+active_text = "{{colors.on_primary.default.hex}}"
+active_unfocused = "{{colors.primary_container.default.hex}}"
+active_unfocused_text = "{{colors.on_primary_container.default.hex}}"
+urgent = "{{colors.error.default.hex}}"
+urgent_text = "{{colors.on_error.default.hex}}"

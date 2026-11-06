@@ -102,6 +102,8 @@ overview {
 layer-rule {
     match namespace="linux-wallpaperengine"
     match namespace="waywallen-wallpaper"
+    match namespace="skwd-paper"
+    match namespace="skwd-wall-vk"
 
     place-within-backdrop true
 }
@@ -124,10 +126,10 @@ layer-rule {
   }
 }
 
-cursor {
-    xcursor-theme "Win11OS"
-    xcursor-size 28
-}
+// cursor {
+//     xcursor-theme "Win11OS"
+//     xcursor-size 28
+// }
 
 environment {
   XDG_CURRENT_DESKTOP "niri"
@@ -173,6 +175,7 @@ animations {
 
 window-rule {
     match app-id="footclient"
+    match app-id="sonora"
 
     background-effect {
         blur true
@@ -233,6 +236,9 @@ window-rule {
     match app-id="gimp"
     match app-id="krita"
     match app-id="inkscape"
+    match app-id="Godot"
+    match app-id="spotifast"
+    match app-id="sonora"
 
     // assetto corsa content manager
     match app-id="steam_app_244210"
@@ -244,6 +250,8 @@ window-rule {
     match app-id="spotify"
     match app-id="brave-cinhimbnkkaeohfgghhklpknlkffjgod-Default"
     match app-id="discord"
+    match app-id="spotifast"
+    match app-id="sonora"
 
     open-on-workspace "media"
     open-focused true
@@ -497,3 +505,6 @@ debug {
 include "noctalia.kdl"
 include "matugen-colors.kdl"
 include "./animations/pop-drop.kdl"
+
+// Managed by the Noctalia cursor plugin - edits here are overwritten.
+include "cursor.kdl"

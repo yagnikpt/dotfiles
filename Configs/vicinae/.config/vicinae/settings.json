@@ -30,19 +30,19 @@
       },
       "dark": {
          "name": "libadwaita-dark",
-         "icon_theme": "Papirus"
+         "icon_theme": "Tulasi"
       }
    },
    "launcher_window": {
       "rounding": 4,
-      "opacity": 0.8,
+      "opacity": 0.85,
       "client_side_decorations": {
          "enabled": true
       },
       "compact_mode": {
          "enabled": false
       },
-      "material": "blur"
+      "material": "none"
    },
    "favorites": [],
    "providers": {
@@ -50,6 +50,11 @@
          "preferences": {
             "application": "ghostty",
             "defaultFilter": "all"
+         }
+      },
+      "@dagimg-dot/store.vicinae.wifi-commander": {
+         "preferences": {
+            "network-cli-tool": "nmcli"
          }
       },
       "@knoopx/store.vicinae.systemd": {

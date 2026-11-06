@@ -16,7 +16,7 @@ learn="$(format_row "ea19" "Learn")"
 OPTIONS=""
 lines=9
 
-if playerctl -l 2>/dev/null | grep -qE "^(brave|spotify)"; then
+if playerctl status -p spotify,cliamp,sonora; then
     OPTIONS+="$plcontrols\n"
     lines=$((lines + 1))
 fi

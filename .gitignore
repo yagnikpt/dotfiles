@@ -10,3 +10,6 @@ Configs/vicinae/.local/share/vicinae/themes/matugen.toml
 Configs/kitty/.config/kitty/themes/matugen.conf
 Configs/kitty/.config/kitty/theme.conf
 Configs/niri/.config/niri/matugen-colors.kdl
+Configs/niri/.config/niri/cursor.kdl
+Configs/umbriel/.config/umbriel/colors.toml
+Configs/umbriel/.config/umbriel/cursor.toml

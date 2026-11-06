@@ -1,0 +1,30 @@
+# Migrated from niri config.kdl animations
+
+[animation]
+enabled = true
+
+# window-open (damping-ratio=1.0, stiffness=1000)
+[animation.windows_in]
+curve = "spring:1,1000"
+
+# window-close (damping-ratio=1.0, stiffness=700)
+[animation.windows_out]
+curve = "spring:1,700"
+
+# window-resize (damping-ratio=1.0, stiffness=800)
+[animation.windows_resize]
+curve = "spring:1,800"
+
+# window-movement (damping-ratio=1.0, stiffness=600)
+[animation.windows_move]
+curve = "spring:1,600"
+
+# overview-open-close (damping-ratio=1.0, stiffness=900)
+# horizontal-view-movement (damping-ratio=1.0, stiffness=700)
+[animation.overview]
+curve = "spring:1,900"
+workspace_curve = "spring:1,700"
+
+# workspace-switch (damping-ratio=1.0, stiffness=800)
+[animation.workspaces]
+curve = "spring:1,800"
