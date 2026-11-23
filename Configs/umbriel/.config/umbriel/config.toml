@@ -102,13 +102,20 @@ enabled = false
 "Mod+T" = { action = "spawn ghostty +new-window", repeat = false }
 "Mod+B" = { action = "spawn xdg-open https://", repeat = false }
 "Mod+E" = { action = "spawn nautilus", repeat = false }
-"Mod+M" = { action = "spawn gtk-launch org.gnome.gitlab.cheywood.Buffer", repeat = false }
 
 # --- Custom Basebone Utilities ---
 "Mod+Ctrl+T" = { action = "spawn screen_ocr", repeat = false }
 "Mod+Ctrl+P" = { action = "spawn hyprpicker -a", repeat = false }
 "Mod+S" = { action = "spawn $HOME/scripts/rofi/utilities.sh", repeat = false }
 "Mod+Period" = { action = "spawn vicinae vicinae://launch/core/search-emojis", repeat = false }
+
+# Submap: Menu
+"Mod+M" = { action = "submap menu", repeat = false }
+"submap[menu],P" = { action = "spawn flatpak run --branch=stable --arch=x86_64 --command=resources net.nokyan.Resources", submap = "reset" }
+"submap[menu],C" = { action = "spawn ghostty +new-window --title=cliamp -e cliamp", submap = "reset" }
+"submap[menu],B" = { action = "spawn ghostty +new-window --title=boomtypr -e boomtypr", submap = "reset" }
+"submap[menu],V" = { action = "spawn hex dictation toggle", submap = "reset" }
+"submap[menu],Escape" = "submap reset"
 
 # --- Window Management ---
 "Mod+Q" = { action = "window-close", repeat = false }
@@ -256,9 +263,15 @@ default_position = { x = 10, y = 10, anchor = "bottom_right" }
 default_focused = false
 default_pinned = true
 
+# hide unwanted popups
+# [[window_rule]]
+# match.app_id = ["steam_app_244210"]
+# match.is_floating = true
+# default_scratchpad = "default"
+
 # Blur specific apps
 [[window_rule]]
-match.app_id = ["^footclient$", "sonora"]
+match.app_id = ["^footclient$", "sonora", "zeron"]
 blur = true
 
 [[window_rule]]
@@ -279,18 +292,22 @@ default_floating = false
 
 # Main workspace applications (default width 80%)
 [[window_rule]]
-match.app_id = ["google-chrome", "spotify", "discord", "brave", "helium", "zed", "antigravity", "emacs", "AppCenter", "kdenlive", "waywallen", "steam", "^steam_app_[0-9]+$", "agimnkijcaahngcdmfeangaknmldooml", "cinhimbnkkaeohfgghhklpknlkffjgod", "libreoffice", "gimp", "krita", "inkscape", "sonora"]
+match.app_id = ["google-chrome", "spotify", "discord", "brave", "helium", "zed", "antigravity", "zeron", "T3Code", "emacs", "AppCenter", "kdenlive", "waywallen", "steam", "^steam_app_[0-9]+$", "agimnkijcaahngcdmfeangaknmldooml", "cinhimbnkkaeohfgghhklpknlkffjgod", "libreoffice", "gimp", "krita", "inkscape", "sonora", "zen", "spotifast", "com.obsproject.Studio", "EpicGamesLauncher"]
+default_scrolling_extent = 0.8
+
+[[window_rule]]
+match.title = ["cliamp", "boomtypr"]
 default_scrolling_extent = 0.8
 
 # Media workspace apps
 [[window_rule]]
-match.app_id = ["spotify", "brave-cinhimbnkkaeohfgghhklpknlkffjgod-Default", "discord"]
+match.app_id = ["spotify", "brave-cinhimbnkkaeohfgghhklpknlkffjgod-Default", "discord", "spotifast", "sonora", "com.obsproject.Studio"]
 default_workspace = "media"
 default_focused = true
 
 # Gaming/Space workspace apps
 [[window_rule]]
-match.app_id = ["steam", "heroic"]
+match.app_id = ["steam", "heroic", "EpicGamesLauncher"]
 default_workspace = "space"
 default_focused = true
 

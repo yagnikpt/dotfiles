@@ -1,0 +1,8 @@
+[Unit]
+Description=PolicyKit Authentication Agent
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/libexec/kf6/polkit-kde-authentication-agent-1
+Restart=on-failure

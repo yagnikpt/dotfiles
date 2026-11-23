@@ -9,6 +9,7 @@ dns="$(format_row "e875" "DNS Switcher")"
 mimeapps="$(format_row "ef40" "Default Apps")"
 cursors="$(format_row "f82f" "Manager Cursors")"
 phone_op="$(format_row "e7ba" "Phone Operate")"
+game_mode="$(format_row "ea28" "Game Mode")"
 
 lines=1
 OPTIONS="$limiter"
@@ -16,8 +17,8 @@ OPTIONS="$limiter"
 system_de=$(getenv DESKTOP_SHELL)
 
 if [[ "$system_de" == "noctalia" ]]; then
-    OPTIONS+="\n$tailscale\n$webapps\n$mimeapps\n$dns\n$cursors\n$phone_op"
-    lines=$((lines + 6))
+    OPTIONS+="\n$tailscale\n$webapps\n$mimeapps\n$dns\n$cursors\n$phone_op\n$game_mode"
+    lines=$((lines + 7))
 fi
 
 CHOICE=$(echo -e "$OPTIONS" | rofi -dmenu -markup-rows -i -p "Tools" -theme $HOME/.config/rofi/modules/base.rasi -l $lines)
@@ -43,6 +44,9 @@ $cursors)
     ;;
 $phone_op)
     noctalia msg panel-toggle icefish/phone-operate:main
+    ;;
+$game_mode)
+    noctalia msg panel-toggle nomadcxx/gamer-mode:main
     ;;
 *)
     exit 0

@@ -2,23 +2,27 @@
 
 source "$(dirname "$0")/../../utils.sh"
 
+focusman="$(format_row "e3a5" "Focusman")"
 noc_list="$(format_row "e0ee" "Reading List")"
 article="$(format_row "ef42" "Spawn Article")"
 bmark="$(format_row "e865" "Read Book")"
 
-lines=2
-OPTIONS="$article\n$bmark"
+lines=3
+OPTIONS="$focusman\n$article\n$bmark"
 
 system_de=$(getenv DESKTOP_SHELL)
 
 if [[ "$system_de" == "noctalia" ]]; then
-    OPTIONS="$noc_list\n$OPTIONS"
+    OPTIONS="$OPTIONS\n$noc_list"
     lines=$((lines + 1))
 fi
 
 CHOICE=$(echo -e "$OPTIONS" | rofi -dmenu -markup-rows -i -p "Learn" -theme $HOME/.config/rofi/modules/base.rasi -l $lines)
 
 case "$CHOICE" in
+$focusman)
+    $HOME/scripts/rofi/modules/focusman.sh
+    ;;
 $article)
     article_spawner
     ;;

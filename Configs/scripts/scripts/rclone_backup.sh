@@ -10,6 +10,7 @@ declare -A SOURCE_PATHS=(
     ["$HOME/Documents"]="Documents"
     ["$HOME/Pictures"]="Pictures"
     ["$HOME/codes/dsa"]="codes/dsa"
+    ["$HOME/.personal-context"]="personal-context"
 )
 
 # Flags for bisync:

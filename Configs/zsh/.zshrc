@@ -102,6 +102,7 @@ alias ff="fastfetch"
 alias fb="flashback"
 alias ds="du -h -s"
 alias niriconfig="nvim ~/.config/niri/config.kdl"
+alias umcfg="nvim ~/.config/umbriel/config.toml"
 alias dysk="dysk -c disk+used+use+free+size"
 alias anime="curd"
 alias open="xdg-open"
@@ -126,15 +127,31 @@ export ANDROID_HOME=~/Android/Sdk
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
-# iNiR environment
-export INIR_VENV="/home/yagnik/.local/state/quickshell/.venv"
-export ILLOGICAL_IMPULSE_VIRTUAL_ENV="$INIR_VENV"
-# end iNiR
+ask-me() {
+  pi -p -nt --no-session \
+     --model antigravity-acp/gemini-3.8-flash \
+     --thinking low \
+     @~/.personal-context/bio.md \
+     @~/.personal-context/story.md \
+     "$@"
+}
 
-# iNiR launcher PATH
-case ":$PATH:" in
-  *:"/home/yagnik/.local/bin":*) ;;
-  *) export PATH="/home/yagnik/.local/bin:$PATH" ;;
-esac
-# end iNiR launcher PATH
+form-ans() {
+  pi -p -nt --no-session \
+     --model antigravity-acp/gemini-3.8-flash \
+     --thinking low \
+     @~/.personal-context/bio.md \
+     @~/.personal-context/story.md \
+     @~/.personal-context/resume.md \
+     "Answer the following job application question concisely and authentically as Yagnik in simple text format (no markdown, simple list using '-' is allowed): $*"
+}
 
+form-ans-md() {
+  pi -p -nt --no-session \
+     --model antigravity-acp/gemini-3.8-flash \
+     --thinking low \
+     @~/.personal-context/bio.md \
+     @~/.personal-context/story.md \
+     @~/.personal-context/resume.md \
+     "Answer the following job application question concisely and authentically as Yagnik: $*"
+}

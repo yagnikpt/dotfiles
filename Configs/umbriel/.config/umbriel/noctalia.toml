@@ -15,7 +15,7 @@
 
 # --- Noctalia Shell Panels & Services ---
 "Mod+Space" = { action = "spawn noctalia msg panel-toggle launcher", repeat = false }
-"Mod+Comma" = { action = "spawn noctalia msg settings-toggle", repeat = false }
+# "Mod+Comma" = { action = "spawn noctalia msg settings-toggle", repeat = false }
 "Mod+X" = { action = "spawn noctalia msg panel-toggle session", repeat = false }
 "Mod+P" = { action = "spawn noctalia msg panel-toggle wallpaper", repeat = false }
 "Mod+A" = { action = "spawn noctalia msg panel-toggle control-center", repeat = false }
@@ -47,8 +47,7 @@ default_floating_size_px = { width = 800, height = 600 }
 
 # Noctalia Layer Rules
 [[layer_rule]]
-match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$"
+match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
 blur = true
-blur_ignore_alpha = 0.5
-blur_popups = true
+blur_ignore_alpha = 0.6
 blur_optimized = false

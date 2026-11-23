@@ -77,6 +77,19 @@
             }
          }
       },
+      "ai": {
+         "preferences": {
+            "providers": {
+               "openrouter": {
+                  "type": "openrouter",
+                  "fields": {}
+               }
+            },
+            "defaultModel": "openrouter:openrouter/free",
+            "instructions": "",
+            "enableTools": true
+         }
+      },
       "browser-extension": {
          "enabled": true
       },
@@ -98,6 +111,13 @@
          "entrypoints": {
             "search": {
                "alias": "sf"
+            }
+         }
+      },
+      "system": {
+         "tools": {
+            "bash": {
+               "policy": "allow"
             }
          }
       }

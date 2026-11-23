@@ -1,0 +1,25 @@
+@theme "base.rasi"
+
+window {
+    width: 600px;
+}
+
+inputbar {
+    children: [prompt, entry];
+}
+
+prompt {
+    border: 0px 1px 0px 0px;
+    border-color: @border;
+}
+
+entry {
+    cursor-width: 1ch;
+    cursor-color: @cursor;
+    vertical-align: 0.5;
+    padding: 15px;
+}
+
+listview {
+    enabled: false;
+}
