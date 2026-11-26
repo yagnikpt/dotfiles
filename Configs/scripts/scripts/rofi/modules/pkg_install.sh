@@ -2,17 +2,17 @@
 
 source "$(dirname "$0")/../../utils.sh"
 
-dnf="$(format_row_nerd_fonts "f30a" "dnf")"
-brew="$(format_row_nerd_fonts "e7fd" "brew")"
+pacman="$(format_row_nerd_fonts "f385" "pacman")"
+aur="$(format_row_nerd_fonts "e732" "aur")"
 
-choice=$(echo -e "$dnf\n$brew" | rofi -dmenu -markup-rows -p "Installer" -theme ~/.config/rofi/modules/base.rasi -l 2)
+choice=$(echo -e "$pacman\n$aur" | rofi -dmenu -markup-rows -p "Installer" -theme ~/.config/rofi/modules/base.rasi -l 2)
 
 case "$choice" in
-$dnf)
-    footclient --title="dnf-package-tui-overlay" -e $HOME/scripts/dnf_install.sh
+$pacman)
+    footclient --title="pacman-package-tui-overlay" -e $HOME/scripts/pacman_install.sh
     ;;
-$brew)
-    footclient --title="brew-package-tui-overlay" -e $HOME/scripts/brew_install.sh
+$aur)
+    footclient --title="aur-package-tui-overlay" -e $HOME/scripts/aur_install.sh
     ;;
 *) ;;
 esac

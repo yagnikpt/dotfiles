@@ -4,12 +4,12 @@ configuration {
     sorting-method: "fzf";
 }
 
-@import "colors.rasi"
+@import "noctalia.rasi"
 
 * {
     font: "GeistMono NF, Medium 12";
     background-color: transparent;
-    text-color: @foreground;
+    text-color: @fg;
     spacing: 0;
 }
 
@@ -18,13 +18,17 @@ window {
     border-radius: 8px;
     border: 1px solid;
     border-color: @border;
-    background-color: @background;
+    background-color: @bg;
+    padding: 0;
 }
 
 inputbar {
     border: 0px 0px 1px 0px;
     border-color: @border;
     children: [prompt];
+    border-radius: 0;
+    padding: 0;
+    spacing: 0;
 }
 
 prompt {
@@ -46,12 +50,12 @@ element {
 
 element selected {
     background-color: @accent;
-    text-color: @foreground-accent;
+    text-color: @accent-fg;
 }
 
-element active {
-    background-color: @accent-dim;
-}
+// element active {
+//     background-color: @accent-dim;
+// }
 
 element-text {
     text-color: inherit;

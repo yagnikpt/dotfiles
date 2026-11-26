@@ -1,41 +1,12 @@
 [config]
-[templates.eza]
-input_path = "./templates/eza-theme.yml"
-output_path = "~/.config/eza/theme.yml"
-
-[templates.vicinae]
-input_path = './templates/vicinae.toml'
-output_path = '~/.local/share/vicinae/themes/matugen.toml'
-
-[templates.rofi]
-input_path = './templates/rofi-colors.rasi'
-output_path = '~/.config/rofi/matugen-colors.rasi'
-
 [templates.niri]
 input_path = './templates/niri-colors.kdl'
 output_path = '~/.config/niri/matugen-colors.kdl'
-post_hook = 'niri msg action load-config-file'
 
 [templates.umbriel]
 input_path = './templates/umbriel.toml'
 output_path = '~/.config/umbriel/colors.toml'
 
-[templates.kitty]
-input_path = './templates/kitty.conf'
-output_path = '~/.config/kitty/themes/matugen.conf'
-
-[templates.gtk3]
-input_path = './templates/gtk-colors.css'
-output_path = '~/.config/gtk-3.0/themes/matugen.css'
-
-[templates.gtk4]
-input_path = './templates/gtk-colors.css'
-output_path = '~/.config/gtk-4.0/themes/matugen.css'
-
 [templates.color-scheme]
 input_path = './templates/matugen.colors'
 output_path = '~/.local/share/color-schemes/matugen.colors'
-
-[templates.ghostty]
-input_path = './templates/ghostty'
-output_path = '~/.config/ghostty/themes/matugen'

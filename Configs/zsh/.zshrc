@@ -51,7 +51,7 @@ export HOMEBREW_NO_ENV_HINTS=1
 # export PATH="$PATH:$HOME/go/bin"
 # export PATH="$PATH:$HOME/.npm-global/bin"
 
-eval "$(fnm env --use-on-cd --shell zsh)"
+# eval "$(fnm env --use-on-cd --shell zsh)"
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -74,7 +74,7 @@ ZSH_THEME=""
 # oh my posh
 # eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
-plugins=(git git-commit tldr docker docker-compose dnf)
+plugins=(git git-commit tldr docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -129,7 +129,7 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 ask-me() {
   pi -p -nt --no-session \
-     --model antigravity-acp/gemini-3.8-flash \
+     --model antigravity-acp/gemini-4-hydrogen \
      --thinking low \
      @~/.personal-context/bio.md \
      @~/.personal-context/story.md \
@@ -138,7 +138,7 @@ ask-me() {
 
 form-ans() {
   pi -p -nt --no-session \
-     --model antigravity-acp/gemini-3.8-flash \
+     --model antigravity-acp/gemini-4-hydrogen \
      --thinking low \
      @~/.personal-context/bio.md \
      @~/.personal-context/story.md \
@@ -148,7 +148,7 @@ form-ans() {
 
 form-ans-md() {
   pi -p -nt --no-session \
-     --model antigravity-acp/gemini-3.8-flash \
+     --model antigravity-acp/gemini-4-hydrogen \
      --thinking low \
      @~/.personal-context/bio.md \
      @~/.personal-context/story.md \

@@ -5,7 +5,7 @@ window {
     border-radius: 8px;
     border: 1px solid;
     border-color: @border;
-    background-color: @background;
+    background-color: @bg;
 }
 
 listview {

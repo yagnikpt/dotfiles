@@ -1,6 +1,5 @@
 [include]
 files = [
-  "noctalia.toml",
   # "/usr/share/umbriel/effects/animation/squash/effect.toml",
   # "./shaders/community/border/dual-orbit/effect.toml",
   # "./shaders/community/window/adaptive-text-v4/effect.toml",
@@ -10,7 +9,8 @@ files = [
 files = [
   "colors.toml",
   "cursor.toml",
-  "animations.toml"
+  "animations.toml",
+  "noctalia_settings.toml",
 ]
 
 # [effects]
@@ -28,8 +28,9 @@ show_cheatsheet = false
 XDG_MENU_PREFIX = "plasma-"
 QT_QPA_PLATFORM = "wayland"
 ELECTRON_OZONE_PLATFORM_HINT = "auto"
-QT_QPA_PLATFORMTHEME = "kde"
+QT_QPA_PLATFORMTHEME = "qt6ct"
 QT_LOGGING_RULES = "quickshell.dbus.properties=false"
+PATH = "/home/yagnik/.local/bin:/home/yagnik/.bun/bin:/home/yagnik/.cargo/bin:/home/yagnik/go/bin:/home/yagnik/.npm-global/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/home/yagnik/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 
 [appearance]
 prefer_no_csd = true
@@ -111,7 +112,7 @@ enabled = false
 
 # Submap: Menu
 "Mod+M" = { action = "submap menu", repeat = false }
-"submap[menu],P" = { action = "spawn flatpak run --branch=stable --arch=x86_64 --command=resources net.nokyan.Resources", submap = "reset" }
+"submap[menu],P" = { action = "spawn resources", submap = "reset" }
 "submap[menu],C" = { action = "spawn ghostty +new-window --title=cliamp -e cliamp", submap = "reset" }
 "submap[menu],B" = { action = "spawn ghostty +new-window --title=boomtypr -e boomtypr", submap = "reset" }
 "submap[menu],V" = { action = "spawn hex dictation toggle", submap = "reset" }
@@ -282,7 +283,7 @@ blur_optimized = false
 [[window_rule]]
 match.title = "tui-overlay"
 default_floating = true
-default_floating_size_px = { width = 800, height = 800 }
+default_floating_size_px = { width = 900, height = 800 }
 
 # Utilities that should not float and default to 50% width
 [[window_rule]]
@@ -292,7 +293,7 @@ default_floating = false
 
 # Main workspace applications (default width 80%)
 [[window_rule]]
-match.app_id = ["google-chrome", "spotify", "discord", "brave", "helium", "zed", "antigravity", "zeron", "T3Code", "emacs", "AppCenter", "kdenlive", "waywallen", "steam", "^steam_app_[0-9]+$", "agimnkijcaahngcdmfeangaknmldooml", "cinhimbnkkaeohfgghhklpknlkffjgod", "libreoffice", "gimp", "krita", "inkscape", "sonora", "zen", "spotifast", "com.obsproject.Studio", "EpicGamesLauncher"]
+match.app_id = ["google-chrome", "spotify", "discord", "brave", "helium", "zed", "antigravity", "zeron", "T3Code", "emacs", "cachyos-pi", "kdenlive", "waywallen", "steam", "^steam_app_[0-9]+$", "agimnkijcaahngcdmfeangaknmldooml", "cinhimbnkkaeohfgghhklpknlkffjgod", "libreoffice", "gimp", "krita", "inkscape", "sonora", "zen", "spotifast", "com.obsproject.Studio", "EpicGamesLauncher"]
 default_scrolling_extent = 0.8
 
 [[window_rule]]
@@ -324,6 +325,7 @@ vrr = "always"
 [[layer_rule]]
 match.namespace = "^rofi$"
 blur = true
+blur_ignore_alpha = 0.5
 blur_optimized = false
 
 [[layer_rule]]
